@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14DB7EB0F25457D30A4D9562 /* Pods_AutimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F36CE04F6B32A9EC192B835F /* Pods_AutimeTests.framework */; };
+		23F60844B30509A0E878EF10 /* Pods_Autime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78EE28FD2397C5709D4B2F0F /* Pods_Autime.framework */; };
 		24429702255D841900CCEBAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429701255D841900CCEBAB /* AppDelegate.swift */; };
 		24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429703255D841900CCEBAB /* SceneDelegate.swift */; };
 		24429706255D841900CCEBAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429705255D841900CCEBAB /* ViewController.swift */; };
@@ -15,6 +17,7 @@
 		2442970E255D841A00CCEBAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2442970C255D841A00CCEBAB /* LaunchScreen.storyboard */; };
 		24429719255D841A00CCEBAB /* AutimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429718255D841A00CCEBAB /* AutimeTests.swift */; };
 		24429724255D841A00CCEBAB /* AutimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429723255D841A00CCEBAB /* AutimeUITests.swift */; };
+		7940392340B5E4479D710507 /* Pods_Autime_AutimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,15 @@
 		2442971F255D841A00CCEBAB /* AutimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24429723255D841A00CCEBAB /* AutimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutimeUITests.swift; sourceTree = "<group>"; };
 		24429725255D841A00CCEBAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D53C705005DE7FBE96A95A1 /* Pods-AutimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.debug.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime_AutimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75DF56E75FDEF5081828F490 /* Pods-Autime-AutimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime-AutimeUITests.release.xcconfig"; path = "Target Support Files/Pods-Autime-AutimeUITests/Pods-Autime-AutimeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		782083677F4D65E0EA2425D0 /* Pods-Autime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime.release.xcconfig"; path = "Target Support Files/Pods-Autime/Pods-Autime.release.xcconfig"; sourceTree = "<group>"; };
+		78EE28FD2397C5709D4B2F0F /* Pods_Autime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87283F065A0BD203547A150C /* Pods-Autime-AutimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime-AutimeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Autime-AutimeUITests/Pods-Autime-AutimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D3B44EB03F34A5CCB2FF7FD /* Pods-Autime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime.debug.xcconfig"; path = "Target Support Files/Pods-Autime/Pods-Autime.debug.xcconfig"; sourceTree = "<group>"; };
+		B02D8667BE5EF768410C80FB /* Pods-AutimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.release.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.release.xcconfig"; sourceTree = "<group>"; };
+		F36CE04F6B32A9EC192B835F /* Pods_AutimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F60844B30509A0E878EF10 /* Pods_Autime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DB7EB0F25457D30A4D9562 /* Pods_AutimeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7940392340B5E4479D710507 /* Pods_Autime_AutimeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0319364F9AC294A805DEC6AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78EE28FD2397C5709D4B2F0F /* Pods_Autime.framework */,
+				48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */,
+				F36CE04F6B32A9EC192B835F /* Pods_AutimeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		244296F5255D841900CCEBAB = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				24429717255D841A00CCEBAB /* AutimeTests */,
 				24429722255D841A00CCEBAB /* AutimeUITests */,
 				244296FF255D841900CCEBAB /* Products */,
+				A39695FC6BD753B90CBA32B5 /* Pods */,
+				0319364F9AC294A805DEC6AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +155,19 @@
 			path = AutimeUITests;
 			sourceTree = "<group>";
 		};
+		A39695FC6BD753B90CBA32B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D3B44EB03F34A5CCB2FF7FD /* Pods-Autime.debug.xcconfig */,
+				782083677F4D65E0EA2425D0 /* Pods-Autime.release.xcconfig */,
+				87283F065A0BD203547A150C /* Pods-Autime-AutimeUITests.debug.xcconfig */,
+				75DF56E75FDEF5081828F490 /* Pods-Autime-AutimeUITests.release.xcconfig */,
+				3D53C705005DE7FBE96A95A1 /* Pods-AutimeTests.debug.xcconfig */,
+				B02D8667BE5EF768410C80FB /* Pods-AutimeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24429728255D841A00CCEBAB /* Build configuration list for PBXNativeTarget "Autime" */;
 			buildPhases = (
+				93B048A6434319DEF6791680 /* [CP] Check Pods Manifest.lock */,
 				244296FA255D841900CCEBAB /* Sources */,
 				244296FB255D841900CCEBAB /* Frameworks */,
 				244296FC255D841900CCEBAB /* Resources */,
+				24C175CD255D995B009FA094 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -152,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2442972B255D841A00CCEBAB /* Build configuration list for PBXNativeTarget "AutimeTests" */;
 			buildPhases = (
+				C56E0EF37EAC162609EF09F4 /* [CP] Check Pods Manifest.lock */,
 				24429710255D841A00CCEBAB /* Sources */,
 				24429711255D841A00CCEBAB /* Frameworks */,
 				24429712255D841A00CCEBAB /* Resources */,
@@ -170,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2442972E255D841A00CCEBAB /* Build configuration list for PBXNativeTarget "AutimeUITests" */;
 			buildPhases = (
+				79CAB47FD903E043787C6D42 /* [CP] Check Pods Manifest.lock */,
 				2442971B255D841A00CCEBAB /* Sources */,
 				2442971C255D841A00CCEBAB /* Frameworks */,
 				2442971D255D841A00CCEBAB /* Resources */,
@@ -252,6 +296,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24C175CD255D995B009FA094 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		79CAB47FD903E043787C6D42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Autime-AutimeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93B048A6434319DEF6791680 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Autime-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C56E0EF37EAC162609EF09F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutimeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		244296FA255D841900CCEBAB /* Sources */ = {
@@ -433,6 +563,7 @@
 		};
 		24429729255D841A00CCEBAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D3B44EB03F34A5CCB2FF7FD /* Pods-Autime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -452,6 +583,7 @@
 		};
 		2442972A255D841A00CCEBAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 782083677F4D65E0EA2425D0 /* Pods-Autime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,6 +603,7 @@
 		};
 		2442972C255D841A00CCEBAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D53C705005DE7FBE96A95A1 /* Pods-AutimeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -493,6 +626,7 @@
 		};
 		2442972D255D841A00CCEBAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B02D8667BE5EF768410C80FB /* Pods-AutimeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -515,6 +649,7 @@
 		};
 		2442972F255D841A00CCEBAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87283F065A0BD203547A150C /* Pods-Autime-AutimeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +670,7 @@
 		};
 		24429730255D841A00CCEBAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75DF56E75FDEF5081828F490 /* Pods-Autime-AutimeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

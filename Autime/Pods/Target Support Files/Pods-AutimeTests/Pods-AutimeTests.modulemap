@@ -1,0 +1,6 @@
+framework module Pods_AutimeTests {
+  umbrella header "Pods-AutimeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,868 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		2927D697D673141351A02CB5F39191B9 /* Pods-Autime-AutimeUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B772939E7A960E7941B04AFF9698E1 /* Pods-Autime-AutimeUITests-dummy.m */; };
+		68C995FD29CE689632A205513997E9FB /* Pods-Autime-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC81C0AD5DD4EB853A138C88B1DA57C /* Pods-Autime-dummy.m */; };
+		6F03F2CBBA936106624F5B751D9DCE65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		6F2C9305D9FF6B28E09D58200000DE09 /* Pods-Autime-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 864C3AB50F472BEB7FD2236B0DBD5AEB /* Pods-Autime-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D316605F33AABEAFC33FBADA5EDDE35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		BAEEE6C07362F12036DE13ED0B67ADB7 /* Pods-Autime-AutimeUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 56E2F90EC02CB82EFC8559D9B2EE81CC /* Pods-Autime-AutimeUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C09CBC38ACE8FA9960BB410035A5B885 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C891B1C20ACD4ACC213ABB8FA0AC870B /* Pods-AutimeTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62728BDC0B7C8B60C20F205CA793ECBE /* Pods-AutimeTests-dummy.m */; };
+		EE779651C85C7909D1601401E74DA68A /* Pods-AutimeTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EB601A6C2531B9926167C1E5DC485F5 /* Pods-AutimeTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E0AD985F2952A6808E17B6C6BF06D80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
+		911598E19E0B14A891C161178686DC22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29865372B13BE1C0BB87560DF79153AC;
+			remoteInfo = "Pods-Autime";
+		};
+		E8B93FAB009E9D2E0EE4591D55449381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		003B8A75BC4AB5F926FED426F56AC44D /* Pods_Autime_AutimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime_AutimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12B772939E7A960E7941B04AFF9698E1 /* Pods-Autime-AutimeUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Autime-AutimeUITests-dummy.m"; sourceTree = "<group>"; };
+		24565504DF6B095987476AE768BCE684 /* Pods_AutimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		279BFE1FE91588B5914892425B027540 /* Pods_Autime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29859EF1F34DA15DA02B1E3DEE977C62 /* Pods-AutimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutimeTests.release.xcconfig"; sourceTree = "<group>"; };
+		3B9394B699682DE32309B993CF8A2E88 /* Pods-Autime-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Autime-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3EB601A6C2531B9926167C1E5DC485F5 /* Pods-AutimeTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AutimeTests-umbrella.h"; sourceTree = "<group>"; };
+		3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
+		40933BD5283D4A88DE82AC0F59DDBBE4 /* Pods-AutimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		40D1FF12913D48F32545AD696203A58E /* Pods-AutimeTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutimeTests-Info.plist"; sourceTree = "<group>"; };
+		50A475A66F72CA4E5B609F8670B30994 /* Pods-Autime-AutimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Autime-AutimeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		56E2F90EC02CB82EFC8559D9B2EE81CC /* Pods-Autime-AutimeUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Autime-AutimeUITests-umbrella.h"; sourceTree = "<group>"; };
+		616261A41FB043642300DCC3C3F569C6 /* Pods-Autime-AutimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Autime-AutimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		62728BDC0B7C8B60C20F205CA793ECBE /* Pods-AutimeTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AutimeTests-dummy.m"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7993FAE1CF55F37B57B553FBBD5508C3 /* Pods-Autime-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Autime-acknowledgements.plist"; sourceTree = "<group>"; };
+		7D00321C4C5DAEEDCDA2A73A1204B775 /* Pods-Autime-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Autime-Info.plist"; sourceTree = "<group>"; };
+		7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
+		864C3AB50F472BEB7FD2236B0DBD5AEB /* Pods-Autime-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Autime-umbrella.h"; sourceTree = "<group>"; };
+		8CC81C0AD5DD4EB853A138C88B1DA57C /* Pods-Autime-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Autime-dummy.m"; sourceTree = "<group>"; };
+		8D9FC1A23EC465C2B7C3E4DA7F90577E /* Pods-Autime-AutimeUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Autime-AutimeUITests.modulemap"; sourceTree = "<group>"; };
+		9C3AED3E2596513A42324BC560EF3940 /* Pods-Autime-AutimeUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Autime-AutimeUITests-Info.plist"; sourceTree = "<group>"; };
+		9C4681F5CF8EDBDF6CBED7320383DC62 /* Pods-Autime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Autime.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A6213C7C6C37EE2F328D38C440DA3974 /* Pods-AutimeTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutimeTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A9E8F6116896888414F3287DFB2B7916 /* Pods-AutimeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AutimeTests.modulemap"; sourceTree = "<group>"; };
+		AEFAFE6F8ECC927F5E1DE0C60FE33AFF /* Pods-Autime-AutimeUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Autime-AutimeUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CC2EFF5D9343E755C97F512656070148 /* Pods-Autime-AutimeUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Autime-AutimeUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CDF5479695101B5C777F94A0B3C50F40 /* Pods-Autime.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Autime.modulemap"; sourceTree = "<group>"; };
+		CF817063B0B39098180FD0CE9EA9EA06 /* Pods-AutimeTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AutimeTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D752F2B9CC82237F8112FF0BD97153F2 /* Pods-Autime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Autime.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D263302CAF89EDEFCF0D1E14694D19EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C09CBC38ACE8FA9960BB410035A5B885 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D409192E905D17344545D067ADA83308 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D316605F33AABEAFC33FBADA5EDDE35 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC4D53AB03799530B834AB6F924C90C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F03F2CBBA936106624F5B751D9DCE65 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26B4896262270576FF1896C8352A0600 /* Pods-Autime-AutimeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8D9FC1A23EC465C2B7C3E4DA7F90577E /* Pods-Autime-AutimeUITests.modulemap */,
+				AEFAFE6F8ECC927F5E1DE0C60FE33AFF /* Pods-Autime-AutimeUITests-acknowledgements.markdown */,
+				CC2EFF5D9343E755C97F512656070148 /* Pods-Autime-AutimeUITests-acknowledgements.plist */,
+				12B772939E7A960E7941B04AFF9698E1 /* Pods-Autime-AutimeUITests-dummy.m */,
+				9C3AED3E2596513A42324BC560EF3940 /* Pods-Autime-AutimeUITests-Info.plist */,
+				56E2F90EC02CB82EFC8559D9B2EE81CC /* Pods-Autime-AutimeUITests-umbrella.h */,
+				616261A41FB043642300DCC3C3F569C6 /* Pods-Autime-AutimeUITests.debug.xcconfig */,
+				50A475A66F72CA4E5B609F8670B30994 /* Pods-Autime-AutimeUITests.release.xcconfig */,
+			);
+			name = "Pods-Autime-AutimeUITests";
+			path = "Target Support Files/Pods-Autime-AutimeUITests";
+			sourceTree = "<group>";
+		};
+		49C279F96E998E3AA9A4C3F088632418 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7BA9905F452CDA8EDC21CC70B20F807 /* Pods-Autime */,
+				26B4896262270576FF1896C8352A0600 /* Pods-Autime-AutimeUITests */,
+				AC6D3F6983755A9C17E4AF981FE4251E /* Pods-AutimeTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7FDA596DBE0337ACDFE55A210D54EF26 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */,
+				7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
+			sourceTree = "<group>";
+		};
+		965877409E01FB3D85D85E90E6B30185 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D96179D43A67C5D5323B0682D32C133C /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC6D3F6983755A9C17E4AF981FE4251E /* Pods-AutimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9E8F6116896888414F3287DFB2B7916 /* Pods-AutimeTests.modulemap */,
+				CF817063B0B39098180FD0CE9EA9EA06 /* Pods-AutimeTests-acknowledgements.markdown */,
+				A6213C7C6C37EE2F328D38C440DA3974 /* Pods-AutimeTests-acknowledgements.plist */,
+				62728BDC0B7C8B60C20F205CA793ECBE /* Pods-AutimeTests-dummy.m */,
+				40D1FF12913D48F32545AD696203A58E /* Pods-AutimeTests-Info.plist */,
+				3EB601A6C2531B9926167C1E5DC485F5 /* Pods-AutimeTests-umbrella.h */,
+				40933BD5283D4A88DE82AC0F59DDBBE4 /* Pods-AutimeTests.debug.xcconfig */,
+				29859EF1F34DA15DA02B1E3DEE977C62 /* Pods-AutimeTests.release.xcconfig */,
+			);
+			name = "Pods-AutimeTests";
+			path = "Target Support Files/Pods-AutimeTests";
+			sourceTree = "<group>";
+		};
+		B7BA9905F452CDA8EDC21CC70B20F807 /* Pods-Autime */ = {
+			isa = PBXGroup;
+			children = (
+				CDF5479695101B5C777F94A0B3C50F40 /* Pods-Autime.modulemap */,
+				3B9394B699682DE32309B993CF8A2E88 /* Pods-Autime-acknowledgements.markdown */,
+				7993FAE1CF55F37B57B553FBBD5508C3 /* Pods-Autime-acknowledgements.plist */,
+				8CC81C0AD5DD4EB853A138C88B1DA57C /* Pods-Autime-dummy.m */,
+				7D00321C4C5DAEEDCDA2A73A1204B775 /* Pods-Autime-Info.plist */,
+				864C3AB50F472BEB7FD2236B0DBD5AEB /* Pods-Autime-umbrella.h */,
+				D752F2B9CC82237F8112FF0BD97153F2 /* Pods-Autime.debug.xcconfig */,
+				9C4681F5CF8EDBDF6CBED7320383DC62 /* Pods-Autime.release.xcconfig */,
+			);
+			name = "Pods-Autime";
+			path = "Target Support Files/Pods-Autime";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				965877409E01FB3D85D85E90E6B30185 /* Pods */,
+				F7F83E74670E080EC7CC22E0796C552A /* Products */,
+				49C279F96E998E3AA9A4C3F088632418 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D96179D43A67C5D5323B0682D32C133C /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA596DBE0337ACDFE55A210D54EF26 /* Support Files */,
+			);
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		F7F83E74670E080EC7CC22E0796C552A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				279BFE1FE91588B5914892425B027540 /* Pods_Autime.framework */,
+				003B8A75BC4AB5F926FED426F56AC44D /* Pods_Autime_AutimeUITests.framework */,
+				24565504DF6B095987476AE768BCE684 /* Pods_AutimeTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		88948FC2831ED40E73A95D6F1C7D4F54 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE779651C85C7909D1601401E74DA68A /* Pods-AutimeTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6D5810C14B7F1008AF84C4ADD7EE9B8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F2C9305D9FF6B28E09D58200000DE09 /* Pods-Autime-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB7E3E9BF2F0D3A800147F31B6634C51 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAEEE6C07362F12036DE13ED0B67ADB7 /* Pods-Autime-AutimeUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		29865372B13BE1C0BB87560DF79153AC /* Pods-Autime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3339CBDE59BAC1B3B0072F86515A0A1C /* Build configuration list for PBXNativeTarget "Pods-Autime" */;
+			buildPhases = (
+				B6D5810C14B7F1008AF84C4ADD7EE9B8 /* Headers */,
+				56FC7DAF0534BC6BF57A7A52A4F5BDE8 /* Sources */,
+				D263302CAF89EDEFCF0D1E14694D19EF /* Frameworks */,
+				355A6292659487AFEA289E05920259CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F36A31C40654906866E44C3E3907D329 /* PBXTargetDependency */,
+			);
+			name = "Pods-Autime";
+			productName = "Pods-Autime";
+			productReference = 279BFE1FE91588B5914892425B027540 /* Pods_Autime.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CF30CE1E052D91A64694E2FB1BD7A78F /* Pods-AutimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 751526BDC5919C2D6CB402F60AEA5E14 /* Build configuration list for PBXNativeTarget "Pods-AutimeTests" */;
+			buildPhases = (
+				88948FC2831ED40E73A95D6F1C7D4F54 /* Headers */,
+				5A1BE08B80046AA5F75D145884E402FB /* Sources */,
+				EC4D53AB03799530B834AB6F924C90C2 /* Frameworks */,
+				6BBB82058E58833390937FA99D66F4CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				874CD3127C6FF5FE66845A9F862E066B /* PBXTargetDependency */,
+			);
+			name = "Pods-AutimeTests";
+			productName = "Pods-AutimeTests";
+			productReference = 24565504DF6B095987476AE768BCE684 /* Pods_AutimeTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E49D33772E34113205E1A04F8288A35B /* Pods-Autime-AutimeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 491A5AA9D01E0D8A04AA4BA1B96820DB /* Build configuration list for PBXNativeTarget "Pods-Autime-AutimeUITests" */;
+			buildPhases = (
+				EB7E3E9BF2F0D3A800147F31B6634C51 /* Headers */,
+				E985F9F30006A262544A7D3C608C9829 /* Sources */,
+				D409192E905D17344545D067ADA83308 /* Frameworks */,
+				8B9051D75F4FA0B1C268085950F60EAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF70456DF96B820363B9E452C060A601 /* PBXTargetDependency */,
+			);
+			name = "Pods-Autime-AutimeUITests";
+			productName = "Pods-Autime-AutimeUITests";
+			productReference = 003B8A75BC4AB5F926FED426F56AC44D /* Pods_Autime_AutimeUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1210;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = F7F83E74670E080EC7CC22E0796C552A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29865372B13BE1C0BB87560DF79153AC /* Pods-Autime */,
+				E49D33772E34113205E1A04F8288A35B /* Pods-Autime-AutimeUITests */,
+				CF30CE1E052D91A64694E2FB1BD7A78F /* Pods-AutimeTests */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		355A6292659487AFEA289E05920259CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BBB82058E58833390937FA99D66F4CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B9051D75F4FA0B1C268085950F60EAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56FC7DAF0534BC6BF57A7A52A4F5BDE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C995FD29CE689632A205513997E9FB /* Pods-Autime-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A1BE08B80046AA5F75D145884E402FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C891B1C20ACD4ACC213ABB8FA0AC870B /* Pods-AutimeTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E985F9F30006A262544A7D3C608C9829 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2927D697D673141351A02CB5F39191B9 /* Pods-Autime-AutimeUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		874CD3127C6FF5FE66845A9F862E066B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Autime";
+			target = 29865372B13BE1C0BB87560DF79153AC /* Pods-Autime */;
+			targetProxy = 911598E19E0B14A891C161178686DC22 /* PBXContainerItemProxy */;
+		};
+		AF70456DF96B820363B9E452C060A601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = 0E0AD985F2952A6808E17B6C6BF06D80 /* PBXContainerItemProxy */;
+		};
+		F36A31C40654906866E44C3E3907D329 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = E8B93FAB009E9D2E0EE4591D55449381 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A2E896994A2FA9AAD6261B5E602F95A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C4681F5CF8EDBDF6CBED7320383DC62 /* Pods-Autime.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Autime/Pods-Autime-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Autime/Pods-Autime.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3199296B24AA7AEC5E1B642D8D81B686 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40933BD5283D4A88DE82AC0F59DDBBE4 /* Pods-AutimeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		593F10BFFA94DAC7D6E17FB8A7F32D72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A0374B8CF9A7D6A45F6D116D698D1C19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		AB70DE475519654E17DB9165148E9718 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29859EF1F34DA15DA02B1E3DEE977C62 /* Pods-AutimeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AD81E62ACCB0B7A923FC8AA288F9921E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC52D9353BD0151D1C1B8F8FBE1AB883 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50A475A66F72CA4E5B609F8670B30994 /* Pods-Autime-AutimeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Autime-AutimeUITests/Pods-Autime-AutimeUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Autime-AutimeUITests/Pods-Autime-AutimeUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CCC95B2321BDC301640D7E21D606C227 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 616261A41FB043642300DCC3C3F569C6 /* Pods-Autime-AutimeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Autime-AutimeUITests/Pods-Autime-AutimeUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Autime-AutimeUITests/Pods-Autime-AutimeUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EADD1F50ABC8096A0D6CB18822BB4EE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F55FF7016A826CC43CF1F433DE38DF9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D752F2B9CC82237F8112FF0BD97153F2 /* Pods-Autime.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Autime/Pods-Autime-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Autime/Pods-Autime.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3339CBDE59BAC1B3B0072F86515A0A1C /* Build configuration list for PBXNativeTarget "Pods-Autime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F55FF7016A826CC43CF1F433DE38DF9E /* Debug */,
+				0A2E896994A2FA9AAD6261B5E602F95A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0374B8CF9A7D6A45F6D116D698D1C19 /* Debug */,
+				593F10BFFA94DAC7D6E17FB8A7F32D72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		491A5AA9D01E0D8A04AA4BA1B96820DB /* Build configuration list for PBXNativeTarget "Pods-Autime-AutimeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCC95B2321BDC301640D7E21D606C227 /* Debug */,
+				BC52D9353BD0151D1C1B8F8FBE1AB883 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		751526BDC5919C2D6CB402F60AEA5E14 /* Build configuration list for PBXNativeTarget "Pods-AutimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3199296B24AA7AEC5E1B642D8D81B686 /* Debug */,
+				AB70DE475519654E17DB9165148E9718 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EADD1F50ABC8096A0D6CB18822BB4EE4 /* Debug */,
+				AD81E62ACCB0B7A923FC8AA288F9921E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
