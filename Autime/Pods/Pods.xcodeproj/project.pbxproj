@@ -15,7 +15,6 @@
 			dependencies = (
 			);
 			name = SwiftLint;
-			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -56,10 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		003B8A75BC4AB5F926FED426F56AC44D /* Pods_Autime_AutimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime_AutimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		003B8A75BC4AB5F926FED426F56AC44D /* Pods_Autime_AutimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Autime_AutimeUITests.framework; path = "Pods-Autime-AutimeUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B772939E7A960E7941B04AFF9698E1 /* Pods-Autime-AutimeUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Autime-AutimeUITests-dummy.m"; sourceTree = "<group>"; };
-		24565504DF6B095987476AE768BCE684 /* Pods_AutimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		279BFE1FE91588B5914892425B027540 /* Pods_Autime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24565504DF6B095987476AE768BCE684 /* Pods_AutimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AutimeTests.framework; path = "Pods-AutimeTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		279BFE1FE91588B5914892425B027540 /* Pods_Autime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Autime.framework; path = "Pods-Autime.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29859EF1F34DA15DA02B1E3DEE977C62 /* Pods-AutimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		3B9394B699682DE32309B993CF8A2E88 /* Pods-Autime-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Autime-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3EB601A6C2531B9926167C1E5DC485F5 /* Pods-AutimeTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AutimeTests-umbrella.h"; sourceTree = "<group>"; };
@@ -79,7 +78,7 @@
 		8D9FC1A23EC465C2B7C3E4DA7F90577E /* Pods-Autime-AutimeUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Autime-AutimeUITests.modulemap"; sourceTree = "<group>"; };
 		9C3AED3E2596513A42324BC560EF3940 /* Pods-Autime-AutimeUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Autime-AutimeUITests-Info.plist"; sourceTree = "<group>"; };
 		9C4681F5CF8EDBDF6CBED7320383DC62 /* Pods-Autime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Autime.release.xcconfig"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A6213C7C6C37EE2F328D38C440DA3974 /* Pods-AutimeTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutimeTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A9E8F6116896888414F3287DFB2B7916 /* Pods-AutimeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AutimeTests.modulemap"; sourceTree = "<group>"; };
 		AEFAFE6F8ECC927F5E1DE0C60FE33AFF /* Pods-Autime-AutimeUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Autime-AutimeUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -225,6 +224,7 @@
 			children = (
 				7FDA596DBE0337ACDFE55A210D54EF26 /* Support Files */,
 			);
+			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -332,7 +332,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -675,7 +675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -767,7 +767,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
