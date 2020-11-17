@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1866.6666666666667" y="432.58928571428572"/>
         </scene>
-        <!--MenuPaisViewController-->
+        <!--DiaFilhoViewController-->
         <scene sceneID="s92-IW-BdR">
             <objects>
-                <viewControllerPlaceholder storyboardName="PaisMenu" referencedIdentifier="MenuPaisViewController" id="zyD-RV-6bz" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Filhos" referencedIdentifier="DiaFilhoViewController" id="zyD-RV-6bz" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="wjo-r8-r30"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnL-Ca-mkS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

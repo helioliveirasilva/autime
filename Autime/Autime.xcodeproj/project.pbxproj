@@ -23,6 +23,7 @@
 		F79A33A32562C94B00CD52C5 /* PaisThisWeek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */; };
 		F79A33A82562C98B00CD52C5 /* PaisCreateAct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33A72562C98B00CD52C5 /* PaisCreateAct.storyboard */; };
 		F79A33AD2562C9AA00CD52C5 /* PaisAllAct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33AC2562C9AA00CD52C5 /* PaisAllAct.storyboard */; };
+		F79A33CA256402A700CD52C5 /* PaisMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33972562C70900CD52C5 /* PaisMenu.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +67,7 @@
 		9D3B44EB03F34A5CCB2FF7FD /* Pods-Autime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime.debug.xcconfig"; path = "Target Support Files/Pods-Autime/Pods-Autime.debug.xcconfig"; sourceTree = "<group>"; };
 		B02D8667BE5EF768410C80FB /* Pods-AutimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.release.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F36CE04F6B32A9EC192B835F /* Pods_AutimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F79A33972562C70900CD52C5 /* PaisMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PaisMenu.storyboard; path = "/Users/duduramos/Documents/Dudu/02. UFPE/01. Academy/01. Challenges/04. Caxangá/05. Coding/01. Projeto XC/autime/Autime/Autime/PaisMenu.storyboard"; sourceTree = "<absolute>"; };
+		F79A33972562C70900CD52C5 /* PaisMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisMenu.storyboard; sourceTree = "<group>"; };
 		F79A33982562C72A00CD52C5 /* Filhos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filhos.storyboard; sourceTree = "<group>"; };
 		F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisPastWeeks.storyboard; sourceTree = "<group>"; };
 		F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisThisWeek.storyboard; sourceTree = "<group>"; };
@@ -297,6 +298,7 @@
 				F79A33AD2562C9AA00CD52C5 /* PaisAllAct.storyboard in Resources */,
 				F79A339E2562C8A800CD52C5 /* PaisPastWeeks.storyboard in Resources */,
 				F79A33A32562C94B00CD52C5 /* PaisThisWeek.storyboard in Resources */,
+				F79A33CA256402A700CD52C5 /* PaisMenu.storyboard in Resources */,
 				2442970B255D841A00CCEBAB /* Assets.xcassets in Resources */,
 				24429709255D841900CCEBAB /* Main.storyboard in Resources */,
 				F79A33A82562C98B00CD52C5 /* PaisCreateAct.storyboard in Resources */,

@@ -11,10 +11,19 @@
         <!--Dia Filho View Controller-->
         <scene sceneID="8wu-52-HEh">
             <objects>
-                <viewController id="njR-17-rtV" customClass="DiaFilhoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaFilhoViewController" id="njR-17-rtV" customClass="DiaFilhoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kAC-mc-X0W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oi, filho s2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8H-AV-9JW">
+                                <rect key="frame" x="192" y="316" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zPR-a9-wUs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
