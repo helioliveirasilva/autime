@@ -8,8 +8,10 @@
 import UIKit
 import CoreData
 
-class AtividadesCadastradas: UIViewController{
+class AtividadesCadastradas: UIViewController {
     
+    // swiftlint:disable force_cast
+
     @IBOutlet weak var labelNome: UITextField!
     @IBOutlet weak var pickerHora: UIDatePicker!
     @IBOutlet weak var switchEstrela: UISwitch!
@@ -21,22 +23,19 @@ class AtividadesCadastradas: UIViewController{
     @IBOutlet weak var switchSabado: UISwitch!
     @IBOutlet weak var switchDomingo: UISwitch!
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var context:NSManagedObjectContext!
-    let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+    weak var appDelegate: AppDelegate!
+    var context: NSManagedObjectContext!
+    var requisicao: NSFetchRequest<NSFetchRequestResult>!
     
     override func viewDidLoad() {
-        
+        self.appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.context = appDelegate.persistentContainer.viewContext
-        
-        
-        
+        self.requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
     }
     
     @IBAction func salvar(_ sender: Any) {
-        
         let atividade = NSEntityDescription.insertNewObject(forEntityName: "Atividade", into: context)
-
+        
         atividade.setValue(self.labelNome.text, forKey: "nome")
         atividade.setValue(self.pickerHora.date, forKey: "horario")
         atividade.setValue(self.switchEstrela.isOn, forKey: "gerarEstrela")
@@ -47,42 +46,30 @@ class AtividadesCadastradas: UIViewController{
         atividade.setValue(self.switchSexta.isOn, forKey: "sexta")
         atividade.setValue(self.switchSabado.isOn, forKey: "sabado")
         atividade.setValue(self.switchDomingo.isOn, forKey: "domingo")
-        
+    
         // Salvar/Persistir os dados
         do {
             try context.save()
             print("seus dados foram salvos corretamente")
-        } catch  {
+        } catch {
             print("erro ao salvar os dados")
         }
-        
-        
     }
     
     @IBAction func imprimir(_ sender: Any) {
-        
         do {
             let atividades = try context.fetch(self.requisicao)
             if atividades.count > 0 {
-                
                 for atividade in atividades as! [NSManagedObject] {
                     if  let nomeAtividade = atividade.value(forKey: "nome") {
-                        
                         print(nomeAtividade)
-                        
                     }
                 }
-                
             } else {
                 print("nenhuma atividade encontrada")
             }
-        } catch  {
+        } catch {
             print("erro ao recuperar a atividade!")
         }
-        
-        
     }
-    
-    
-    
 }
