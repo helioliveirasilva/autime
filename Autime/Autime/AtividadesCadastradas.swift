@@ -10,7 +10,7 @@ import CoreData
 
 class AtividadesCadastradas: UIViewController {
     
-    // swiftlint:disable force_cast warningessecaralho
+    // swiftlint:disable force_cast
 
     @IBOutlet weak var labelNome: UITextField!
     @IBOutlet weak var pickerHora: UIDatePicker!
@@ -23,17 +23,19 @@ class AtividadesCadastradas: UIViewController {
     @IBOutlet weak var switchSabado: UISwitch!
     @IBOutlet weak var switchDomingo: UISwitch!
     
-    weak var appDelegate: AppDelegate!
-    var context: NSManagedObjectContext!
-    var requisicao: NSFetchRequest<NSFetchRequestResult>!
     
     override func viewDidLoad() {
-        self.appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.context = (appDelegate.persistentContainer.viewContext)!
-        self.requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        
     }
     
     @IBAction func salvar(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        print("Delegate = ", appDelegate)
+        
+        let context = appDelegate.persistentContainer.viewContext as! NSManagedObjectContext
+       
+        print("Context = ", context)
+        
         let atividade = NSEntityDescription.insertNewObject(forEntityName: "Atividade", into: context)
         
         atividade.setValue(self.labelNome.text, forKey: "nome")
@@ -57,8 +59,16 @@ class AtividadesCadastradas: UIViewController {
     }
     
     @IBAction func imprimir(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        print("Delegate = ", appDelegate)
+        
+        let context = appDelegate.persistentContainer.viewContext as! NSManagedObjectContext
+        print("Context = ", context)
+
+        let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        
         do {
-            let atividades = try context.fetch(self.requisicao)
+            let atividades = try context.fetch(requisicao)
             if atividades.count > 0 {
                 for atividade in atividades as! [NSManagedObject] {
                     if  let nomeAtividade = atividade.value(forKey: "nome") {
@@ -68,7 +78,8 @@ class AtividadesCadastradas: UIViewController {
             } else {
                 print("nenhuma atividade encontrada")
             }
-        } catch {
+        } catch let erro {
+            print(erro.localizedDescription)
             print("erro ao recuperar a atividade!")
         }
     }
