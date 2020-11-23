@@ -11,7 +11,7 @@
         <!--Pais-->
         <scene sceneID="MGX-sk-KaC">
             <objects>
-                <viewController storyboardIdentifier="MenuPaisViewController" id="vRl-Fr-wPT" customClass="MenuPaisViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuPaisViewController" id="vRl-Fr-wPT" customClass="MenuPaisViewController" customModule="Autime" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h70-4C-zTb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,6 +66,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="displayActionSheet:" destination="vRl-Fr-wPT" eventType="touchUpInside" id="7RE-67-YHe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBs-gC-yUP">
                                 <rect key="frame" x="216" y="483" width="145" height="145"/>
@@ -118,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmK-B9-pO7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471" y="-423"/>
+            <point key="canvasLocation" x="574" y="70"/>
         </scene>
         <!--AllActPaisViewController-->
         <scene sceneID="fh3-gf-2iR">
@@ -128,7 +131,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQR-xC-jaE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347" y="-16"/>
+            <point key="canvasLocation" x="430" y="-467"/>
         </scene>
         <!--CreatActPaisViewController-->
         <scene sceneID="0fx-AI-h2h">
@@ -138,7 +141,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOY-Ao-4SO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="359" y="59"/>
+            <point key="canvasLocation" x="443" y="-392"/>
         </scene>
     </scenes>
     <resources>
