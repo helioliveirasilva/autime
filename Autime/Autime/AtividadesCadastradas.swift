@@ -10,7 +10,7 @@ import CoreData
 
 class AtividadesCadastradas: UIViewController {
     
-    // swiftlint:disable force_cast
+    // swiftlint:disable force_cast warningessecaralho
 
     @IBOutlet weak var labelNome: UITextField!
     @IBOutlet weak var pickerHora: UIDatePicker!
@@ -29,7 +29,7 @@ class AtividadesCadastradas: UIViewController {
     
     override func viewDidLoad() {
         self.appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.context = appDelegate.persistentContainer.viewContext
+        self.context = (appDelegate.persistentContainer.viewContext)!
         self.requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
     }
     
