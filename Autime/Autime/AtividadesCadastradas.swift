@@ -61,10 +61,13 @@ class AtividadesCadastradas: UIViewController {
             let atividades = try self.context.fetch(requisicao)
             if atividades.count > 0 {
                 for atividade in atividades as! [NSManagedObject] {
-                    if  let nomeAtividade = atividade.value(forKey: "nome") {
+                    if let nomeAtividade = atividade.value(forKey: "nome") {
                         print(nomeAtividade)
+                        
                     }
+                    
                 }
+                
             } else {
                 print("Nenhuma atividade encontrada")
             }
@@ -72,5 +75,33 @@ class AtividadesCadastradas: UIViewController {
             print(erro.localizedDescription)
             print("Erro ao recuperar a atividade!")
         }
+        
+        
+    }
+    
+    
+    func salvarDados() {
+        
+        let novaAtividade = NSEntityDescription.insertNewObject(forEntityName: "Atividade", into: context)
+        
+        novaAtividade.setValue(self.labelNome.text, forKey: "nome")
+        novaAtividade.setValue(self.pickerHora.date, forKey: "horario")
+        novaAtividade.setValue(self.switchEstrela.isOn, forKey: "gerarEstrela")
+        novaAtividade.setValue(self.switchSegunda.isOn, forKey: "segunda")
+        novaAtividade.setValue(self.switchTerca.isOn, forKey: "terca")
+        novaAtividade.setValue(self.switchQuarta.isOn, forKey: "quarta")
+        novaAtividade.setValue(self.switchQuinta.isOn, forKey: "quinta")
+        novaAtividade.setValue(self.switchSexta.isOn, forKey: "sexta")
+        novaAtividade.setValue(self.switchSabado.isOn, forKey: "sabado")
+        novaAtividade.setValue(self.switchDomingo.isOn, forKey: "domingo")
+        
+
+        do {
+            try context.save()
+            print("Seus dados foram salvos!")
+        } catch let erro as Error{
+            print("Erro ao salvar a anotação: \(erro.localizedDescription)")
+        }
+        
     }
 }
