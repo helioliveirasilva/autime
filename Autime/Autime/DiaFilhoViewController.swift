@@ -18,7 +18,7 @@ class DiaFilhoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
         // Do any additional setup after loading the view.
     }
     

@@ -17,6 +17,7 @@
 		2442970E255D841A00CCEBAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2442970C255D841A00CCEBAB /* LaunchScreen.storyboard */; };
 		24429719255D841A00CCEBAB /* AutimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429718255D841A00CCEBAB /* AutimeTests.swift */; };
 		24429724255D841A00CCEBAB /* AutimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429723255D841A00CCEBAB /* AutimeUITests.swift */; };
+		3E4F9EAA256D3B710039BFFC /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F9EA8256D3B710039BFFC /* Database.xcdatamodeld */; };
 		570183CE256D2D7000B038F8 /* SubtarefasCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570183CD256D2D7000B038F8 /* SubtarefasCollectionCell.swift */; };
 		572514CB25669BA600AB79B9 /* DiaFilhoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572514CA25669BA600AB79B9 /* DiaFilhoViewController.swift */; };
 		572514D32566ADB600AB79B9 /* FilhoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572514D22566ADB600AB79B9 /* FilhoCollectionViewCell.swift */; };
@@ -69,6 +70,7 @@
 		24429723255D841A00CCEBAB /* AutimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutimeUITests.swift; sourceTree = "<group>"; };
 		24429725255D841A00CCEBAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D53C705005DE7FBE96A95A1 /* Pods-AutimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.debug.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E4F9EA9256D3B710039BFFC /* AuTimeCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AuTimeCoreData.xcdatamodel; sourceTree = "<group>"; };
 		48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime_AutimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570183CD256D2D7000B038F8 /* SubtarefasCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtarefasCollectionCell.swift; sourceTree = "<group>"; };
 		572514CA25669BA600AB79B9 /* DiaFilhoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaFilhoViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				2442970A255D841A00CCEBAB /* Assets.xcassets */,
 				2442970C255D841A00CCEBAB /* LaunchScreen.storyboard */,
 				2442970F255D841A00CCEBAB /* Info.plist */,
+				3E4F9EA8256D3B710039BFFC /* Database.xcdatamodeld */,
 			);
 			path = Autime;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				F7D61BB3256D416800B2B7AB /* AllActCategoriesTableViewController.swift in Sources */,
 				F74DA583256BE6C6005E6A2E /* MenuPaisViewController.swift in Sources */,
 				24429702255D841900CCEBAB /* AppDelegate.swift in Sources */,
+				3E4F9EAA256D3B710039BFFC /* Database.xcdatamodeld in Sources */,
 				572514CB25669BA600AB79B9 /* DiaFilhoViewController.swift in Sources */,
 				24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */,
 				F7D61BAE256BEB5500B2B7AB /* PastWeeksPaisViewController.swift in Sources */,
@@ -793,6 +797,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3E4F9EA8256D3B710039BFFC /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3E4F9EA9256D3B710039BFFC /* AuTimeCoreData.xcdatamodel */,
+			);
+			currentVersion = 3E4F9EA9256D3B710039BFFC /* AuTimeCoreData.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 244296F6255D841900CCEBAB /* Project object */;
 }
