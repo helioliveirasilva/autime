@@ -50,10 +50,18 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var subtarefaView = SubTarefasViewController()
-        subtarefaView.view.backgroundColor = .white
+//        var subtarefaView = SubTarefasViewController()
+//        subtarefaView.view.backgroundColor = .white
+//        guard let subtarefaView = (storyboard?.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController else{
+//            fatalError()
+//        }
+        let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
+        let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
+        
+        
 //        subtarefaView.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.present(subtarefaView, animated: true, completion: nil)
+        self.navigationController?.present(subtarefaView ?? UIViewController(), animated: true, completion: nil)
+        
     }
     
     

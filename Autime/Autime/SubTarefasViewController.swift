@@ -8,12 +8,22 @@
 import UIKit
 
 class SubTarefasViewController: UIViewController {
-
+    
+    
+    @IBOutlet var subtarefasCollection: UICollectionView!
+    var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        subtarefasCollection.delegate = self
+        subtarefasCollection.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    
     
 
     /*
@@ -26,4 +36,22 @@ class SubTarefasViewController: UIViewController {
     }
     */
 
+}
+
+extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        imagens.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subcell", for: indexPath as IndexPath) as? SubtarefasCollectionCell else{
+            print("ERROOOU!")
+            fatalError()}
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "my cell", for: indexPath as IndexPath) as! FilhoCollectionViewCell
+        cell.image.image = imagens[indexPath.item]
+        cell.label.text = "Cagar"
+        return cell
+    }
+    
+    
 }
