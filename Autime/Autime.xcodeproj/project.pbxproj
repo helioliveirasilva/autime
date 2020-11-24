@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		14DB7EB0F25457D30A4D9562 /* Pods_AutimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F36CE04F6B32A9EC192B835F /* Pods_AutimeTests.framework */; };
 		23F60844B30509A0E878EF10 /* Pods_Autime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78EE28FD2397C5709D4B2F0F /* Pods_Autime.framework */; };
+		24192998256C427C0044A530 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24192997256C427C0044A530 /* TableViewCell.swift */; };
+		241929A0256C4CCF0044A530 /* AtividadesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419299F256C4CCF0044A530 /* AtividadesTableViewController.swift */; };
 		24429702255D841900CCEBAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429701255D841900CCEBAB /* AppDelegate.swift */; };
 		24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429703255D841900CCEBAB /* SceneDelegate.swift */; };
 		24429706255D841900CCEBAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429705255D841900CCEBAB /* ViewController.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24192997256C427C0044A530 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2419299F256C4CCF0044A530 /* AtividadesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtividadesTableViewController.swift; sourceTree = "<group>"; };
 		244296FE255D841900CCEBAB /* Autime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24429701255D841900CCEBAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24429703255D841900CCEBAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 				F7D61BB2256D416800B2B7AB /* AllActCategoriesTableViewController.swift */,
 				57DE9B77256BEEE800AB20A6 /* SubTarefas.storyboard */,
 				246F6658256BF90B001E2256 /* CadastrarAtividade.storyboard */,
+				2419299F256C4CCF0044A530 /* AtividadesTableViewController.swift */,
+				24192997256C427C0044A530 /* TableViewCell.swift */,
 				246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */,
 				2442970A255D841A00CCEBAB /* Assets.xcassets */,
 				2442970C255D841A00CCEBAB /* LaunchScreen.storyboard */,
@@ -476,6 +482,8 @@
 				24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */,
 				F7D61BAE256BEB5500B2B7AB /* PastWeeksPaisViewController.swift in Sources */,
 				57549459256FD25400BF0CE3 /* SectionHeaderView.swift in Sources */,
+				241929A0256C4CCF0044A530 /* AtividadesTableViewController.swift in Sources */,
+				24192998256C427C0044A530 /* TableViewCell.swift in Sources */,
 				572514D32566ADB600AB79B9 /* FilhoCollectionViewCell.swift in Sources */,
 				570183CE256D2D7000B038F8 /* SubtarefasCollectionCell.swift in Sources */,
 				246F665E256BFCAC001E2256 /* AtividadesCadastradas.swift in Sources */,

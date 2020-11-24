@@ -11,7 +11,7 @@ import CoreData
 class AtividadesCadastradas: UIViewController {
     
     // swiftlint:disable force_cast
-
+    
     @IBOutlet weak var labelNome: UITextField!
     @IBOutlet weak var pickerHora: UIDatePicker!
     @IBOutlet weak var switchEstrela: UISwitch!
@@ -54,28 +54,7 @@ class AtividadesCadastradas: UIViewController {
     }
     
     @IBAction func imprimir(_ sender: Any) {
-
-        let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
-        
-        do {
-            let atividades = try self.context.fetch(requisicao)
-            if atividades.count > 0 {
-                for atividade in atividades as! [NSManagedObject] {
-                    if let nomeAtividade = atividade.value(forKey: "nome") {
-                        print(nomeAtividade)
-                        
-                    }
-                    
-                }
-                
-            } else {
-                print("Nenhuma atividade encontrada")
-            }
-        } catch let erro {
-            print(erro.localizedDescription)
-            print("Erro ao recuperar a atividade!")
-        }
-        
+       
         
     }
     
@@ -95,7 +74,7 @@ class AtividadesCadastradas: UIViewController {
         novaAtividade.setValue(self.switchSabado.isOn, forKey: "sabado")
         novaAtividade.setValue(self.switchDomingo.isOn, forKey: "domingo")
         
-
+        
         do {
             try context.save()
             print("Seus dados foram salvos!")

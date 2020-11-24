@@ -1,89 +1,93 @@
 //
-//  AtividadesTableViewController.swift
-//  Autime
+//  TableViewController.swift
+//  TableView
 //
-//  Created by Hélio Silva on 23/11/20.
+//  Created by Peter Kamb on 1/16/19.
+//  Copyright © 2019 Peter Kamb. All rights reserved.
 //
 
 import UIKit
+import CoreData
 
-class AtividadesTableViewController: UITableViewController {
-
+class TableViewController: UITableViewController {
+    // swiftlint:disable force_cast
+    
+    var context: NSManagedObjectContext!
+    var atividades: [NSManagedObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.context = appDelegate.persistentContainer.viewContext
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.recuperarAtividades()
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func recuperarAtividades() {
+        let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        do {
+            let atividadesRecuperadas = try context.fetch(requisicao)
+            self.atividades = atividadesRecuperadas as! [NSManagedObject]
+            self.tableView.reloadData()
+        } catch let erro {
+            print("Não foi possível recuperar as atividades: \(erro.localizedDescription)")
+            
+        }
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        override func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
+        }
+        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return atividades.count
+        }
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+            let atividade = self.atividades[indexPath.row]
+            // Gera Estrela
+            if atividade.value(forKey: "gerarEstrela") as? Bool == true {
+                cell.labelCellEstrela.text = "Gera estrela"
+            } else {
+                cell.labelCellEstrela.text = "Não gera estrela"
+            }
+            //Hora
+            let textoHora = atividade.value(forKey: "horario")
+            // Date Formatter
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm"
+            let novaData = dateFormatter.string(from: textoHora as! Date)
+            cell.labelCellHora.text = novaData
+            // Nome
+            let texto = atividade.value(forKey: "nome")
+            cell.labelCellNome.text = texto as? String
+            // Dias da semana
+            if atividade.value(forKey: "segunda") as? Bool == true {
+                cell.labelCellSeg.backgroundColor = .green
+            }
+            if atividade.value(forKey: "terca") as? Bool == true {
+                cell.labelCellTer.backgroundColor = .green
+            }
+            if atividade.value(forKey: "quarta") as? Bool == true {
+                cell.labelCellQuar.backgroundColor = .green
+            }
+            if atividade.value(forKey: "quinta") as? Bool == true {
+                cell.labelCellQui.backgroundColor = .green
+            }
+            if atividade.value(forKey: "sexta") as? Bool == true {
+                cell.labelCellSex.backgroundColor = .green
+            }
+            if atividade.value(forKey: "sabado") as? Bool == true {
+                cell.labelCellSab.backgroundColor = .green
+            }
+            if atividade.value(forKey: "domingo") as? Bool == true {
+                cell.labelCellDom.backgroundColor = .green
+            }
+            
+            
+            return cell
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
