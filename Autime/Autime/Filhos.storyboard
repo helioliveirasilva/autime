@@ -191,20 +191,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTA-eW-Qoq">
-                                <rect key="frame" x="50" y="35" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Criar e Salvar"/>
-                                <connections>
-                                    <action selector="touchCreateActivity" destination="gWd-bf-2VQ" eventType="touchUpInside" id="sfZ-en-EvR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pfq-PS-RSr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="createActivity" destination="JTA-eW-Qoq" id="87T-OT-MPK"/>
                         <outlet property="tarefasCollection" destination="ARx-TC-pt9" id="IiR-Jz-o0U"/>
                     </connections>
                 </viewController>
