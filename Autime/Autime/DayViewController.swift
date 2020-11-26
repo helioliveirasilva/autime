@@ -57,16 +57,18 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             print("Erro ao criar a célula")
             fatalError()
         }
+                
+        var image: UIImage!
         
-        
-        
-        if let image = activities[indexPath.item].photo.toData() as UIImage {
-            cell.imageView.image = image
-
-        } else {
-            cell.imageView.image = imagens[0]
+        do {
+            image = try UIImage(data: activities[indexPath.item].photo!)
+        } catch let error {
+            print("Erro ", error.localizedDescription, " na captura da imagem.")
+            image = imagens[0]
         }
-            
+        
+
+        cell.imageView.image = image
     
         // Date Formatter
         let dateFormatter = DateFormatter()
@@ -123,10 +125,10 @@ extension DayViewController {
         let activity = NSEntityDescription.insertNewObject(forEntityName: "Activity", into: context)
         
         let name = self.nomes.randomElement()!
-        let image = self.imagens.randomElement()!.toData as! NSData
+        let image = self.imagens.randomElement()!.pngData()! as NSData
 
         let date = Date(timeIntervalSinceNow: 0)
-        
+                
         activity.setValue(name, forKey: "name")
         activity.setValue(date, forKey: "time")
         activity.setValue(image, forKey: "photo")
@@ -144,11 +146,4 @@ extension DayViewController {
         
     }
     
-}
-
-extension UIImage {
-    
-    var toData: Data? {
-        return pngData()
-    }
 }
