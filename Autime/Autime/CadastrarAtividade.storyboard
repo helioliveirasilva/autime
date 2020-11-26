@@ -11,7 +11,7 @@
         <!--CadastrarAtividade-->
         <scene sceneID="uaI-kK-ZwW">
             <objects>
-                <viewController title="CadastrarAtividade" id="Rda-Z3-ECn" customClass="AtividadesCadastradas" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CadastrarAtividade" title="CadastrarAtividade" id="Rda-Z3-ECn" customClass="AtividadesCadastradas" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jib-2P-AGp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

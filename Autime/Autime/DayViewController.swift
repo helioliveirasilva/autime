@@ -16,7 +16,6 @@ import CoreData
 class DayViewController: UIViewController {
     
     @IBOutlet var tarefasCollection: UICollectionView!
-    @IBOutlet weak var createActivity: UIButton!
     
     var imagens: [UIImage] = [UIImage(named: "test.png")!, UIImage(named: "test1.jpeg")!, UIImage(named: "test2.jpeg")!, UIImage(named: "test3.jpg")!, UIImage(named: "test4.jpg")!, UIImage(named: "test5.jpg")!]
     var nomes: [String] = ["Café da manhã", "Tomar banho", "Escola", "Psicóloga", "Passear com o cachorro", "Tarefa de casa"]
@@ -30,11 +29,7 @@ class DayViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.getActivites()
     }
-    
-    @IBAction func touchCreateActivity() {
-        self.createActivities()
-    }
-    
+        
     /*
      // MARK: - Navigation
      
@@ -72,7 +67,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     
         // Date Formatter
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm"
+        dateFormatter.dateFormat = "HH:mm"
         let newDate = dateFormatter.string(from: activities[indexPath.item].horario!)
         
         cell.hora.text =  newDate
@@ -99,7 +94,12 @@ extension DayViewController {
     func getActivites() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
+        //let todayActivities = NSPredicate(format: "%K <= %@", #keyPath(Atividade.horario), Calendar.current.dateComponents([.day], from: Date()) as CVarArg)
+        let sortByTime = NSSortDescriptor(key: "horario", ascending: true)
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        
+        request.sortDescriptors = [sortByTime]
+        //request.predicate = todayActivities
         
         do {
             let activitiesBank = try context.fetch(request)
@@ -116,34 +116,6 @@ extension DayViewController {
         } catch  let erro {
             print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
         }
-    }
-    
-    func createActivities() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let activity = NSEntityDescription.insertNewObject(forEntityName: "Atividade", into: context)
-        
-        let name = self.nomes.randomElement()!
-        let image = self.imagens.randomElement()!.pngData()! as NSData
-
-        let date = Date(timeIntervalSinceNow: 0)
-                
-        activity.setValue(name, forKey: "nome")
-        activity.setValue(date, forKey: "horario")
-        activity.setValue(image, forKey: "image")
-        
-        // Salvar/Persistir os dados
-        do {
-            try context.save()
-            print("Seus dados foram salvos corretamente!")
-        } catch {
-            print("Erro ao salvar os dados...")
-        }
-        
-        getActivites()
-        self.tarefasCollection.reloadData()
-        
     }
     
 }

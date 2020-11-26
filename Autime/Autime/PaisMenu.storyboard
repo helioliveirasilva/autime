@@ -133,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="430" y="-467"/>
         </scene>
-        <!--CreatActPaisViewController-->
+        <!--CadastrarAtividade-->
         <scene sceneID="0fx-AI-h2h">
             <objects>
-                <viewControllerPlaceholder storyboardName="PaisCreateAct" referencedIdentifier="CreatActPaisViewController" id="XTt-nR-iTH" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="CadastrarAtividade" referencedIdentifier="CadastrarAtividade" id="XTt-nR-iTH" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="7zM-Hy-xVQ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOY-Ao-4SO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
