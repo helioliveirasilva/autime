@@ -53,25 +53,24 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             fatalError()
         }
                 
-        var image: UIImage!
-        
-        do {
-            image = try UIImage(data: activities[indexPath.item].image!)
-        } catch let error {
-            print("Erro ", error.localizedDescription, " na captura da imagem.")
-            image = imagens[0]
+        // Image
+        var photo: UIImage!
+              
+        if let data = self.activities[indexPath.item].image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
         }
         
-
-        cell.imageView.image = image
+        cell.imageView.image = photo
     
         // Date Formatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let newDate = dateFormatter.string(from: activities[indexPath.item].horario!)
+        let newDate = dateFormatter.string(from: self.activities[indexPath.item].horario!)
         
         cell.hora.text =  newDate
-        cell.atividade.text = activities[indexPath.item].nome ?? "Sem nome"
+        cell.atividade.text = self.activities[indexPath.item].nome ?? "Sem nome"
         return cell
     }
     

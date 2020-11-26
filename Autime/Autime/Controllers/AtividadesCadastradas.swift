@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // swiftlint:disable force_cast
     // swiftlint:disable line_length
@@ -18,8 +18,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     // swiftlint:disable opening_brace
     // swiftlint:disable colon
     // swiftlint:disable trailing_newline
-
-
     
     @IBOutlet weak var labelNome: UITextField!
     @IBOutlet weak var pickerHora: UIDatePicker!
@@ -38,6 +36,15 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         self.context = appDelegate.persistentContainer.viewContext
+        self.imageView.image = UIImage()
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+
+        self.labelNome.delegate = self
+        self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
+
+        
     }
     
     @IBAction func escolherImagem(_ sender: Any) {
@@ -47,7 +54,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.delegate = self
         present(imagePicker, animated: true)
         
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -56,7 +62,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
             picker.dismiss(animated: true, completion: nil)
 
         }
-        
     }
     
     
@@ -79,9 +84,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         atividade.setValue(self.switchDomingo.isOn, forKey: "domingo")
         atividade.setValue(imageView.image?.pngData(), forKey: "image")
         
-        
-      
-        
         do {
             try self.context.save()
             print("Seus dados foram salvos corretamente")
@@ -95,31 +97,24 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-    
-    func salvarDados() {
-        
-        let novaAtividade = NSEntityDescription.insertNewObject(forEntityName: "Atividade", into: context)
-        
-        novaAtividade.setValue(self.labelNome.text, forKey: "nome")
-        novaAtividade.setValue(self.pickerHora.date, forKey: "horario")
-        novaAtividade.setValue(self.switchEstrela.isOn, forKey: "gerarEstrela")
-        novaAtividade.setValue(self.switchSegunda.isOn, forKey: "segunda")
-        novaAtividade.setValue(self.switchTerca.isOn, forKey: "terca")
-        novaAtividade.setValue(self.switchQuarta.isOn, forKey: "quarta")
-        novaAtividade.setValue(self.switchQuinta.isOn, forKey: "quinta")
-        novaAtividade.setValue(self.switchSexta.isOn, forKey: "sexta")
-        novaAtividade.setValue(self.switchSabado.isOn, forKey: "sabado")
-        novaAtividade.setValue(self.switchDomingo.isOn, forKey: "domingo")
-        
-        
-        do {
-            try context.save()
-            print("Seus dados foram salvos!")
-        } catch let erro as Error{
-            print("Erro ao salvar a anotação: \(erro.localizedDescription)")
-        }
-        
-    }
 }
 
-
+extension UITextField{
+    
+    func addDoneButtonToKeyboard(myAction:Selector?){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+        doneToolbar.barStyle = UIBarStyle.default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Retornar", style: UIBarButtonItem.Style.done, target: self, action: myAction)
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
+    }
+}
