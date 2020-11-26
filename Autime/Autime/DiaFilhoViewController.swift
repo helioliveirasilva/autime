@@ -12,9 +12,6 @@ class DiaFilhoViewController: UIViewController {
     @IBOutlet weak var dayView: UIView!
     @IBOutlet weak var weekView: UIView!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green

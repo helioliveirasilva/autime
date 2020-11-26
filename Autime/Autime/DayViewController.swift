@@ -20,7 +20,7 @@ class DayViewController: UIViewController {
     
     var imagens: [UIImage] = [UIImage(named: "test.png")!, UIImage(named: "test1.jpeg")!, UIImage(named: "test2.jpeg")!, UIImage(named: "test3.jpg")!, UIImage(named: "test4.jpg")!, UIImage(named: "test5.jpg")!]
     var nomes: [String] = ["Café da manhã", "Tomar banho", "Escola", "Psicóloga", "Passear com o cachorro", "Tarefa de casa"]
-    var activities: [Activity] = []
+    var activities: [Atividade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         var image: UIImage!
         
         do {
-            image = try UIImage(data: activities[indexPath.item].photo!)
+            image = try UIImage(data: activities[indexPath.item].image!)
         } catch let error {
             print("Erro ", error.localizedDescription, " na captura da imagem.")
             image = imagens[0]
@@ -73,10 +73,10 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         // Date Formatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm"
-        let newDate = dateFormatter.string(from: activities[indexPath.item].time!)
+        let newDate = dateFormatter.string(from: activities[indexPath.item].horario!)
         
         cell.hora.text =  newDate
-        cell.atividade.text = activities[indexPath.item].name ?? "Sem nome"
+        cell.atividade.text = activities[indexPath.item].nome ?? "Sem nome"
         return cell
     }
     
@@ -99,7 +99,7 @@ extension DayViewController {
     func getActivites() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Activity")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
         
         do {
             let activitiesBank = try context.fetch(request)
@@ -107,7 +107,7 @@ extension DayViewController {
             if activitiesBank.count > 0 {
                 self.activities = []
                 for activity in activitiesBank as! [NSManagedObject] {
-                    self.activities.append(activity as! Activity)
+                    self.activities.append(activity as! Atividade)
                 }
                 
             } else {
@@ -122,16 +122,16 @@ extension DayViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let activity = NSEntityDescription.insertNewObject(forEntityName: "Activity", into: context)
+        let activity = NSEntityDescription.insertNewObject(forEntityName: "Atividade", into: context)
         
         let name = self.nomes.randomElement()!
         let image = self.imagens.randomElement()!.pngData()! as NSData
 
         let date = Date(timeIntervalSinceNow: 0)
                 
-        activity.setValue(name, forKey: "name")
-        activity.setValue(date, forKey: "time")
-        activity.setValue(image, forKey: "photo")
+        activity.setValue(name, forKey: "nome")
+        activity.setValue(date, forKey: "horario")
+        activity.setValue(image, forKey: "image")
         
         // Salvar/Persistir os dados
         do {
