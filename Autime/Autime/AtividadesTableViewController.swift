@@ -11,9 +11,12 @@ import CoreData
 
 class TableViewController: UITableViewController {
     // swiftlint:disable force_cast
+    // swiftlint:disable line_length
+    // swiftlint:disable trailing_whitespace
+    // swiftlint:disable vertical_whitespace
     
     var context: NSManagedObjectContext!
-    var atividades: [NSManagedObject] = []
+    var atividades: [Atividade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,7 @@ class TableViewController: UITableViewController {
         let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
         do {
             let atividadesRecuperadas = try context.fetch(requisicao)
-            self.atividades = atividadesRecuperadas as! [NSManagedObject]
+            self.atividades = atividadesRecuperadas as! [Atividade]
             self.tableView.reloadData()
         } catch let erro {
             print("Não foi possível recuperar as atividades: \(erro.localizedDescription)")
@@ -46,8 +49,11 @@ class TableViewController: UITableViewController {
             return atividades.count
         }
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+          
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+           
             let atividade = self.atividades[indexPath.row]
+            
             // Gera Estrela
             if atividade.value(forKey: "gerarEstrela") as? Bool == true {
                 cell.labelCellEstrela.text = "Gera estrela"
@@ -64,6 +70,28 @@ class TableViewController: UITableViewController {
             // Nome
             let texto = atividade.value(forKey: "nome")
             cell.labelCellNome.text = texto as? String
+            // Image
+            
+            var foto: UIImage!
+
+                    do {
+                        foto = try UIImage(data: atividade.image!)
+                        print("Consegui carregar as imagens!")
+                    } catch let error {
+                        print("Erro ", error.localizedDescription, " na captura da imagem.")
+                        foto = UIImage()
+                    }
+
+                    cell.imageViewCell.image = foto
+            
+            
+//            let image = atividade.value(forKey: "image")
+//            do {
+//                 cell.imageViewCell.image = try UIImage(data: atividade.image!)
+//            } catch let erro {
+//                print("deu merda" + erro.localizedDescription)
+//            }
+//
             // Dias da semana
             if atividade.value(forKey: "segunda") as? Bool == true {
                 cell.labelCellSeg.backgroundColor = .green

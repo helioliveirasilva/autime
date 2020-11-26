@@ -15,6 +15,7 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelCellEstrela: UILabel!
     
+    @IBOutlet weak var imageViewCell: UIImageView!
     @IBOutlet weak var labelCellSeg: UILabel!
     @IBOutlet weak var labelCellTer: UILabel!
     @IBOutlet weak var labelCellQuar: UILabel!

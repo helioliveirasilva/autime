@@ -4,6 +4,7 @@
         <attribute name="domingo" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="gerarEstrela" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="horario" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
         <attribute name="quarta" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="quinta" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -13,6 +14,6 @@
         <attribute name="terca" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Atividade" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="Atividade" positionX="-63" positionY="-18" width="128" height="208"/>
     </elements>
 </model>

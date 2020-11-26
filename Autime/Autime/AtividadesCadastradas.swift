@@ -8,9 +8,18 @@
 import UIKit
 import CoreData
 
-class AtividadesCadastradas: UIViewController {
+class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     // swiftlint:disable force_cast
+    // swiftlint:disable line_length
+    // swiftlint:disable trailing_whitespace
+    // swiftlint:disable vertical_whitespace
+    // swiftlint:disable weak_delegate
+    // swiftlint:disable opening_brace
+    // swiftlint:disable colon
+    // swiftlint:disable trailing_newline
+
+
     
     @IBOutlet weak var labelNome: UITextField!
     @IBOutlet weak var pickerHora: UIDatePicker!
@@ -22,6 +31,7 @@ class AtividadesCadastradas: UIViewController {
     @IBOutlet weak var switchSexta: UISwitch!
     @IBOutlet weak var switchSabado: UISwitch!
     @IBOutlet weak var switchDomingo: UISwitch!
+    @IBOutlet weak var imageView: UIImageView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var context: NSManagedObjectContext!
@@ -30,10 +40,33 @@ class AtividadesCadastradas: UIViewController {
         self.context = appDelegate.persistentContainer.viewContext
     }
     
+    @IBAction func escolherImagem(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+        
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
+            imageView.image = image
+            picker.dismiss(animated: true, completion: nil)
+
+        }
+        
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func salvar(_ sender: Any) {
         
         let atividade = NSEntityDescription.insertNewObject(forEntityName: "Atividade", into: self.context)
-        
         atividade.setValue(self.labelNome.text, forKey: "nome")
         atividade.setValue(self.pickerHora.date, forKey: "horario")
         atividade.setValue(self.switchEstrela.isOn, forKey: "gerarEstrela")
@@ -44,6 +77,10 @@ class AtividadesCadastradas: UIViewController {
         atividade.setValue(self.switchSexta.isOn, forKey: "sexta")
         atividade.setValue(self.switchSabado.isOn, forKey: "sabado")
         atividade.setValue(self.switchDomingo.isOn, forKey: "domingo")
+        atividade.setValue(imageView.image?.pngData(), forKey: "image")
+        
+        
+      
         
         do {
             try self.context.save()
@@ -84,3 +121,5 @@ class AtividadesCadastradas: UIViewController {
         
     }
 }
+
+
