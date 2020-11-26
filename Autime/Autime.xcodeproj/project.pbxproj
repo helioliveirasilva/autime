@@ -18,12 +18,16 @@
 		24429719255D841A00CCEBAB /* AutimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429718255D841A00CCEBAB /* AutimeTests.swift */; };
 		24429724255D841A00CCEBAB /* AutimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429723255D841A00CCEBAB /* AutimeUITests.swift */; };
 		7940392340B5E4479D710507 /* Pods_Autime_AutimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */; };
+		F74DA583256BE6C6005E6A2E /* MenuPaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */; };
 		F79A33992562C72A00CD52C5 /* Filhos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33982562C72A00CD52C5 /* Filhos.storyboard */; };
 		F79A339E2562C8A800CD52C5 /* PaisPastWeeks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */; };
 		F79A33A32562C94B00CD52C5 /* PaisThisWeek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */; };
 		F79A33A82562C98B00CD52C5 /* PaisCreateAct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33A72562C98B00CD52C5 /* PaisCreateAct.storyboard */; };
 		F79A33AD2562C9AA00CD52C5 /* PaisAllAct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33AC2562C9AA00CD52C5 /* PaisAllAct.storyboard */; };
 		F79A33CA256402A700CD52C5 /* PaisMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33972562C70900CD52C5 /* PaisMenu.storyboard */; };
+		F7D61BA6256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D61BA5256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift */; };
+		F7D61BAE256BEB5500B2B7AB /* PastWeeksPaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D61BAD256BEB5500B2B7AB /* PastWeeksPaisViewController.swift */; };
+		F7D61BB3256D416800B2B7AB /* AllActCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D61BB2256D416800B2B7AB /* AllActCategoriesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,12 +71,16 @@
 		9D3B44EB03F34A5CCB2FF7FD /* Pods-Autime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime.debug.xcconfig"; path = "Target Support Files/Pods-Autime/Pods-Autime.debug.xcconfig"; sourceTree = "<group>"; };
 		B02D8667BE5EF768410C80FB /* Pods-AutimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.release.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F36CE04F6B32A9EC192B835F /* Pods_AutimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPaisViewController.swift; sourceTree = "<group>"; };
 		F79A33972562C70900CD52C5 /* PaisMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisMenu.storyboard; sourceTree = "<group>"; };
 		F79A33982562C72A00CD52C5 /* Filhos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filhos.storyboard; sourceTree = "<group>"; };
 		F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisPastWeeks.storyboard; sourceTree = "<group>"; };
 		F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisThisWeek.storyboard; sourceTree = "<group>"; };
 		F79A33A72562C98B00CD52C5 /* PaisCreateAct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisCreateAct.storyboard; sourceTree = "<group>"; };
 		F79A33AC2562C9AA00CD52C5 /* PaisAllAct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisAllAct.storyboard; sourceTree = "<group>"; };
+		F7D61BA5256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisWeeksPaisViewController.swift; sourceTree = "<group>"; };
+		F7D61BAD256BEB5500B2B7AB /* PastWeeksPaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastWeeksPaisViewController.swift; sourceTree = "<group>"; };
+		F7D61BB2256D416800B2B7AB /* AllActCategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllActCategoriesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +152,14 @@
 				24429707255D841900CCEBAB /* Main.storyboard */,
 				F79A33982562C72A00CD52C5 /* Filhos.storyboard */,
 				F79A33972562C70900CD52C5 /* PaisMenu.storyboard */,
+				F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */,
 				F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */,
+				F7D61BAD256BEB5500B2B7AB /* PastWeeksPaisViewController.swift */,
+				F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */,
+				F7D61BA5256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift */,
 				F79A33A72562C98B00CD52C5 /* PaisCreateAct.storyboard */,
 				F79A33AC2562C9AA00CD52C5 /* PaisAllAct.storyboard */,
-				F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */,
+				F7D61BB2256D416800B2B7AB /* AllActCategoriesTableViewController.swift */,
 				2442970A255D841A00CCEBAB /* Assets.xcassets */,
 				2442970C255D841A00CCEBAB /* LaunchScreen.storyboard */,
 				2442970F255D841A00CCEBAB /* Info.plist */,
@@ -412,9 +424,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D61BA6256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift in Sources */,
 				24429706255D841900CCEBAB /* ViewController.swift in Sources */,
+				F7D61BB3256D416800B2B7AB /* AllActCategoriesTableViewController.swift in Sources */,
+				F74DA583256BE6C6005E6A2E /* MenuPaisViewController.swift in Sources */,
 				24429702255D841900CCEBAB /* AppDelegate.swift in Sources */,
 				24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */,
+				F7D61BAE256BEB5500B2B7AB /* PastWeeksPaisViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
