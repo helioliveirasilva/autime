@@ -43,7 +43,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
 
         self.labelNome.delegate = self
         self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
-
         
     }
     
@@ -70,19 +69,29 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func salvar(_ sender: Any) {
+                
+        let atividade = Atividade(context: self.context)
+        atividade.nome = self.labelNome.text ?? "Sem Nome"
+        atividade.horario = self.pickerHora.date
+        atividade.gerarEstrela = self.switchEstrela.isOn
+        atividade.segunda = self.switchSegunda.isOn
+        atividade.terca = self.switchTerca.isOn
+        atividade.quarta = self.switchQuarta.isOn
+        atividade.quinta = self.switchQuinta.isOn
+        atividade.sexta = self.switchSexta.isOn
+        atividade.sabado = self.switchSabado.isOn
+        atividade.domingo = self.switchDomingo.isOn
+        atividade.image = imageView.image?.pngData()
         
-        let atividade = NSEntityDescription.insertNewObject(forEntityName: "Atividade", into: self.context)
-        atividade.setValue(self.labelNome.text, forKey: "nome")
-        atividade.setValue(self.pickerHora.date, forKey: "horario")
-        atividade.setValue(self.switchEstrela.isOn, forKey: "gerarEstrela")
-        atividade.setValue(self.switchSegunda.isOn, forKey: "segunda")
-        atividade.setValue(self.switchTerca.isOn, forKey: "terca")
-        atividade.setValue(self.switchQuarta.isOn, forKey: "quarta")
-        atividade.setValue(self.switchQuinta.isOn, forKey: "quinta")
-        atividade.setValue(self.switchSexta.isOn, forKey: "sexta")
-        atividade.setValue(self.switchSabado.isOn, forKey: "sabado")
-        atividade.setValue(self.switchDomingo.isOn, forKey: "domingo")
-        atividade.setValue(imageView.image?.pngData(), forKey: "image")
+        // Criando Sub-Atividades
+        for index in 1...10 {
+            let step: SubAtividade! = SubAtividade(context: self.context)
+            step.nome = "Step\(index)"
+            step.image = UIImage(named: "test1.jpeg")?.pngData()
+            step.ordem = Int16(index)
+            atividade.addToPassos(step)
+        }
+        
         
         do {
             try self.context.save()
@@ -93,8 +102,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func imprimir(_ sender: Any) {
-       
-        
+        // Action de Imprimir na TableView -> Segue Storyboard
     }
     
 }

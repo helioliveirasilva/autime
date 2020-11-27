@@ -22,6 +22,8 @@
 		246F6659256BF90B001E2256 /* CadastrarAtividade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F6658256BF90B001E2256 /* CadastrarAtividade.storyboard */; };
 		246F665E256BFCAC001E2256 /* AtividadesCadastradas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */; };
 		3E4F9EAA256D3B710039BFFC /* DataBanco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F9EA8256D3B710039BFFC /* DataBanco.xcdatamodeld */; };
+		3E6F295C257155C4008CDBAB /* AutimeTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 24429714255D841A00CCEBAB /* AutimeTests.xctest */; };
+		3E6F295D257155C8008CDBAB /* AutimeUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 2442971F255D841A00CCEBAB /* AutimeUITests.xctest */; };
 		570183CE256D2D7000B038F8 /* SubtarefasCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570183CD256D2D7000B038F8 /* SubtarefasCollectionCell.swift */; };
 		572514CB25669BA600AB79B9 /* DiaFilhoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572514CA25669BA600AB79B9 /* DiaFilhoViewController.swift */; };
 		572514D32566ADB600AB79B9 /* FilhoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572514D22566ADB600AB79B9 /* FilhoCollectionViewCell.swift */; };
@@ -389,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E6F295C257155C4008CDBAB /* AutimeTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E6F295D257155C8008CDBAB /* AutimeUITests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

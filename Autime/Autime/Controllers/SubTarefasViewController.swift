@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
 class SubTarefasViewController: UIViewController {
     
+    // swiftlint:disable force_cast
+    // swiftlint:disable line_length
+    // swiftlint:disable trailing_whitespace
+    // swiftlint:disable vertical_whitespace
     
     @IBOutlet var subtarefasCollection: UICollectionView!
     var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
+    
+    var subActivities: [SubAtividade]! = []
+    var activity: Atividade?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +27,11 @@ class SubTarefasViewController: UIViewController {
         subtarefasCollection.delegate = self
         subtarefasCollection.dataSource = self
         
+        self.getSubActivities()
+        
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    
-
     /*
     // MARK: - Navigation
 
@@ -38,20 +44,68 @@ class SubTarefasViewController: UIViewController {
 
 }
 
-extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        imagens.count
+        self.subActivities!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subcell", for: indexPath as IndexPath) as? SubtarefasCollectionCell else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subcell", for: indexPath as IndexPath) as? SubtarefasCollectionCell else {
             print("ERROOOU!")
             fatalError()}
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "my cell", for: indexPath as IndexPath) as! FilhoCollectionViewCell
-        cell.image.image = imagens[indexPath.item]
-        cell.label.text = "Cagar"
+
+        // Image
+        var photo: UIImage!
+              
+        if let data = self.subActivities[indexPath.item].image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
+        }
+        
+        cell.image.image = photo
+        cell.label.text = self.subActivities[indexPath.item].nome
+
         return cell
     }
     
     
+}
+
+extension SubTarefasViewController {
+    func getSubActivities() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let nameFilter = NSPredicate(format: "%K == %@", #keyPath(Atividade.nome), self.activity?.nome! as! CVarArg)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        request.predicate = nameFilter
+        
+        self.subActivities!.removeAll()
+        
+        do {
+            let activitiesBank = try context.fetch(request)
+            
+            if activitiesBank.count > 0 {
+                
+                let activityResult = activitiesBank[0] as! Atividade
+
+                for task in activityResult.passos! {
+                    self.subActivities!.append(task as! SubAtividade)
+                }
+                            
+            } else {
+                print("Nenhuma atividade encontrada!")
+            }
+        } catch  let erro {
+            print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
+        }
+        
+        self.subActivities.sort {
+            $0.ordem < $1.ordem
+        }
+        
+        self.subtarefasCollection.reloadData()
+        
+    }
 }

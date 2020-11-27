@@ -79,12 +79,12 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
         
+        subtarefaView?.activity = self.activities[indexPath.item]
         
         // subtarefaView.navigationController?.navigationBar.isHidden = false
         self.navigationController?.present(subtarefaView ?? UIViewController(), animated: true, completion: nil)
         
     }
-    
     
 }
 
