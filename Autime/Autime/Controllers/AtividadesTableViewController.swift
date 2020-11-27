@@ -42,80 +42,70 @@ class TableViewController: UITableViewController {
             
         }
     }
-        override func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
-        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return atividades.count
-        }
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-           
-            let atividade = self.atividades[indexPath.row]
-            
-            // Gera Estrela
-            if atividade.value(forKey: "gerarEstrela") as? Bool == true {
-                cell.labelCellEstrela.text = "Gera estrela"
-            } else {
-                cell.labelCellEstrela.text = "Não gera estrela"
-            }
-            //Hora
-            let textoHora = atividade.value(forKey: "horario")
-            // Date Formatter
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "hh:mm"
-            let novaData = dateFormatter.string(from: textoHora as! Date)
-            cell.labelCellHora.text = novaData
-            // Nome
-            let texto = atividade.value(forKey: "nome")
-            cell.labelCellNome.text = texto as? String
-            // Image
-            
-            var foto: UIImage!
-
-                    do {
-                        foto = try UIImage(data: atividade.image!)
-                        print("Consegui carregar as imagens!")
-                    } catch let error {
-                        print("Erro ", error.localizedDescription, " na captura da imagem.")
-                        foto = UIImage()
-                    }
-
-                    cell.imageViewCell.image = foto
-            
-            
-//            let image = atividade.value(forKey: "image")
-//            do {
-//                 cell.imageViewCell.image = try UIImage(data: atividade.image!)
-//            } catch let erro {
-//                print("deu merda" + erro.localizedDescription)
-//            }
-//
-            // Dias da semana
-            if atividade.value(forKey: "segunda") as? Bool == true {
-                cell.labelCellSeg.backgroundColor = .green
-            }
-            if atividade.value(forKey: "terca") as? Bool == true {
-                cell.labelCellTer.backgroundColor = .green
-            }
-            if atividade.value(forKey: "quarta") as? Bool == true {
-                cell.labelCellQuar.backgroundColor = .green
-            }
-            if atividade.value(forKey: "quinta") as? Bool == true {
-                cell.labelCellQui.backgroundColor = .green
-            }
-            if atividade.value(forKey: "sexta") as? Bool == true {
-                cell.labelCellSex.backgroundColor = .green
-            }
-            if atividade.value(forKey: "sabado") as? Bool == true {
-                cell.labelCellSab.backgroundColor = .green
-            }
-            if atividade.value(forKey: "domingo") as? Bool == true {
-                cell.labelCellDom.backgroundColor = .green
-            }
-            
-            
-            return cell
-        }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return atividades.count
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        
+        let atividade = self.atividades[indexPath.row]
+        
+        // Gera Estrela
+        if atividade.value(forKey: "gerarEstrela") as? Bool == true {
+            cell.labelCellEstrela.text = "Gera estrela"
+        } else {
+            cell.labelCellEstrela.text = "Não gera estrela"
+        }
+        //Hora
+        let textoHora = atividade.value(forKey: "horario")
+        // Date Formatter
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm"
+        let novaData = dateFormatter.string(from: textoHora as! Date)
+        cell.labelCellHora.text = novaData
+        // Nome
+        let texto = atividade.value(forKey: "nome")
+        cell.labelCellNome.text = texto as? String
+        
+        // Image
+        var photo: UIImage!
+              
+        if let data = atividade.image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
+        }
+        
+        cell.imageViewCell.image = photo
+                
+        // Dias da semana
+        if atividade.value(forKey: "segunda") as? Bool == true {
+            cell.labelCellSeg.backgroundColor = .green
+        }
+        if atividade.value(forKey: "terca") as? Bool == true {
+            cell.labelCellTer.backgroundColor = .green
+        }
+        if atividade.value(forKey: "quarta") as? Bool == true {
+            cell.labelCellQuar.backgroundColor = .green
+        }
+        if atividade.value(forKey: "quinta") as? Bool == true {
+            cell.labelCellQui.backgroundColor = .green
+        }
+        if atividade.value(forKey: "sexta") as? Bool == true {
+            cell.labelCellSex.backgroundColor = .green
+        }
+        if atividade.value(forKey: "sabado") as? Bool == true {
+            cell.labelCellSab.backgroundColor = .green
+        }
+        if atividade.value(forKey: "domingo") as? Bool == true {
+            cell.labelCellDom.backgroundColor = .green
+        }
+        
+        
+        return cell
+    }
+}
