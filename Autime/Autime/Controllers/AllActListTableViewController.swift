@@ -56,6 +56,15 @@ class AllActListTableViewController: UITableViewController {
 
         return cell
     }
+    
+    //Selection
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let allActFocus = storyboard?.instantiateViewController(identifier: "AllActFocusViewController") as? AllActFocusViewController else{
+            return
+        }
+        allActFocus.actNameInfo = info[categoria ?? 0][indexPath.row]
+        navigationController?.pushViewController(allActFocus, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
