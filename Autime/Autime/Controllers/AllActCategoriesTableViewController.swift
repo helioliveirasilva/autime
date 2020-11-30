@@ -72,6 +72,23 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.imageView?.image = UIImage(named: catImages[indexPath.row])
         return cell
     }
+    //Selection
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let allActList = storyboard?.instantiateViewController(identifier: "AllActListTableViewController") as? AllActListTableViewController else{
+            return
+        }
+        switch indexPath.row {
+        case 0 :
+            print("clicou 0")
+            allActList.categoria = indexPath.row
+        case 1:
+            print("clicou 1")
+            allActList.categoria = indexPath.row
+        default:
+            print("default")
+        }
+        navigationController?.pushViewController(allActList, animated: true)
+    }
 
 
     /*

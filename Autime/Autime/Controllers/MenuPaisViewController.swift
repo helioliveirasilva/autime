@@ -18,20 +18,19 @@ class MenuPaisViewController: UIViewController {
         //This Week
         let thisWeekAction = UIAlertAction(title: "Semana Atual", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("Seman Atual")
-            
+//            print("Seman Atual")
             self.navigationController?.pushViewController(self.viewThisWeek ?? ThisWeeksPaisViewController(), animated: true)
         })
         //Past Week
         let pastWeekAction = UIAlertAction(title: "Semanas Anteriores", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("Semanas Anteriores")
+//            print("Semanas Anteriores")
             self.navigationController?.pushViewController(self.viewPastWeeks ?? PastWeeksPaisViewController(), animated: true)
         })
         //Cancel Button
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("Canceled")
+//            print("Canceled")
         })
         //Add actions on Action Sheet
         optionMenu.addAction(thisWeekAction)

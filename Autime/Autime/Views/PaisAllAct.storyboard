@@ -51,15 +51,53 @@
                     <navigationItem key="navigationItem" title="Todas as Atividades" id="3SJ-nX-oAQ"/>
                     <connections>
                         <outlet property="tableView" destination="yjX-mw-V8M" id="fj2-ir-nAN"/>
+                        <segue destination="XI3-Bg-vPb" kind="presentation" modalPresentationStyle="fullScreen" id="4KX-87-f02"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leH-No-hKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="298.55072463768118" y="112.5"/>
         </scene>
+        <!--All Act List Table View Controller-->
+        <scene sceneID="Phx-Qb-sh3">
+            <objects>
+                <tableViewController storyboardIdentifier="AllActListTableViewController" id="XI3-Bg-vPb" customClass="AllActListTableViewController" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Fm-So-aUW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="actCell" textLabel="0RJ-7L-s96" style="IBUITableViewCellStyleDefault" id="FH3-OC-Fj1">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FH3-OC-Fj1" id="nK8-Xh-qlG">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0RJ-7L-s96">
+                                            <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XI3-Bg-vPb" id="jcO-Ys-7pL"/>
+                            <outlet property="delegate" destination="XI3-Bg-vPb" id="BEm-qz-hrp"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWb-ff-RHE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1058" y="113"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="CatDomestic" width="512" height="512"/>
+        <image name="CatDomestic" width="630" height="630"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
