@@ -94,7 +94,7 @@
         <!--Perfis-->
         <scene sceneID="Uc8-te-wF9">
             <objects>
-                <viewController id="5fY-t0-EC3" customClass="PerfilViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="perfis" id="5fY-t0-EC3" customClass="PerfilViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSU-12-Nry">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

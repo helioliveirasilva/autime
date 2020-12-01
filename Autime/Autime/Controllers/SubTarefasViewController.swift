@@ -16,6 +16,7 @@ class SubTarefasViewController: UIViewController {
     // swiftlint:disable vertical_whitespace
     
     @IBOutlet var subtarefasCollection: UICollectionView!
+    
     var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
     
     var subActivities: [SubAtividade]! = []
@@ -63,12 +64,13 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         } else {
             photo = UIImage()
         }
-        
+        cell.layer.cornerRadius = 21
         cell.image.image = photo
         cell.label.text = self.subActivities[indexPath.item].nome
 
         return cell
     }
+    
     
     
 }

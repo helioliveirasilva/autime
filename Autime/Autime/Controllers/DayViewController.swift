@@ -52,6 +52,12 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             print("Erro ao criar a célula")
             fatalError()
         }
+        
+        // Views
+        
+        cell.backhourView.layer.cornerRadius = 15
+        cell.layer.cornerRadius = 21
+
                 
         // Image
         var photo: UIImage!
@@ -63,7 +69,14 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         cell.imageView.image = photo
+
     
+        // Fontes
+        cell.hora.font = .rounded(ofSize: 16, weight: .heavy)
+        cell.atividade.font = .rounded(ofSize: 20, weight: .medium)
+        cell.subTarefas.font = .rounded(ofSize: 15, weight: .medium)
+
+        
         // Date Formatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
