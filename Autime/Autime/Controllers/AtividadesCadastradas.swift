@@ -46,6 +46,11 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //NavBar
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     @IBAction func escolherImagem(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary

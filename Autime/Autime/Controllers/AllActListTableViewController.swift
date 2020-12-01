@@ -4,14 +4,17 @@
 //
 //  Created by Luis Eduardo Ramos on 27/11/20.
 //
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
 
 import UIKit
 
 class AllActListTableViewController: UITableViewController {
     //Variables
     var categoria: Int?
-    var info = [["Comer", "Dormir"], ["Escola", "Terapia"]]
-    //MARK: - Garantir que a TV carregue a info do banco de dados
+    var categoriaName: String?
+    var info = [["Comer", "Dormir"], ["Escola", "Terapia"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"]]
+    //MARK:- Garantir que a TV carregue a info do banco de dados
 //    var info = 0 {
 //        didSet {
 //            tableView.reloadData()
@@ -20,13 +23,7 @@ class AllActListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        navigationItem.title = categoriaName
     }
 
     // MARK: - Table view data source
@@ -38,7 +35,7 @@ class AllActListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let categoria = categoria else{
+        guard let categoria = categoria else {
             return 0
         }
         return info[categoria].count
@@ -47,19 +44,20 @@ class AllActListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actCell", for: indexPath)
 
-        guard let categoria = categoria else{
+        guard let categoria = categoria else {
             //Retornar célula vazia
             return UITableViewCell()
         }
         // Configure the cell...
         cell.textLabel?.text = info[categoria][indexPath.row]
+        cell.textLabel?.font = .rounded(ofSize: 17, weight: .regular)
 
         return cell
     }
     
     //Selection
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let allActFocus = storyboard?.instantiateViewController(identifier: "AllActFocusViewController") as? AllActFocusViewController else{
+        guard let allActFocus = storyboard?.instantiateViewController(identifier: "AllActFocusViewController") as? AllActFocusViewController else {
             return
         }
         allActFocus.actNameInfo = info[categoria ?? 0][indexPath.row]
@@ -112,3 +110,4 @@ class AllActListTableViewController: UITableViewController {
     */
 
 }
+

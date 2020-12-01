@@ -22,6 +22,11 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //NavBar
+        navigationController?.isNavigationBarHidden = false
+    }
 
     // MARK: - Table view data source
     //Header TableView
@@ -70,6 +75,7 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         // Configure the cell...
         cell.textLabel?.text = String(categorias[indexPath.row])
         cell.imageView?.image = UIImage(named: catImages[indexPath.row])
+        cell.textLabel?.font = .rounded(ofSize: 17, weight: .regular)
         return cell
     }
     //Selection
@@ -81,59 +87,46 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         case 0 :
             print("clicou 0")
             allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
         case 1:
             print("clicou 1")
             allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 2:
+            print("clicou 2")
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 3:
+            print("clicou 3")
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 4:
+            print("clicou 4")
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 5:
+            print("clicou 5")
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 6:
+            print("clicou 6")
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 7:
+            print("clicou 7")
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 8:
+            print("clicou 8")
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 9:
+            print("clicou 9")
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
         default:
             print("default")
         }
         navigationController?.pushViewController(allActList, animated: true)
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

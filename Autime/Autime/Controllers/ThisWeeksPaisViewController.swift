@@ -22,6 +22,12 @@ class ThisWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //NavBar
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     // MARK: - Table view data source
     //Sections
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,6 +45,7 @@ class ThisWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
 
         // Configure the cell...
         cell.textLabel?.text = String(diasDaSemana[indexPath.row])
+        cell.textLabel?.font = .rounded(ofSize: 17, weight: .regular)
         return cell
     }
 }

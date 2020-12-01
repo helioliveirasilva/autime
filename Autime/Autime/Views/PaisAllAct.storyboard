@@ -270,7 +270,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-BW-jYl">
-                                <rect key="frame" x="2" y="29" width="412" height="192"/>
+                                <rect key="frame" x="-1" y="29" width="415" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <state key="normal" title="Foto do item" image="test5">

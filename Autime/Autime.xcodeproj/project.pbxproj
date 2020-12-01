@@ -34,6 +34,8 @@
 		57549459256FD25400BF0CE3 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57549458256FD25400BF0CE3 /* SectionHeaderView.swift */; };
 		57DE9B78256BEEE800AB20A6 /* SubTarefas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57DE9B77256BEEE800AB20A6 /* SubTarefas.storyboard */; };
 		7940392340B5E4479D710507 /* Pods_Autime_AutimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */; };
+		F729AFC42576CE7200916A46 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729AFC32576CE7200916A46 /* TutorialViewController.swift */; };
+		F729AFCC2576D06A00916A46 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729AFCB2576D06A00916A46 /* PerfilViewController.swift */; };
 		F74DA583256BE6C6005E6A2E /* MenuPaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */; };
 		F79A33992562C72A00CD52C5 /* Filhos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33982562C72A00CD52C5 /* Filhos.storyboard */; };
 		F79A339E2562C8A800CD52C5 /* PaisPastWeeks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */; };
@@ -103,6 +105,8 @@
 		9D3B44EB03F34A5CCB2FF7FD /* Pods-Autime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime.debug.xcconfig"; path = "Target Support Files/Pods-Autime/Pods-Autime.debug.xcconfig"; sourceTree = "<group>"; };
 		B02D8667BE5EF768410C80FB /* Pods-AutimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.release.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F36CE04F6B32A9EC192B835F /* Pods_AutimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F729AFC32576CE7200916A46 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		F729AFCB2576D06A00916A46 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPaisViewController.swift; sourceTree = "<group>"; };
 		F79A33972562C70900CD52C5 /* PaisMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisMenu.storyboard; sourceTree = "<group>"; };
 		F79A33982562C72A00CD52C5 /* Filhos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filhos.storyboard; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				F7D61BB2256D416800B2B7AB /* AllActCategoriesTableViewController.swift */,
+				F729AFCB2576D06A00916A46 /* PerfilViewController.swift */,
 				F7D61BBD25714F4B00B2B7AB /* AllActListTableViewController.swift */,
 				F7F0AC6B25752E2000D89AF1 /* AllActFocusViewController.swift */,
 				246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */,
@@ -254,6 +259,7 @@
 				57549448256FCF1800BF0CE3 /* SemanaViewController.swift */,
 				572514DD2566BE1000AB79B9 /* SubTarefasViewController.swift */,
 				F7D61BA5256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift */,
+				F729AFC32576CE7200916A46 /* TutorialViewController.swift */,
 				24429705255D841900CCEBAB /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -520,8 +526,10 @@
 				572514D32566ADB600AB79B9 /* FilhoCollectionViewCell.swift in Sources */,
 				570183CE256D2D7000B038F8 /* SubtarefasCollectionCell.swift in Sources */,
 				246F665E256BFCAC001E2256 /* AtividadesCadastradas.swift in Sources */,
+				F729AFCC2576D06A00916A46 /* PerfilViewController.swift in Sources */,
 				572514DE2566BE1000AB79B9 /* SubTarefasViewController.swift in Sources */,
 				F7D61BBE25714F4B00B2B7AB /* AllActListTableViewController.swift in Sources */,
+				F729AFC42576CE7200916A46 /* TutorialViewController.swift in Sources */,
 				572514D82566AE8D00AB79B9 /* DayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

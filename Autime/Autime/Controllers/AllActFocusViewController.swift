@@ -4,10 +4,13 @@
 //
 //  Created by Luis Eduardo Ramos on 30/11/20.
 //
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
 
 import UIKit
 
 class AllActFocusViewController: UIViewController {
+    
     //Outlets
     @IBOutlet weak var actNameTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
@@ -131,7 +134,6 @@ class AllActFocusViewController: UIViewController {
         }
     }
     
-    
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,20 +172,7 @@ class AllActFocusViewController: UIViewController {
         weeklySwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         starSwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         
-    }
-}
-
-//Add SF Rounded
-extension UIFont {
-    class func rounded(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
-        let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
-        let font: UIFont
-        
-        if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
-            font = UIFont(descriptor: descriptor, size: size)
-        } else {
-            font = systemFont
-        }
-        return font
+        //NavBar
+        self.title = actNameInfo
     }
 }

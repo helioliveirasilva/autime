@@ -35,6 +35,11 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //NavBar
+        navigationController?.isNavigationBarHidden = false
+    }
     // MARK: - Table view data source
     //Header TableView
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
