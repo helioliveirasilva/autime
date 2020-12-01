@@ -6,7 +6,12 @@
 //
 
 // swiftlint:disable force_cast
-// swiftlint:disable line_lenght
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
+// swiftlint:disable weak_delegate
+// swiftlint:disable opening_brace
+// swiftlint:disable colon
 
 import UIKit
 import CoreData
@@ -17,21 +22,7 @@ class SemanaViewController: UIViewController {
     var diasSemana: [[Bool]] = []
     var atividadesSemana: [AtividadesSemana] = []
     @IBOutlet var collectionView: UICollectionView!
-    
-    var imagens: [PhotoDays] = [PhotoDays(photoDay: "12/11", title: "12/11", images: ["test1","test2","test3","test4","test5","test2","test3","test4","test5"]),
-                                PhotoDays(photoDay: "13/11", title: "13/11", images: ["test3","test2","test5"]),
-                                PhotoDays(photoDay: "14/11", title: "14/11", images: ["test2","test1","test4","test5",]),
-                                PhotoDays(photoDay: "15/11", title: "15/11", images: ["test1","test3","test4","test2","test5","test1","test2"]),
-                                PhotoDays(photoDay: "15/11", title: "15/11", images: ["test1","test3","test4","test2","test5","test1","test2"]),
-                                PhotoDays(photoDay: "15/11", title: "15/11", images: ["test1","test3","test4","test2","test5","test1","test2"]),
-                                PhotoDays(photoDay: "15/11", title: "15/11", images: ["test1","test3","test4","test2","test5","test1","test2"]),
-                                PhotoDays(photoDay: "15/11", title: "15/11", images: ["test1","test3","test4","test2","test5","test1","test2"]),
-                                PhotoDays(photoDay: "15/11", title: "15/11", images: ["test1","test3","test4","test2","test5","test1","test2"]),
-                                PhotoDays(photoDay: "15/11", title: "15/11", images: ["test1","test3","test4","test2","test5","test1","test2"])]
-    
-    
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         getActivites()
@@ -40,8 +31,7 @@ class SemanaViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    
-    
+
     /*
      // MARK: - Navigation
      
@@ -53,9 +43,6 @@ class SemanaViewController: UIViewController {
      */
     
 }
-
-
-
 
 extension SemanaViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
@@ -91,13 +78,7 @@ extension SemanaViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         return cell
     }
-    
-    
 }
-
-
-
-
 
 
 extension SemanaViewController {
@@ -105,15 +86,9 @@ extension SemanaViewController {
     func getActivites() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        //let todayActivities = NSPredicate(format: "%K <= %@", #keyPath(Atividade.horario), Calendar.current.dateComponents([.day], from: Date()) as CVarArg)
         let sortByTime = NSSortDescriptor(key: "horario", ascending: true)
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
         request.sortDescriptors = [sortByTime]
-        //request.predicate = todayActivities
-        
-        
-        
-        
         
         do {
             let activitiesBank = try context.fetch(request)
@@ -136,8 +111,7 @@ extension SemanaViewController {
     }
     
     func setWeek(){
-        
-        var date = Date()
+        let date = Date()
         let format = DateFormatter()
         format.dateFormat = "dd/MM"
         let formattedDate = format.string(from: date)
@@ -146,7 +120,7 @@ extension SemanaViewController {
         print(calendar.component(.weekday, from: date))
         var dias: [Date] = []
         
-        for activity in activities{
+        for activity in activities {
             
             diasSemana.append([activity.domingo,
                                activity.segunda,
@@ -156,17 +130,16 @@ extension SemanaViewController {
                                activity.sexta,
                                activity.sabado
             ])
-            
         }
         
-        for ind in 0...6{
+        for ind in 0...6 {
             dias.append(addNumberOfDaysToDate(date: date, count: ind))
         }
         
-        for dia in dias{
-            var weekDay = calendar.component(.weekday, from: dia) - 1
+        for dia in dias {
+            let weekDay = calendar.component(.weekday, from: dia) - 1
             var atvs: [Atividade] = []
-            for activity in activities{
+            for activity in activities {
                 let week = [activity.domingo,
                             activity.segunda,
                             activity.terca,
@@ -183,11 +156,6 @@ extension SemanaViewController {
             let formattedData = format.string(from: dia)
             atividadesSemana.append(AtividadesSemana(data: dia, title: formattedData, atividades: atvs))
         }
-        
-        
-        
-        
-        
     }
     
     func addNumberOfDaysToDate(date: Date, count: Int) -> Date{
@@ -197,13 +165,7 @@ extension SemanaViewController {
         }
         return newDate
     }
-    
-    
 }
-
-
-
-
 
 struct PhotoDays {
     var photoDay: String

@@ -17,8 +17,6 @@ class DayViewController: UIViewController {
     
     @IBOutlet var tarefasCollection: UICollectionView!
     
-    var imagens: [UIImage] = [UIImage(named: "test.png")!, UIImage(named: "test1.jpeg")!, UIImage(named: "test2.jpeg")!, UIImage(named: "test3.jpg")!, UIImage(named: "test4.jpg")!, UIImage(named: "test5.jpg")!]
-    var nomes: [String] = ["Café da manhã", "Tomar banho", "Escola", "Psicóloga", "Passear com o cachorro", "Tarefa de casa"]
     var activities: [Atividade] = []
     var todayActivities: [Atividade] = []
     
@@ -26,7 +24,7 @@ class DayViewController: UIViewController {
         super.viewDidLoad()
         
         self.getActivites()
-        getTodayActivities()
+        self.getTodayActivities()
         
         tarefasCollection.delegate = self
         tarefasCollection.dataSource = self
@@ -59,11 +57,9 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         // Views
-        
         cell.backhourView.layer.cornerRadius = 15
         cell.layer.cornerRadius = 21
 
-                
         // Image
         var photo: UIImage!
               
@@ -74,13 +70,11 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         cell.imageView.image = photo
-
     
         // Fontes
         cell.hora.font = .rounded(ofSize: 16, weight: .heavy)
         cell.atividade.font = .rounded(ofSize: 20, weight: .medium)
         cell.subTarefas.font = .rounded(ofSize: 15, weight: .medium)
-
         
         // Date Formatter
         let dateFormatter = DateFormatter()
@@ -111,12 +105,10 @@ extension DayViewController {
     func getActivites() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        //let todayActivities = NSPredicate(format: "%K <= %@", #keyPath(Atividade.horario), Calendar.current.dateComponents([.day], from: Date()) as CVarArg)
         let sortByTime = NSSortDescriptor(key: "horario", ascending: true)
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
         
         request.sortDescriptors = [sortByTime]
-        //request.predicate = todayActivities
         
         do {
             let activitiesBank = try context.fetch(request)
@@ -135,17 +127,16 @@ extension DayViewController {
         }
     }
     
-    
     func getTodayActivities() {
-        var date = Date()
+        let date = Date()
         let format = DateFormatter()
         format.dateFormat = "dd/MM"
         let formattedDate = format.string(from: date)
         print(formattedDate)
         let calendar = Calendar.current
-        var weekDay = calendar.component(.weekday, from: date)
+        let weekDay = calendar.component(.weekday, from: date) - 1
         
-        for activity in activities{
+        for activity in activities {
            let diasSemana = [activity.domingo,
                                activity.segunda,
                                activity.terca,
@@ -154,13 +145,10 @@ extension DayViewController {
                                activity.sexta,
                                activity.sabado
             ]
-            if diasSemana[weekDay - 1]{
+            
+            if diasSemana[weekDay] {
                 todayActivities.append(activity)
             }
-            
         }
-        
     }
-        
-    
 }
