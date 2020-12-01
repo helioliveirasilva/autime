@@ -20,14 +20,19 @@ class DayViewController: UIViewController {
     var imagens: [UIImage] = [UIImage(named: "test.png")!, UIImage(named: "test1.jpeg")!, UIImage(named: "test2.jpeg")!, UIImage(named: "test3.jpg")!, UIImage(named: "test4.jpg")!, UIImage(named: "test5.jpg")!]
     var nomes: [String] = ["Café da manhã", "Tomar banho", "Escola", "Psicóloga", "Passear com o cachorro", "Tarefa de casa"]
     var activities: [Atividade] = []
+    var todayActivities: [Atividade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.getActivites()
+        getTodayActivities()
+        
         tarefasCollection.delegate = self
         tarefasCollection.dataSource = self
         
         self.navigationController?.navigationBar.isHidden = false
-        self.getActivites()
+        
     }
         
     /*
@@ -44,7 +49,7 @@ class DayViewController: UIViewController {
 
 extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.activities.count
+        return self.todayActivities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,7 +67,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         // Image
         var photo: UIImage!
               
-        if let data = self.activities[indexPath.item].image {
+        if let data = self.todayActivities[indexPath.item].image {
             photo = UIImage(data: data)
         } else {
             photo = UIImage()
@@ -80,10 +85,10 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         // Date Formatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let newDate = dateFormatter.string(from: self.activities[indexPath.item].horario!)
+        let newDate = dateFormatter.string(from: self.todayActivities[indexPath.item].horario!)
         
         cell.hora.text =  newDate
-        cell.atividade.text = self.activities[indexPath.item].nome ?? "Sem nome"
+        cell.atividade.text = self.todayActivities[indexPath.item].nome ?? "Sem nome"
         return cell
     }
     
@@ -92,7 +97,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
         
-        subtarefaView?.activity = self.activities[indexPath.item]
+        subtarefaView?.activity = self.todayActivities[indexPath.item]
         
         // subtarefaView.navigationController?.navigationBar.isHidden = false
         self.navigationController?.present(subtarefaView ?? UIViewController(), animated: true, completion: nil)
@@ -129,5 +134,33 @@ extension DayViewController {
             print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
         }
     }
+    
+    
+    func getTodayActivities() {
+        var date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "dd/MM"
+        let formattedDate = format.string(from: date)
+        print(formattedDate)
+        let calendar = Calendar.current
+        var weekDay = calendar.component(.weekday, from: date)
+        
+        for activity in activities{
+           let diasSemana = [activity.domingo,
+                               activity.segunda,
+                               activity.terca,
+                               activity.quarta,
+                               activity.quinta,
+                               activity.sexta,
+                               activity.sabado
+            ]
+            if diasSemana[weekDay - 1]{
+                todayActivities.append(activity)
+            }
+            
+        }
+        
+    }
+        
     
 }
