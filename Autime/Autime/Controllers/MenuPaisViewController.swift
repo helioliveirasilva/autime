@@ -59,7 +59,7 @@ class MenuPaisViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //View
-        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
         //NavBar
         navigationController?.navigationBar.setBackgroundImage(#colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1).image(), for:.default)
         navigationController?.navigationBar.shadowImage = UIImage()

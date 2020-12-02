@@ -66,7 +66,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="g20-zk-opz"/>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="g20-zk-opz">
+                        <barButtonItem key="backBarButtonItem" title=" " id="x9D-es-55q"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,7 +94,9 @@
                         <viewLayoutGuide key="safeArea" id="oCK-yr-MzM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cadastrar" id="vjT-Ev-U2k"/>
+                    <navigationItem key="navigationItem" title="Cadastrar" leftItemsSupplementBackButton="YES" id="vjT-Ev-U2k">
+                        <barButtonItem key="backBarButtonItem" title=" " id="bLM-l3-9ka"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lP3-t2-fsW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,7 +143,9 @@
                         <viewLayoutGuide key="safeArea" id="YMK-md-7qL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Perfis" id="kp5-Gu-VHL"/>
+                    <navigationItem key="navigationItem" title="Perfis" leftItemsSupplementBackButton="YES" id="kp5-Gu-VHL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="e8p-Kq-ySI"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCi-mQ-Inv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,7 +191,9 @@
                         <viewLayoutGuide key="safeArea" id="51W-8i-tsn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="8Fh-Hn-rmu"/>
+                    <navigationItem key="navigationItem" title="Login" leftItemsSupplementBackButton="YES" id="8Fh-Hn-rmu">
+                        <barButtonItem key="backBarButtonItem" title=" " id="rYs-BO-N2o"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFL-Sj-Xqi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,7 +201,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JeM-tf-npp"/>
+        <segue reference="Q7Y-mY-IZD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="linkColor">

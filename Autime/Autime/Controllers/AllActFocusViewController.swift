@@ -30,6 +30,9 @@ class AllActFocusViewController: UIViewController {
     @IBOutlet weak var weeklySwitch: UISwitch!
     @IBOutlet weak var starSwitch: UISwitch!
     @IBOutlet weak var pickerView: UIDatePicker!
+    @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var viewFakeBar: UIView!
+    @IBOutlet weak var imageButton: UIButton!
     
     //Variables
     var actNameInfo: String = "Erro"
@@ -137,8 +140,13 @@ class AllActFocusViewController: UIViewController {
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         //Colors
-        view.backgroundColor = .white
+        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        popupView.backgroundColor = .white
         monButton.backgroundColor = .systemGray2
         tueButton.backgroundColor = .systemGray2
         wedButton.backgroundColor = .systemGray2
@@ -167,6 +175,9 @@ class AllActFocusViewController: UIViewController {
         self.saveButton.layer.cornerRadius = 14
         saveButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         saveButton.titleLabel?.font = .rounded(ofSize: 16, weight: .medium)
+        imageButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        imageButton.layer.masksToBounds = true
+        imageButton.layer.cornerRadius = 21
         
         //Switchs
         weeklySwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
@@ -174,5 +185,19 @@ class AllActFocusViewController: UIViewController {
         
         //NavBar
         self.title = actNameInfo
+        
+        //PopUpView
+        popupView.layer.cornerRadius = 21
+        popupView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        popupView.layer.shadowOpacity = 0.15
+        popupView.layer.shadowRadius = 30.0
+        
+        //FakeNavBar
+        self.viewFakeBar.layer.cornerRadius = 21
+        viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        viewFakeBar.layer.shadowColor = UIColor.black.cgColor
+        viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        viewFakeBar.layer.shadowOpacity = 0.5
+        viewFakeBar.layer.shadowRadius = 4.0
     }
 }

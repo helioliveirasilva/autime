@@ -10,13 +10,13 @@ import UIKit
 class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewFakeBar: UIView!
     //Variables
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
     var catImages: [String] = ["CatDomestic", "CatHygiene", "CatEducation", "CatHealth", "CatFamily", "CatFriends", "CatFood", "CatEntertainment", "CatPrize", "CatExtras"]
    //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .secondarySystemBackground
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
@@ -24,8 +24,19 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //Background
+        self.view.backgroundColor = .secondarySystemBackground
+        
         //NavBar
         navigationController?.isNavigationBarHidden = false
+        
+        //FakeNavBar
+        self.viewFakeBar.layer.cornerRadius = 21
+        viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        viewFakeBar.layer.shadowColor = UIColor.black.cgColor
+        viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        viewFakeBar.layer.shadowOpacity = 0.5
+        viewFakeBar.layer.shadowRadius = 4.0
     }
 
     // MARK: - Table view data source
@@ -43,7 +54,7 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         //Font
         let myLabel = UILabel()
         myLabel.frame = CGRect(x: 20, y: 8, width: 500, height: 27)
-        myLabel.font = UIFont.systemFont(ofSize: 12)
+        myLabel.font = .rounded(ofSize: 12, weight: .regular)
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
         myLabel.backgroundColor = .clear
         myLabel.textColor = .systemGray
@@ -78,6 +89,7 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.font = .rounded(ofSize: 17, weight: .regular)
         return cell
     }
+    
     //Selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let allActList = storyboard?.instantiateViewController(identifier: "AllActListTableViewController") as? AllActListTableViewController else{

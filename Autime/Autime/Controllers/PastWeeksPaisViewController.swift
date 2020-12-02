@@ -10,6 +10,9 @@ import UIKit
 class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //Outlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewFakeBar: UIView!
+    
+    
     //Variables
     var semanasNovembro: [String] = ["22 a 28", "15 a 21", "08 a 14", "01 a 17"]
     var semanasOutubro: [String] = ["Em Breve"]
@@ -37,8 +40,19 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //FakeNavBar
+        self.viewFakeBar.layer.cornerRadius = 21
+        viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        viewFakeBar.layer.shadowColor = UIColor.black.cgColor
+        viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        viewFakeBar.layer.shadowOpacity = 0.5
+        viewFakeBar.layer.shadowRadius = 4.0
+            
         //NavBar
         navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFont.rounded(ofSize: 22, weight: .bold)
+        ]
     }
     // MARK: - Table view data source
     //Header TableView

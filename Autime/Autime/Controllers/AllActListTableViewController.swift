@@ -9,7 +9,12 @@
 
 import UIKit
 
-class AllActListTableViewController: UITableViewController {
+class AllActListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    //Outlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewFakeBar: UIView!
+    
     //Variables
     var categoria: Int?
     var categoriaName: String?
@@ -23,17 +28,37 @@ class AllActListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = .clear
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //BackGround
+        self.view.backgroundColor = .secondarySystemBackground
+        
+        //NavBar
+        navigationController?.isNavigationBarHidden = false
         navigationItem.title = categoriaName
+        
+        //FakeNavBar
+        self.viewFakeBar.layer.cornerRadius = 21
+        viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        viewFakeBar.layer.shadowColor = UIColor.black.cgColor
+        viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        viewFakeBar.layer.shadowOpacity = 0.5
+        viewFakeBar.layer.shadowRadius = 4.0
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         guard let categoria = categoria else {
             return 0
@@ -41,7 +66,7 @@ class AllActListTableViewController: UITableViewController {
         return info[categoria].count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actCell", for: indexPath)
 
         guard let categoria = categoria else {
@@ -56,7 +81,7 @@ class AllActListTableViewController: UITableViewController {
     }
     
     //Selection
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let allActFocus = storyboard?.instantiateViewController(identifier: "AllActFocusViewController") as? AllActFocusViewController else {
             return
         }
