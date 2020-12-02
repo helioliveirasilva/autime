@@ -119,6 +119,19 @@ extension DayViewController {
                     self.activities.append(activity as! Atividade)
                 }
                 
+                self.activities.sort {
+                    let date0 = $0.horario!
+                    let date1 = $1.horario!
+                    
+                    let format = DateFormatter()
+                    format.dateFormat = "HH:mm"
+                    
+                    let formattedDate0 = format.string(from: date0)
+                    let formattedDate1 = format.string(from: date1)
+                    
+                    return formattedDate0 < formattedDate1
+                }
+                
             } else {
                 print("Nenhuma atividade encontrada!")
             }

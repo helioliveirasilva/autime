@@ -44,7 +44,7 @@ class SemanaViewController: UIViewController {
     
 }
 
-extension SemanaViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension SemanaViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         atividadesSemana.count
@@ -140,14 +140,16 @@ extension SemanaViewController {
             let weekDay = calendar.component(.weekday, from: dia) - 1
             var atvs: [Atividade] = []
             for activity in activities {
-                let week = [activity.domingo,
-                            activity.segunda,
-                            activity.terca,
-                            activity.quarta,
-                            activity.quinta,
-                            activity.sexta,
-                            activity.sabado
+                let week = [
+                    activity.domingo,
+                    activity.segunda,
+                    activity.terca,
+                    activity.quarta,
+                    activity.quinta,
+                    activity.sexta,
+                    activity.sabado
                 ]
+                
                 if week[weekDay] {
                     atvs.append(activity)
                 }
