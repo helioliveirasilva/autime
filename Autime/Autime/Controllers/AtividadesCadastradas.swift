@@ -19,24 +19,34 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     // swiftlint:disable colon
     // swiftlint:disable trailing_newline
     
+    //Outlets
     @IBOutlet weak var labelNome: UITextField!
     @IBOutlet weak var pickerHora: UIDatePicker!
     @IBOutlet weak var switchEstrela: UISwitch!
-    @IBOutlet weak var switchSegunda: UISwitch!
-    @IBOutlet weak var switchTerca: UISwitch!
-    @IBOutlet weak var switchQuarta: UISwitch!
-    @IBOutlet weak var switchQuinta: UISwitch!
-    @IBOutlet weak var switchSexta: UISwitch!
-    @IBOutlet weak var switchSabado: UISwitch!
-    @IBOutlet weak var switchDomingo: UISwitch!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var repeatSwitch: UISwitch!
+    @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var weekLabel: UILabel!
+    @IBOutlet weak var repeatLabel: UILabel!
+    @IBOutlet weak var starLabel: UILabel!
+    @IBOutlet weak var subActLabel: UILabel!
+    @IBOutlet weak var monButton: UIButton!
+    @IBOutlet weak var tueButton: UIButton!
+    @IBOutlet weak var wedButton: UIButton!
+    @IBOutlet weak var thuButton: UIButton!
+    @IBOutlet weak var friButton: UIButton!
+    @IBOutlet weak var satButton: UIButton!
+    @IBOutlet weak var sunButton: UIButton!
     
+    //Variables
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var context: NSManagedObjectContext!
+    var pressMonday: Bool = false
     
+    //ViewDidLoad
     override func viewDidLoad() {
         self.context = appDelegate.persistentContainer.viewContext
-        self.imageView.image = UIImage()
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
@@ -46,6 +56,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
+    //ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         //NavBar
         navigationController?.isNavigationBarHidden = false
@@ -62,7 +73,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
-            imageView.image = image
+            imageButton.setImage(image, for: .normal)
             picker.dismiss(animated: true, completion: nil)
 
         }
@@ -79,14 +90,15 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         atividade.nome = self.labelNome.text ?? "Sem Nome"
         atividade.horario = self.pickerHora.date
         atividade.gerarEstrela = self.switchEstrela.isOn
-        atividade.segunda = self.switchSegunda.isOn
-        atividade.terca = self.switchTerca.isOn
-        atividade.quarta = self.switchQuarta.isOn
-        atividade.quinta = self.switchQuinta.isOn
-        atividade.sexta = self.switchSexta.isOn
-        atividade.sabado = self.switchSabado.isOn
-        atividade.domingo = self.switchDomingo.isOn
-        atividade.image = imageView.image?.pngData()
+        atividade.image = imageButton.image(for: .normal)?.pngData()
+        atividade.segunda = self.pressMonday
+//        atividade.terca = self.switchTerca.isOn
+//        atividade.quarta = self.switchQuarta.isOn
+//        atividade.quinta = self.switchQuinta.isOn
+//        atividade.sexta = self.switchSexta.isOn
+//        atividade.sabado = self.switchSabado.isOn
+//        atividade.domingo = self.switchDomingo.isOn
+
         
         // Criando Sub-Atividades
         for index in 1...10 {
@@ -106,28 +118,22 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    @IBAction func imprimir(_ sender: Any) {
-        // Action de Imprimir na TableView -> Segue Storyboard
+    @IBAction func weekTouch(_ sender: UIButton) {
+        if sender == monButton {
+            pressMonday = !pressMonday // inverte o booleano
+
+            if pressMonday {
+                monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+            } else {
+                monButton.backgroundColor = .systemGray2
+            }
+            
+        }
+        else if sender == tueButton {
+            
+        }
     }
+    
     
 }
 
-extension UITextField{
-    
-    func addDoneButtonToKeyboard(myAction:Selector?){
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
-        doneToolbar.barStyle = UIBarStyle.default
-        
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Retornar", style: UIBarButtonItem.Style.done, target: self, action: myAction)
-        
-        var items = [UIBarButtonItem]()
-        items.append(flexSpace)
-        items.append(done)
-        
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.inputAccessoryView = doneToolbar
-    }
-}
