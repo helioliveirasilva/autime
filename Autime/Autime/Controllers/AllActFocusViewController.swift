@@ -184,6 +184,7 @@ class AllActFocusViewController: UIViewController {
         
         //NavBar
         self.title = actNameInfo
+        navigationController?.isNavigationBarHidden = false
         
         //PopUpView
         popupView.layer.cornerRadius = 21
