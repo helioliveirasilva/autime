@@ -18,7 +18,11 @@ class DayViewController: UIViewController {
 
 
     
-    var activities: [Atividade] = []
+    var activities: [Atividade] = [] {
+        didSet {
+            tarefasCollection.reloadData()
+        }
+    }
     var todayActivities: [Atividade] = []
     
     override func viewDidLoad() {
@@ -31,7 +35,7 @@ class DayViewController: UIViewController {
         tarefasCollection.dataSource = self
         
         self.navigationController?.navigationBar.isHidden = false
-        self.getActivites()
+        self.getActivities()
     }
     
     /*
@@ -105,7 +109,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
 
 extension DayViewController {
     
-    func getActivites() {
+    func getActivities() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let sortByTime = NSSortDescriptor(key: "horario", ascending: true)
@@ -117,7 +121,7 @@ extension DayViewController {
             let activitiesBank = try context.fetch(request)
             
             if activitiesBank.count > 0 {
-                self.activities = []
+                self.activities.removeAll()
                 for activity in activitiesBank as! [NSManagedObject] {
                     self.activities.append(activity as! Atividade)
                 }

@@ -8,6 +8,12 @@
 // swiftlint:disable vertical_whitespace
 
 import UIKit
+import CoreData
+
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
 
 class AllActListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,13 +24,13 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
     //Variables
     var categoria: Int?
     var categoriaName: String?
-    var info = [["Comer", "Dormir"], ["Escola", "Terapia"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"]]
+//    var info = [["Comer", "Dormir"], ["Escola", "Terapia"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"]]
     //MARK:- Garantir que a TV carregue a info do banco de dados
-//    var info = 0 {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
+    var activities: [Atividade] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +38,8 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        
+        self.getActivities()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,21 +68,21 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let categoria = categoria else {
+        guard categoria != nil else {
             return 0
         }
-        return info[categoria].count
+        return self.activities.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actCell", for: indexPath)
 
-        guard let categoria = categoria else {
+        guard categoria != nil else {
             //Retornar célula vazia
             return UITableViewCell()
         }
         // Configure the cell...
-        cell.textLabel?.text = info[categoria][indexPath.row]
+        cell.textLabel?.text = self.activities[indexPath.row].nome
         cell.textLabel?.font = .rounded(ofSize: 17, weight: .regular)
 
         return cell
@@ -85,7 +93,7 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
         guard let allActFocus = storyboard?.instantiateViewController(identifier: "AllActFocusViewController") as? AllActFocusViewController else {
             return
         }
-        allActFocus.actNameInfo = info[categoria ?? 0][indexPath.row]
+        allActFocus.actNameInfo = self.activities[indexPath.row].nome ?? "Atividade Sem Nome"
         navigationController?.pushViewController(allActFocus, animated: true)
     }
 
@@ -136,3 +144,33 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
 
 }
 
+extension AllActListTableViewController {
+    
+    func getActivities() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let categoryActivities = NSPredicate(format: "%K == %@", #keyPath(Atividade.categoria), self.categoriaName as! CVarArg)
+        let sortByName = NSSortDescriptor(key: "nome", ascending: true)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        
+        request.sortDescriptors = [sortByName]
+        //request.predicate = todayActivities
+        
+        do {
+            let activitiesBank = try context.fetch(request)
+            
+            if activitiesBank.count > 0 {
+                self.activities.removeAll()
+                for activity in activitiesBank as! [NSManagedObject] {
+                    self.activities.append(activity as! Atividade)
+                }
+                
+            } else {
+                print("Nenhuma atividade encontrada!")
+            }
+        } catch  let erro {
+            print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
+        }
+    }
+    
+}

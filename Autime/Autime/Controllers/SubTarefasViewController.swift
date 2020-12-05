@@ -28,7 +28,13 @@ class SubTarefasViewController: UIViewController {
     @IBOutlet var subtarefasCollection: UICollectionView!
     @IBOutlet weak var botaoconcluir: UIButton!
     @IBOutlet weak var barraProgresso: UIProgressView!
-    var subActivities: [SubAtividade]! = []
+    var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
+    
+    var subActivities: [SubAtividade]! = [] {
+        didSet {
+            subtarefasCollection.reloadData()
+        }
+    }
     var activity: Atividade?
     
     override func viewDidLoad() {

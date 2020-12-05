@@ -8,8 +8,8 @@
 import UIKit
 import CoreData
 
-class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-    
+class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+
     // swiftlint:disable force_cast
     // swiftlint:disable line_length
     // swiftlint:disable trailing_whitespace
@@ -42,6 +42,8 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var viewFakeBar: UIView!
+    @IBOutlet weak var categoryTextField: UITextField!
+    var categoryPicker: UIPickerView! = UIPickerView()
     
     //Variables
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -53,19 +55,27 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var pressFri: Bool = false
     var pressSat: Bool = false
     var pressSun: Bool = false
+    
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
     
-    
-    //ViewDidLoad
     override func viewDidLoad() {
         self.context = appDelegate.persistentContainer.viewContext
         
+        self.categoryPicker.delegate = self
+        self.categoryPicker.dataSource = self
+        
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
-
+        
         self.labelNome.delegate = self
         self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
         
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.categoryPicker.resignFirstResponder))
+        toolbar.setItems([doneButton], animated: true)
+        self.categoryTextField.inputAccessoryView = toolbar
+        self.categoryTextField.inputView = self.categoryPicker
     }
     
     //ViewWillAppear
@@ -148,7 +158,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
             imageButton.setImage(image, for: .normal)
             picker.dismiss(animated: true, completion: nil)
-
+            
         }
     }
     
@@ -173,7 +183,8 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         atividade.sexta = self.pressFri
         atividade.sabado = self.pressSat
         atividade.domingo = self.pressSun
-
+        atividade.categoria = self.categoryTextField.text ?? "Extra"
+        
         // Criando Sub-Atividades
         for index in 1...10 {
             let step: SubAtividade! = SubAtividade(context: self.context)
@@ -251,5 +262,24 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     //End
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // Picker View Functions
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.categorias.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.categorias[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.categoryTextField.text = self.categorias[row]
+        self.categoryTextField.resignFirstResponder()
+    }
+    
 }
 
