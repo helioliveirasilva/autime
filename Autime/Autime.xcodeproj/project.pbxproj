@@ -24,6 +24,8 @@
 		3E4F9EAA256D3B710039BFFC /* DataBanco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F9EA8256D3B710039BFFC /* DataBanco.xcdatamodeld */; };
 		3E6F295C257155C4008CDBAB /* AutimeTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 24429714255D841A00CCEBAB /* AutimeTests.xctest */; };
 		3E6F295D257155C8008CDBAB /* AutimeUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 2442971F255D841A00CCEBAB /* AutimeUITests.xctest */; };
+		3EFCB96E257E7013001CA39B /* FeedbackChild.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFCB96D257E7013001CA39B /* FeedbackChild.xib */; };
+		3EFCB976257E7616001CA39B /* FeedbackChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCB975257E7616001CA39B /* FeedbackChildView.swift */; };
 		570183CE256D2D7000B038F8 /* SubtarefasCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570183CD256D2D7000B038F8 /* SubtarefasCollectionCell.swift */; };
 		572514CB25669BA600AB79B9 /* DiaFilhoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572514CA25669BA600AB79B9 /* DiaFilhoViewController.swift */; };
 		572514D32566ADB600AB79B9 /* FilhoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572514D22566ADB600AB79B9 /* FilhoCollectionViewCell.swift */; };
@@ -88,6 +90,8 @@
 		246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtividadesCadastradas.swift; sourceTree = "<group>"; };
 		3D53C705005DE7FBE96A95A1 /* Pods-AutimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.debug.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E4F9EA9256D3B710039BFFC /* AuTimeCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AuTimeCoreData.xcdatamodel; sourceTree = "<group>"; };
+		3EFCB96D257E7013001CA39B /* FeedbackChild.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackChild.xib; sourceTree = "<group>"; };
+		3EFCB975257E7616001CA39B /* FeedbackChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChildView.swift; sourceTree = "<group>"; };
 		48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime_AutimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570183CD256D2D7000B038F8 /* SubtarefasCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtarefasCollectionCell.swift; sourceTree = "<group>"; };
 		572514CA25669BA600AB79B9 /* DiaFilhoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaFilhoViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */,
 				F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */,
 				57DE9B77256BEEE800AB20A6 /* SubTarefas.storyboard */,
+				3EFCB96D257E7013001CA39B /* FeedbackChild.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				F7D61BA5256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift */,
 				F729AFC32576CE7200916A46 /* TutorialViewController.swift */,
 				24429705255D841900CCEBAB /* ViewController.swift */,
+				3EFCB975257E7616001CA39B /* FeedbackChildView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 				57DE9B78256BEEE800AB20A6 /* SubTarefas.storyboard in Resources */,
 				246F6659256BF90B001E2256 /* CadastrarAtividade.storyboard in Resources */,
 				2442970E255D841A00CCEBAB /* LaunchScreen.storyboard in Resources */,
+				3EFCB96E257E7013001CA39B /* FeedbackChild.xib in Resources */,
 				F79A33992562C72A00CD52C5 /* Filhos.storyboard in Resources */,
 				F79A33AD2562C9AA00CD52C5 /* PaisAllAct.storyboard in Resources */,
 				F79A339E2562C8A800CD52C5 /* PaisPastWeeks.storyboard in Resources */,
@@ -514,6 +521,7 @@
 				F74DA583256BE6C6005E6A2E /* MenuPaisViewController.swift in Sources */,
 				24429702255D841900CCEBAB /* AppDelegate.swift in Sources */,
 				3E4F9EAA256D3B710039BFFC /* DataBanco.xcdatamodeld in Sources */,
+				3EFCB976257E7616001CA39B /* FeedbackChildView.swift in Sources */,
 				57549444256FCE9C00BF0CE3 /* SemanaCollectionViewCell.swift in Sources */,
 				57549449256FCF1800BF0CE3 /* SemanaViewController.swift in Sources */,
 				572514CB25669BA600AB79B9 /* DiaFilhoViewController.swift in Sources */,
