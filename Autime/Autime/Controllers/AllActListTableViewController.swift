@@ -23,7 +23,7 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
     
     //Variables
     var categoria: Int?
-    var categoriaName: String?
+    var categoriaName: String!
 //    var info = [["Comer", "Dormir"], ["Escola", "Terapia"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"]]
     //MARK:- Garantir que a TV carregue a info do banco de dados
     var activities: [Atividade] = [] {
@@ -154,7 +154,7 @@ extension AllActListTableViewController {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
         
         request.sortDescriptors = [sortByName]
-        //request.predicate = todayActivities
+        request.predicate = categoryActivities
         
         do {
             let activitiesBank = try context.fetch(request)
