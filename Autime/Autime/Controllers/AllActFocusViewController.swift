@@ -8,6 +8,12 @@
 // swiftlint:disable vertical_whitespace
 
 import UIKit
+import CoreData
+
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
 
 class AllActFocusViewController: UIViewController {
     
@@ -43,6 +49,11 @@ class AllActFocusViewController: UIViewController {
     var isPressedFri: Bool = false
     var isPressedSat: Bool = false
     var isPressedSun: Bool = false
+    var activity: Atividade! {
+        didSet {
+            self.configureScreen()
+        }
+    }
     
     //Actions DailyButtons
     @IBAction func monButtonAction(_ sender: Any) {
@@ -140,19 +151,13 @@ class AllActFocusViewController: UIViewController {
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.getActivitiesDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //Colors
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         popupView.backgroundColor = .white
-        monButton.backgroundColor = .systemGray2
-        tueButton.backgroundColor = .systemGray2
-        wedButton.backgroundColor = .systemGray2
-        thuButton.backgroundColor = .systemGray2
-        friButton.backgroundColor = .systemGray2
-        satButton.backgroundColor = .systemGray2
-        sunButton.backgroundColor = .systemGray2
         
         //Labels
         actNameTextField.placeholder = actNameInfo
@@ -199,5 +204,53 @@ class AllActFocusViewController: UIViewController {
         viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
+    }
+}
+
+extension AllActFocusViewController {
+    func getActivitiesDetails() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
+        let categoryActivities = NSPredicate(format: "%K == %@", #keyPath(Atividade.nome), self.actNameInfo as! CVarArg)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        
+        request.predicate = categoryActivities
+        
+        do {
+            let activitiesBank = try context.fetch(request)
+            
+            if activitiesBank.count > 0 {
+                self.activity = activitiesBank[0] as! Atividade
+                
+            } else {
+                // Alerta de Erro
+                print("Nenhuma atividade encontrada!")
+            }
+        } catch  let erro {
+            print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
+        }
+        
+    }
+    
+    func configureScreen() {
+        var photo: UIImage!
+        
+        if let data = self.activity.image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
+        }
+        
+        self.imageButton.setImage(photo, for: .normal)
+        
+        self.pickerView.setDate(self.activity.horario ?? Date(), animated: false)
+                
+        self.monButton.backgroundColor = self.activity.segunda ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.tueButton.backgroundColor = self.activity.terca ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.wedButton.backgroundColor = self.activity.quarta ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.thuButton.backgroundColor = self.activity.quinta ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.friButton.backgroundColor = self.activity.sexta ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.satButton.backgroundColor = self.activity.sabado ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.sunButton.backgroundColor = self.activity.domingo ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
     }
 }
