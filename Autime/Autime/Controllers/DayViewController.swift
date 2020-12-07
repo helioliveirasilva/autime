@@ -14,22 +14,26 @@ import CoreData
 // swiftlint:disable vertical_whitespace
 
 class DayViewController: UIViewController {
-    
     @IBOutlet var tarefasCollection: UICollectionView!
+
+
     
-    var imagens: [UIImage] = [UIImage(named: "test.png")!, UIImage(named: "test1.jpeg")!, UIImage(named: "test2.jpeg")!, UIImage(named: "test3.jpg")!, UIImage(named: "test4.jpg")!, UIImage(named: "test5.jpg")!]
-    var nomes: [String] = ["Café da manhã", "Tomar banho", "Escola", "Psicóloga", "Passear com o cachorro", "Tarefa de casa"]
     var activities: [Atividade] = []
+    var todayActivities: [Atividade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.getActivites()
+        self.getTodayActivities()
+        
         tarefasCollection.delegate = self
         tarefasCollection.dataSource = self
         
         self.navigationController?.navigationBar.isHidden = false
         self.getActivites()
     }
-        
+    
     /*
      // MARK: - Navigation
      
@@ -44,7 +48,7 @@ class DayViewController: UIViewController {
 
 extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.activities.count
+        return self.todayActivities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,11 +56,15 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             print("Erro ao criar a célula")
             fatalError()
         }
-                
+        
+        // Views
+        cell.backhourView.layer.cornerRadius = 15
+        cell.layer.cornerRadius = 21
+
         // Image
         var photo: UIImage!
               
-        if let data = self.activities[indexPath.item].image {
+        if let data = self.todayActivities[indexPath.item].image {
             photo = UIImage(data: data)
         } else {
             photo = UIImage()
@@ -64,22 +72,29 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         cell.imageView.image = photo
     
+        // Fontes
+        cell.hora.font = .rounded(ofSize: 16, weight: .heavy)
+        cell.atividade.font = .rounded(ofSize: 20, weight: .medium)
+        cell.subTarefas.font = .rounded(ofSize: 15, weight: .medium)
+        
         // Date Formatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let newDate = dateFormatter.string(from: self.activities[indexPath.item].horario!)
+        let newDate = dateFormatter.string(from: self.todayActivities[indexPath.item].horario!)
         
         cell.hora.text =  newDate
-        cell.atividade.text = self.activities[indexPath.item].nome ?? "Sem nome"
+        cell.atividade.text = self.todayActivities[indexPath.item].nome ?? "Sem nome"
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+
         
         let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
         
-        subtarefaView?.activity = self.activities[indexPath.item]
+        subtarefaView?.activity = self.todayActivities[indexPath.item]
         
         // subtarefaView.navigationController?.navigationBar.isHidden = false
         self.navigationController?.present(subtarefaView ?? UIViewController(), animated: true, completion: nil)
@@ -93,12 +108,10 @@ extension DayViewController {
     func getActivites() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        //let todayActivities = NSPredicate(format: "%K <= %@", #keyPath(Atividade.horario), Calendar.current.dateComponents([.day], from: Date()) as CVarArg)
         let sortByTime = NSSortDescriptor(key: "horario", ascending: true)
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
         
         request.sortDescriptors = [sortByTime]
-        //request.predicate = todayActivities
         
         do {
             let activitiesBank = try context.fetch(request)
@@ -109,6 +122,19 @@ extension DayViewController {
                     self.activities.append(activity as! Atividade)
                 }
                 
+                self.activities.sort {
+                    let date0 = $0.horario!
+                    let date1 = $1.horario!
+                    
+                    let format = DateFormatter()
+                    format.dateFormat = "HH:mm"
+                    
+                    let formattedDate0 = format.string(from: date0)
+                    let formattedDate1 = format.string(from: date1)
+                    
+                    return formattedDate0 < formattedDate1
+                }
+                
             } else {
                 print("Nenhuma atividade encontrada!")
             }
@@ -117,4 +143,28 @@ extension DayViewController {
         }
     }
     
+    func getTodayActivities() {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "dd/MM"
+        let formattedDate = format.string(from: date)
+        print(formattedDate)
+        let calendar = Calendar.current
+        let weekDay = calendar.component(.weekday, from: date) - 1
+        
+        for activity in activities {
+           let diasSemana = [activity.domingo,
+                               activity.segunda,
+                               activity.terca,
+                               activity.quarta,
+                               activity.quinta,
+                               activity.sexta,
+                               activity.sabado
+            ]
+            
+            if diasSemana[weekDay] {
+                todayActivities.append(activity)
+            }
+        }
+    }
 }

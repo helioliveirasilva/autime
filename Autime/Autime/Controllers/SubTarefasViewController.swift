@@ -8,6 +8,10 @@
 import UIKit
 import CoreData
 
+var titulos: [String] = ["Casa", "Sapato", "Perna", "Bilola", "Panela", "Bacia", "1", "1", "1"]
+var checado: [Bool] = [true, true, true, true, true, true, true, true, true]
+var progresso: Float = 0
+
 class SubTarefasViewController: UIViewController {
     
     // swiftlint:disable force_cast
@@ -15,9 +19,15 @@ class SubTarefasViewController: UIViewController {
     // swiftlint:disable trailing_whitespace
     // swiftlint:disable vertical_whitespace
     
-    @IBOutlet var subtarefasCollection: UICollectionView!
-    var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
+    override func viewDidAppear(_ animated: Bool) {
+        barraProgresso.setProgress(progresso, animated: false)
+        subtarefasCollection.reloadData()
+
+    }
     
+    @IBOutlet var subtarefasCollection: UICollectionView!
+    @IBOutlet weak var botaoconcluir: UIButton!
+    @IBOutlet weak var barraProgresso: UIProgressView!
     var subActivities: [SubAtividade]! = []
     var activity: Atividade?
     
@@ -29,24 +39,32 @@ class SubTarefasViewController: UIViewController {
         
         self.getSubActivities()
         
-        // Do any additional setup after loading the view.
+        if checado.last == false {
+            botaoconcluir.isEnabled = true
+            botaoconcluir.backgroundColor = .green
+        }else {
+            botaoconcluir.isEnabled = false
+            botaoconcluir.backgroundColor = .gray
+        }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func concluir(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
+    
 
 }
 
 extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    override func didReceiveMemoryWarning() {
+    // Salvar contexto da sub Atividade
+    
+    super.didReceiveMemoryWarning()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.subActivities!.count
+        checado.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,12 +81,64 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         } else {
             photo = UIImage()
         }
-        
+        cell.layer.cornerRadius = 21
         cell.image.image = photo
-        cell.label.text = self.subActivities[indexPath.item].nome
+        cell.label.text = titulos[indexPath.item]
+        cell.imagecheck.isHidden = checado[indexPath.item]
+        
+        
 
         return cell
     }
+    
+ 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = subtarefasCollection.cellForItem(at: indexPath) as! SubtarefasCollectionCell
+
+        if indexPath.item == 0 {
+            
+            if checado[indexPath.item] == true {
+                checado[indexPath.item] = false
+                progresso = Float(indexPath.item+1)/Float(titulos.count)
+                barraProgresso.setProgress(progresso, animated: true)
+            } else {
+                progresso = Float(indexPath.item)/Float(titulos.count)
+                barraProgresso.setProgress(progresso, animated: true)
+
+                for che in indexPath.item...checado.count-1 {
+                    checado[che] = true
+                }
+            }
+            
+        } else if checado[indexPath.item-1] == false {
+            
+            if checado[indexPath.item] == true {
+                checado[indexPath.item] = false
+                progresso = Float(indexPath.item+1)/Float(titulos.count)
+                barraProgresso.setProgress(progresso, animated: true)
+
+            } else {
+                progresso = Float(indexPath.item)/Float(titulos.count)
+                barraProgresso.setProgress(progresso, animated: true)
+                for che in indexPath.item...checado.count-1 {
+                    checado[che] = true
+                }
+            }
+            
+        }
+        
+        if checado.last == false {
+            botaoconcluir.isEnabled = true
+            botaoconcluir.backgroundColor = .green
+        } else {
+            botaoconcluir.isEnabled = false
+            botaoconcluir.backgroundColor = .gray
+        }
+
+        subtarefasCollection.reloadData()
+    }
+    
     
     
 }

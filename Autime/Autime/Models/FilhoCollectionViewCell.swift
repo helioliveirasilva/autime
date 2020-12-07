@@ -10,9 +10,11 @@ import UIKit
 public class FilhoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var atividade: UILabel!
-    var subTarefas: UILabel!
+    @IBOutlet var subTarefas: UILabel!
     @IBOutlet var hora: UILabel!
-    
+    @IBOutlet weak var iconActivity: UIImageView!
+    @IBOutlet weak var backhourView: UIView!
+    @IBOutlet weak var mainViewCell: UIView!
     
     
 }

@@ -7,12 +7,12 @@
 
 import UIKit
 
+
+
 class SemanaCollectionViewCell: UICollectionViewCell {
+    // swiftlint:disable force_cast
+    // swiftlint:disable line_length
+    // swiftlint:disable trailing_whitespace
+    // swiftlint:disable vertical_whitespace
     @IBOutlet weak var image: UIImageView!
-    
-    var imageName: String!{
-        didSet{
-            image.image = UIImage(named: imageName)
-        }
-    }
 }
