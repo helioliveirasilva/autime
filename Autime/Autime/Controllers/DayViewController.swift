@@ -14,8 +14,9 @@ import CoreData
 // swiftlint:disable vertical_whitespace
 
 class DayViewController: UIViewController {
-    
     @IBOutlet var tarefasCollection: UICollectionView!
+
+
     
     var activities: [Atividade] = []
     var todayActivities: [Atividade] = []
@@ -30,9 +31,9 @@ class DayViewController: UIViewController {
         tarefasCollection.dataSource = self
         
         self.navigationController?.navigationBar.isHidden = false
-        
+        self.getActivites()
     }
-        
+    
     /*
      // MARK: - Navigation
      
@@ -87,6 +88,8 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+
         
         let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController

@@ -10,4 +10,7 @@ import UIKit
 class SubtarefasCollectionCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var imagecheck: UIImageView!
+    
+    
 }
