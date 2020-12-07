@@ -148,10 +148,25 @@ class AllActFocusViewController: UIViewController {
         }
     }
     
+    @IBAction func saveActivity() {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
+        
+        do {
+            self.updateActivity()
+            try context.save()
+        } catch let error {
+            print("Erro em ", error.localizedDescription)
+        }
+        
+    }
+    
+    
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getActivitiesDetails()
+        self.getActivityDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -208,7 +223,7 @@ class AllActFocusViewController: UIViewController {
 }
 
 extension AllActFocusViewController {
-    func getActivitiesDetails() {
+    func getActivityDetails() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
         let categoryActivities = NSPredicate(format: "%K == %@", #keyPath(Atividade.nome), self.actNameInfo as! CVarArg)
@@ -221,7 +236,6 @@ extension AllActFocusViewController {
             
             if activitiesBank.count > 0 {
                 self.activity = activitiesBank[0] as! Atividade
-                
             } else {
                 // Alerta de Erro
                 print("Nenhuma atividade encontrada!")
@@ -230,6 +244,19 @@ extension AllActFocusViewController {
             print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
         }
         
+    }
+    
+    func updateActivity() {
+        self.activity.setValue(self.actNameTextField.text!, forKey: "nome")
+        self.activity.setValue(self.imageButton.image(for: .normal)?.pngData(), forKey: "image")
+        self.activity.setValue(self.pickerView.date, forKey: "horario")
+        self.activity.setValue(self.isPressedMon, forKey: "segunda")
+        self.activity.setValue(self.isPressedTue, forKey: "terca")
+        self.activity.setValue(self.isPressedWed, forKey: "quarta")
+        self.activity.setValue(self.isPressedThu, forKey: "quinta")
+        self.activity.setValue(self.isPressedFri, forKey: "sexta")
+        self.activity.setValue(self.isPressedSat, forKey: "sabado")
+        self.activity.setValue(self.isPressedSun, forKey: "domingo")
     }
     
     func configureScreen() {
@@ -252,5 +279,15 @@ extension AllActFocusViewController {
         self.friButton.backgroundColor = self.activity.sexta ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
         self.satButton.backgroundColor = self.activity.sabado ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
         self.sunButton.backgroundColor = self.activity.domingo ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        
+        self.isPressedMon = self.activity.segunda
+        self.isPressedTue = self.activity.terca
+        self.isPressedWed = self.activity.quarta
+        self.isPressedThu = self.activity.quinta
+        self.isPressedFri = self.activity.sexta
+        self.isPressedSat = self.activity.sabado
+        self.isPressedSun = self.activity.domingo
+        
+        
     }
 }

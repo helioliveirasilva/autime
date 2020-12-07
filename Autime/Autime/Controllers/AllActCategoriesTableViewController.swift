@@ -97,43 +97,33 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         switch indexPath.row {
         case 0 :
-            print("clicou 0")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 1:
-            print("clicou 1")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 2:
-            print("clicou 2")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 3:
-            print("clicou 3")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 4:
-            print("clicou 4")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 5:
-            print("clicou 5")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 6:
-            print("clicou 6")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 7:
-            print("clicou 7")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 8:
-            print("clicou 8")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         case 9:
-            print("clicou 9")
             allActList.categoria = indexPath.row
             allActList.categoriaName = categorias[indexPath.row]
         default:

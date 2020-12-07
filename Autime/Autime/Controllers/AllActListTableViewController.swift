@@ -57,6 +57,8 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
         viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
+        
+        self.getActivities()
     }
 
     // MARK: - Table view data source
