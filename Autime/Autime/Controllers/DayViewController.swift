@@ -15,8 +15,6 @@ import CoreData
 
 class DayViewController: UIViewController {
     @IBOutlet var tarefasCollection: UICollectionView!
-
-
     
     var activities: [Atividade] = [] {
         didSet {

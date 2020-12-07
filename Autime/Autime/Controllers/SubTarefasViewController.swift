@@ -28,8 +28,10 @@ class SubTarefasViewController: UIViewController {
     @IBOutlet var subtarefasCollection: UICollectionView!
     @IBOutlet weak var botaoconcluir: UIButton!
     @IBOutlet weak var barraProgresso: UIProgressView!
+    var feedback:FeedbackChildView!
+
     var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
-    
+        
     var subActivities: [SubAtividade]! = [] {
         didSet {
             subtarefasCollection.reloadData()
@@ -39,6 +41,10 @@ class SubTarefasViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.feedback = FeedbackChildView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        self.view.addSubview(feedback)
+        self.feedback.isHidden = false
         
         subtarefasCollection.delegate = self
         subtarefasCollection.dataSource = self
