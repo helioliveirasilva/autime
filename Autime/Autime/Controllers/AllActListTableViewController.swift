@@ -23,7 +23,7 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
     var categoria: Int?
     var categoriaName: String!
 //    var info = [["Comer", "Dormir"], ["Escola", "Terapia"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"]]
-    //MARK:- Garantir que a TV carregue a info do banco de dados
+    // MARK: - Garantir que a TV carregue a info do banco de dados
     var activities: [Atividade] = [] {
         didSet {
             tableView.reloadData()

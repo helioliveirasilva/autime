@@ -47,7 +47,7 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
         viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
-            
+        
         //NavBar
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.titleTextAttributes = [
@@ -65,7 +65,7 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
     }
     //Header Customization
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
+        
         //Font
         let myLabel = UILabel()
         myLabel.frame = CGRect(x: 20, y: 8, width: 500, height: 27)
@@ -81,7 +81,7 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
         let headerView = UIView()
         headerView.addSubview(backLabel)
         headerView.addSubview(myLabel)
-
+        
         return headerView
     }
     //Sections
@@ -92,7 +92,7 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
     //Rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        switch section{
+        switch section {
         case 0:
             semanasAnteriores = semanasNovembro
         case 1:
@@ -125,7 +125,7 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
     //Cell Config
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        switch indexPath.section{
+        switch indexPath.section {
         case 0:
             semanasAnteriores = semanasNovembro
         case 1:

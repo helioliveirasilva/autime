@@ -47,21 +47,19 @@ class MenuPaisViewController: UIViewController {
         optionMenu.addAction(cancelAction)
         self.present(optionMenu, animated: true, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         //   self.navigationController?.navigationBar.isHidden = true
 
-
-
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         //View
         self.view.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
         //NavBar
-        navigationController?.navigationBar.setBackgroundImage(#colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1).image(), for:.default)
+        navigationController?.navigationBar.setBackgroundImage(#colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1).image(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.layoutIfNeeded()
         navigationController?.isNavigationBarHidden = true

@@ -92,7 +92,7 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //Selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let allActList = storyboard?.instantiateViewController(identifier: "AllActListTableViewController") as? AllActListTableViewController else{
+        guard let allActList = storyboard?.instantiateViewController(identifier: "AllActListTableViewController") as? AllActListTableViewController else {
             return
         }
         switch indexPath.row {

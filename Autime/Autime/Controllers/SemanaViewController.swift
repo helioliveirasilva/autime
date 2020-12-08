@@ -22,7 +22,7 @@ class SemanaViewController: UIViewController {
     var diasSemana: [[Bool]] = []
     var atividadesSemana: [AtividadesSemana] = []
     @IBOutlet var collectionView: UICollectionView!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getActivites()
@@ -31,7 +31,7 @@ class SemanaViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
+    
     /*
      // MARK: - Navigation
      
@@ -122,13 +122,14 @@ extension SemanaViewController {
         
         for activity in activities {
             
-            diasSemana.append([activity.domingo,
-                               activity.segunda,
-                               activity.terca,
-                               activity.quarta,
-                               activity.quinta,
-                               activity.sexta,
-                               activity.sabado
+            diasSemana.append([
+                activity.domingo,
+                activity.segunda,
+                activity.terca,
+                activity.quarta,
+                activity.quinta,
+                activity.sexta,
+                activity.sabado
             ])
         }
         
@@ -167,13 +168,6 @@ extension SemanaViewController {
         }
         return newDate
     }
-}
-
-struct PhotoDays {
-    var photoDay: String
-    var title: String
-    var images: [String]
-    
 }
 
 struct AtividadesSemana {
