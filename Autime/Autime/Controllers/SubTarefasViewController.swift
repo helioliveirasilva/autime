@@ -4,7 +4,10 @@
 //
 //  Created by Victor Vieira on 19/11/20.
 //
-
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
 import UIKit
 import CoreData
 
@@ -13,38 +16,27 @@ var checado: [Bool] = [true, true, true, true, true, true, true, true, true]
 var progresso: Float = 0
 
 class SubTarefasViewController: UIViewController {
-    
-    // swiftlint:disable force_cast
-    // swiftlint:disable line_length
-    // swiftlint:disable trailing_whitespace
-    // swiftlint:disable vertical_whitespace
-    
-    override func viewDidAppear(_ animated: Bool) {
-        barraProgresso.setProgress(progresso, animated: false)
-        subtarefasCollection.reloadData()
-
-    }
-    
     @IBOutlet var subtarefasCollection: UICollectionView!
     @IBOutlet weak var botaoconcluir: UIButton!
     @IBOutlet weak var barraProgresso: UIProgressView!
-    var feedback:FeedbackChildView!
+    var feedback: FeedbackChildView!
 
     var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
-        
+    
+    var activity: Atividade?
+
     var subActivities: [SubAtividade]! = [] {
         didSet {
             subtarefasCollection.reloadData()
         }
     }
-    var activity: Atividade?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.feedback = FeedbackChildView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.view.addSubview(feedback)
-        self.feedback.isHidden = false
+        self.feedback.isHidden = true
         
         subtarefasCollection.delegate = self
         subtarefasCollection.dataSource = self
@@ -54,14 +46,20 @@ class SubTarefasViewController: UIViewController {
         if checado.last == false {
             botaoconcluir.isEnabled = true
             botaoconcluir.backgroundColor = .green
-        }else {
+        } else {
             botaoconcluir.isEnabled = false
             botaoconcluir.backgroundColor = .gray
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        barraProgresso.setProgress(progresso, animated: false)
+        subtarefasCollection.reloadData()
+    }
+    
     @IBAction func concluir(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.feedback.isHidden = false
+        // self.dismiss(animated: true, completion: nil)
     }
     
 

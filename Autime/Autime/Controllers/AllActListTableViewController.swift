@@ -4,8 +4,6 @@
 //
 //  Created by Luis Eduardo Ramos on 27/11/20.
 //
-// swiftlint:disable trailing_whitespace
-// swiftlint:disable vertical_whitespace
 
 import UIKit
 import CoreData

@@ -26,7 +26,7 @@ class DayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.getActivites()
+        self.getActivities()
         self.getTodayActivities()
         
         tarefasCollection.delegate = self
@@ -62,10 +62,10 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         // Views
         cell.backhourView.layer.cornerRadius = 15
         cell.layer.cornerRadius = 21
-
+        
         // Image
         var photo: UIImage!
-              
+        
         if let data = self.todayActivities[indexPath.item].image {
             photo = UIImage(data: data)
         } else {
@@ -73,7 +73,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         cell.imageView.image = photo
-    
+        
         // Fontes
         cell.hora.font = .rounded(ofSize: 16, weight: .heavy)
         cell.atividade.font = .rounded(ofSize: 20, weight: .medium)
@@ -90,8 +90,8 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
-
+        
+        
         
         let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
@@ -155,13 +155,14 @@ extension DayViewController {
         let weekDay = calendar.component(.weekday, from: date) - 1
         
         for activity in activities {
-           let diasSemana = [activity.domingo,
-                               activity.segunda,
-                               activity.terca,
-                               activity.quarta,
-                               activity.quinta,
-                               activity.sexta,
-                               activity.sabado
+            let diasSemana = [
+                activity.domingo,
+                activity.segunda,
+                activity.terca,
+                activity.quarta,
+                activity.quinta,
+                activity.sexta,
+                activity.sabado
             ]
             
             if diasSemana[weekDay] {

@@ -31,9 +31,6 @@ class DiaFilhoViewController: UIViewController {
         date.dateFormat = "EEEE, dd/MM"
         date.locale = Locale(identifier: "pt_BR")
         
-        
-        
-        
         //Labels
         dayLabel.font = .rounded(ofSize: 20, weight: .black)
         hourLabel.font = .rounded(ofSize: 25, weight: .bold)
@@ -42,9 +39,6 @@ class DiaFilhoViewController: UIViewController {
         
         // Botão Trocar de Perfil
         self.changeProfileView.layer.cornerRadius = 21
-        
-        
-        
         
     }
     
@@ -58,21 +52,5 @@ class DiaFilhoViewController: UIViewController {
             dayView.isHidden = true
             weekView.isHidden = false
         }
-    }
-}
-
-
-
-extension UIFont {
-    class func rounded(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
-        let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
-        let font: UIFont
-        
-        if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
-            font = UIFont(descriptor: descriptor, size: size)
-        } else {
-            font = systemFont
-        }
-        return font
     }
 }
