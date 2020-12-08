@@ -14,10 +14,12 @@ class FeedbackChildView: UIView {
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var upsetButton: UIButton!
     @IBOutlet weak var sadButton: UIButton!
-    @IBOutlet weak var angryButton: UIButton!
     @IBOutlet weak var happyButton: UIButton!
+    @IBOutlet weak var cheerfulButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
+    
+    var emotion: String! = ""
 
     func commonInit(){
         
@@ -27,8 +29,8 @@ class FeedbackChildView: UIView {
         self.popUpView.layer.cornerRadius = 16
         self.upsetButton.layer.cornerRadius = self.upsetButton.bounds.width/4
         self.sadButton.layer.cornerRadius = self.sadButton.bounds.width/4
-        self.angryButton.layer.cornerRadius = self.angryButton.bounds.width/4
         self.happyButton.layer.cornerRadius = self.happyButton.bounds.width/4
+        self.cheerfulButton.layer.cornerRadius = self.cheerfulButton.bounds.width/4
 
     }
     
@@ -46,21 +48,55 @@ class FeedbackChildView: UIView {
 
         upsetButton.backgroundColor = .clear
         sadButton.backgroundColor = .clear
-        angryButton.backgroundColor = .clear
         happyButton.backgroundColor = .clear
+        cheerfulButton.backgroundColor = .clear
         
         sender.backgroundColor = #colorLiteral(red: 0.5725490196, green: 0.8156862745, blue: 0.4196078431, alpha: 1)
         
         if sender == upsetButton {
             // do something
+            self.emotion = "upset"
         } else if sender == sadButton {
             // do something
-        } else if sender == angryButton {
-            // do something
+            self.emotion = "sad"
         } else if sender == happyButton {
             // do something
+            self.emotion = "happy"
+        } else if sender == cheerfulButton {
+            // do something
+            self.emotion = "cheerful"
         } else {
             print("Foi bug, papai...")
         }
+    }
+    
+    @IBAction func continueOrSkipTap(_ sender: UIButton) {
+        
+        if sender == skipButton {
+            self.congratsScreen()
+        } else {
+            
+            if emotion != "" {
+                self.congratsScreen()
+            }
+            else {
+                print("Sem emoção.")
+            }
+        }
+        
+    }
+    
+    func congratsScreen() {
+        guard let parent: UIViewController = self.parentViewController else {
+            return
+        }
+        
+        parent.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension UIResponder {
+    public var parentViewController: UIViewController? {
+        return next as? UIViewController ?? next?.parentViewController
     }
 }

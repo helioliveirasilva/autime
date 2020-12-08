@@ -10,10 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackChildView" customModule="Autime" customModuleProvider="target">
             <connections>
-                <outlet property="angryButton" destination="YSb-y2-lP0" id="m3v-td-2fe"/>
+                <outlet property="cheerfulButton" destination="zko-9R-D5f" id="mOb-24-3NO"/>
                 <outlet property="contentView" destination="WJM-Xv-qpa" id="PD4-cZ-cEw"/>
                 <outlet property="continueButton" destination="88o-gJ-aPy" id="MQb-A1-0QQ"/>
-                <outlet property="happyButton" destination="zko-9R-D5f" id="mOb-24-3NO"/>
+                <outlet property="happyButton" destination="YSb-y2-lP0" id="m3v-td-2fe"/>
                 <outlet property="popUpView" destination="82K-5c-nje" id="h0S-Xf-fny"/>
                 <outlet property="sadButton" destination="QT1-QK-H5h" id="aig-eO-mm1"/>
                 <outlet property="skipButton" destination="Cz8-Oy-9pM" id="tHK-i7-1bE"/>
@@ -111,6 +111,9 @@
                                         <rect key="frame" x="137" y="296" width="107" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="continueButton"/>
+                                        <connections>
+                                            <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="Gzl-PL-pht"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz8-Oy-9pM">
                                         <rect key="frame" x="173" y="340" width="35" height="30"/>
@@ -118,6 +121,9 @@
                                         <state key="normal" title="Pular">
                                             <color key="titleColor" red="0.57198172810000003" green="0.81451219320000001" blue="0.41951823230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="tDv-x9-EqT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -134,7 +140,7 @@
     <resources>
         <image name="alegre" width="2200.5" height="2200.5"/>
         <image name="chateado" width="2200.5" height="2200.5"/>
-        <image name="continueButton" width="538" height="142"/>
+        <image name="continueButton" width="537.5" height="141"/>
         <image name="feliz" width="2200.5" height="2200.5"/>
         <image name="triste" width="2200.5" height="2200.5"/>
         <systemColor name="systemBackgroundColor">
