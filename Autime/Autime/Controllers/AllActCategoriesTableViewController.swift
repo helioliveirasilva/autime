@@ -10,17 +10,33 @@ import UIKit
 class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewFakeBar: UIView!
     //Variables
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
     var catImages: [String] = ["CatDomestic", "CatHygiene", "CatEducation", "CatHealth", "CatFamily", "CatFriends", "CatFood", "CatEntertainment", "CatPrize", "CatExtras"]
    //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .secondarySystemBackground
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //Background
+        self.view.backgroundColor = .secondarySystemBackground
+        
+        //NavBar
+        navigationController?.isNavigationBarHidden = false
+        
+        //FakeNavBar
+        self.viewFakeBar.layer.cornerRadius = 21
+        viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        viewFakeBar.layer.shadowColor = UIColor.black.cgColor
+        viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        viewFakeBar.layer.shadowOpacity = 0.5
+        viewFakeBar.layer.shadowRadius = 4.0
     }
 
     // MARK: - Table view data source
@@ -38,7 +54,7 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         //Font
         let myLabel = UILabel()
         myLabel.frame = CGRect(x: 20, y: 8, width: 500, height: 27)
-        myLabel.font = UIFont.systemFont(ofSize: 12)
+        myLabel.font = .rounded(ofSize: 12, weight: .regular)
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
         myLabel.backgroundColor = .clear
         myLabel.textColor = .systemGray
@@ -70,53 +86,49 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         // Configure the cell...
         cell.textLabel?.text = String(categorias[indexPath.row])
         cell.imageView?.image = UIImage(named: catImages[indexPath.row])
+        cell.textLabel?.font = .rounded(ofSize: 17, weight: .regular)
         return cell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    //Selection
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let allActList = storyboard?.instantiateViewController(identifier: "AllActListTableViewController") as? AllActListTableViewController else {
+            return
+        }
+        switch indexPath.row {
+        case 0 :
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 1:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 2:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 3:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 4:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 5:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 6:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 7:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 8:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        case 9:
+            allActList.categoria = indexPath.row
+            allActList.categoriaName = categorias[indexPath.row]
+        default:
+            print("default")
+        }
+        navigationController?.pushViewController(allActList, animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

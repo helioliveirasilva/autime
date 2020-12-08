@@ -18,7 +18,9 @@
                         <viewLayoutGuide key="safeArea" id="lvS-66-aKP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Criar Atividade" id="znI-a4-hom"/>
+                    <navigationItem key="navigationItem" title="Criar Atividade" leftItemsSupplementBackButton="YES" id="znI-a4-hom">
+                        <barButtonItem key="backBarButtonItem" title=" " id="88p-xA-7Fc"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DnL-ug-sQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="-1175.3623188405797" y="-146.65178571428569"/>
         </scene>
-        <!--perfis-->
+        <!--PerfilViewController-->
         <scene sceneID="SKF-0N-PJq">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="perfis" id="HDo-D4-h2o" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="PerfilViewController" id="HDo-D4-h2o" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kEx-jg-776"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsd-4r-akf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

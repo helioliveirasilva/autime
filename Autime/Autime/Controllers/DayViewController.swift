@@ -15,23 +15,25 @@ import CoreData
 
 class DayViewController: UIViewController {
     @IBOutlet var tarefasCollection: UICollectionView!
-
-
     
-    var activities: [Atividade] = []
+    var activities: [Atividade] = [] {
+        didSet {
+            tarefasCollection.reloadData()
+        }
+    }
     var todayActivities: [Atividade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.getActivites()
+        self.getActivities()
         self.getTodayActivities()
         
         tarefasCollection.delegate = self
         tarefasCollection.dataSource = self
         
         self.navigationController?.navigationBar.isHidden = false
-        self.getActivites()
+        self.getActivities()
     }
     
     /*
@@ -60,10 +62,10 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         // Views
         cell.backhourView.layer.cornerRadius = 15
         cell.layer.cornerRadius = 21
-
+        
         // Image
         var photo: UIImage!
-              
+        
         if let data = self.todayActivities[indexPath.item].image {
             photo = UIImage(data: data)
         } else {
@@ -71,7 +73,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         cell.imageView.image = photo
-    
+        
         // Fontes
         cell.hora.font = .rounded(ofSize: 16, weight: .heavy)
         cell.atividade.font = .rounded(ofSize: 20, weight: .medium)
@@ -88,8 +90,8 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
-
+        
+        
         
         let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
@@ -105,7 +107,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
 
 extension DayViewController {
     
-    func getActivites() {
+    func getActivities() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let sortByTime = NSSortDescriptor(key: "horario", ascending: true)
@@ -117,7 +119,7 @@ extension DayViewController {
             let activitiesBank = try context.fetch(request)
             
             if activitiesBank.count > 0 {
-                self.activities = []
+                self.activities.removeAll()
                 for activity in activitiesBank as! [NSManagedObject] {
                     self.activities.append(activity as! Atividade)
                 }
@@ -153,13 +155,14 @@ extension DayViewController {
         let weekDay = calendar.component(.weekday, from: date) - 1
         
         for activity in activities {
-           let diasSemana = [activity.domingo,
-                               activity.segunda,
-                               activity.terca,
-                               activity.quarta,
-                               activity.quinta,
-                               activity.sexta,
-                               activity.sabado
+            let diasSemana = [
+                activity.domingo,
+                activity.segunda,
+                activity.terca,
+                activity.quarta,
+                activity.quinta,
+                activity.sexta,
+                activity.sabado
             ]
             
             if diasSemana[weekDay] {

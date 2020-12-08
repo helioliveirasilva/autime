@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-v9-JPr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="23" width="414" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -40,13 +40,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agY-Vn-p9h">
+                                <rect key="frame" x="0.0" y="-59" width="414" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.45882352939999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hZF-Qf-Od0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Semanas Anteriores" id="XPH-bg-oEp"/>
+                    <navigationItem key="navigationItem" title="Semanas Anteriores" leftItemsSupplementBackButton="YES" id="XPH-bg-oEp">
+                        <barButtonItem key="backBarButtonItem" title=" " id="f0l-FM-jba"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="CL6-v9-JPr" id="uBG-kV-Wzi"/>
+                        <outlet property="viewFakeBar" destination="agY-Vn-p9h" id="gQU-8S-FEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gw4-Wb-aaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

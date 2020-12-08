@@ -12,9 +12,16 @@
         <scene sceneID="KoP-EY-QrF">
             <objects>
                 <navigationController id="lGo-q9-mCh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QdQ-b1-cpy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="QdQ-b1-cpy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JYc-ev-ZbF"/>
@@ -24,12 +31,12 @@
             </objects>
             <point key="canvasLocation" x="-790" y="138"/>
         </scene>
-        <!--Bem Vindo View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BemVindoViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bem-Vindo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eba-b8-sUz">
@@ -59,7 +66,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="g20-zk-opz"/>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="g20-zk-opz">
+                        <barButtonItem key="backBarButtonItem" title=" " id="x9D-es-55q"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +79,7 @@
             <objects>
                 <viewController id="rMn-Nz-y2f" customClass="CadastroViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wi1-vT-Poc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5m-pV-SXN">
@@ -85,7 +94,9 @@
                         <viewLayoutGuide key="safeArea" id="oCK-yr-MzM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cadastrar" id="vjT-Ev-U2k"/>
+                    <navigationItem key="navigationItem" title="Cadastrar" leftItemsSupplementBackButton="YES" id="vjT-Ev-U2k">
+                        <barButtonItem key="backBarButtonItem" title=" " id="bLM-l3-9ka"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lP3-t2-fsW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,9 +105,9 @@
         <!--Perfis-->
         <scene sceneID="Uc8-te-wF9">
             <objects>
-                <viewController storyboardIdentifier="perfis" id="5fY-t0-EC3" customClass="PerfilViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PerfilViewController" id="5fY-t0-EC3" customClass="PerfilViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSU-12-Nry">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quem é você?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHq-LU-gta">
@@ -132,7 +143,9 @@
                         <viewLayoutGuide key="safeArea" id="YMK-md-7qL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Perfis" id="kp5-Gu-VHL"/>
+                    <navigationItem key="navigationItem" title="Perfis" leftItemsSupplementBackButton="YES" id="kp5-Gu-VHL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="e8p-Kq-ySI"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCi-mQ-Inv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,7 +176,7 @@
             <objects>
                 <viewController id="04W-h0-t4y" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gWQ-6G-5qT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYB-ZP-0sM">
@@ -178,7 +191,9 @@
                         <viewLayoutGuide key="safeArea" id="51W-8i-tsn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="8Fh-Hn-rmu"/>
+                    <navigationItem key="navigationItem" title="Login" leftItemsSupplementBackButton="YES" id="8Fh-Hn-rmu">
+                        <barButtonItem key="backBarButtonItem" title=" " id="rYs-BO-N2o"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFL-Sj-Xqi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,7 +201,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JeM-tf-npp"/>
+        <segue reference="Q7Y-mY-IZD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="linkColor">
