@@ -49,7 +49,7 @@ class FeedbackChildView: UIView {
         angryButton.backgroundColor = .clear
         happyButton.backgroundColor = .clear
         
-        sender.backgroundColor = .systemPink
+        sender.backgroundColor = #colorLiteral(red: 0.5725490196, green: 0.8156862745, blue: 0.4196078431, alpha: 1)
         
         if sender == upsetButton {
             // do something
