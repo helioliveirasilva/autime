@@ -1,13 +1,14 @@
 //
-//  AllActCategoriesTableViewController.swift
+//  ThisWeekCategoryViewController.swift
 //  Autime
 //
-//  Created by Luis Eduardo Ramos on 24/11/20.
+//  Created by Luis Eduardo Ramos on 08/12/20.
 //
 
 import UIKit
 
-class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ThisWeekCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewFakeBar: UIView!
@@ -15,7 +16,8 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
     //Variables
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
     var catImages: [String] = ["CatDomestic", "CatHygiene", "CatEducation", "CatHealth", "CatFamily", "CatFriends", "CatFood", "CatEntertainment", "CatPrize", "CatExtras"]
-   //ViewDidLoad
+    
+    //DidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .clear
@@ -39,7 +41,6 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
     }
-
     // MARK: - Table view data source
     //Header TableView
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -93,7 +94,7 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //Selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let allActList = storyboard?.instantiateViewController(identifier: "AllActListTableViewController") as? AllActListTableViewController else {
+        guard let allActList = storyboard?.instantiateViewController(identifier: "AllActListTableViewController") as? AllActListTableViewController else{
             return
         }
         switch indexPath.row {
@@ -132,4 +133,15 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         navigationController?.pushViewController(allActList, animated: true)
     }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
