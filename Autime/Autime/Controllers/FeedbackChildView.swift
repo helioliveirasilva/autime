@@ -7,9 +7,8 @@
 
 import UIKit
 
-
 class FeedbackChildView: UIView {
-    
+    // Feedback
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var upsetButton: UIButton!
@@ -19,25 +18,29 @@ class FeedbackChildView: UIView {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     
+    // Congratulations
+    @IBOutlet weak var congratsView: UIView!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var outButton: UIButton!
+    
     var emotion: String! = ""
 
-    func commonInit(){
+    func commonInit() {
         
         Bundle.main.loadNibNamed("FeedbackChild", owner: self, options: nil)
         self.addSubview(contentView)
-        
+        self.addSubview(congratsView)
+        self.congratsView.isHidden = true
         self.popUpView.layer.cornerRadius = 16
+        self.congratsView.layer.cornerRadius = 16
         self.upsetButton.layer.cornerRadius = self.upsetButton.bounds.width/4
         self.sadButton.layer.cornerRadius = self.sadButton.bounds.width/4
         self.happyButton.layer.cornerRadius = self.happyButton.bounds.width/4
         self.cheerfulButton.layer.cornerRadius = self.cheerfulButton.bounds.width/4
-
     }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -69,7 +72,6 @@ class FeedbackChildView: UIView {
             print("Foi bug, papai...")
         }
     }
-    
     @IBAction func continueOrSkipTap(_ sender: UIButton) {
         
         if sender == skipButton {
@@ -78,19 +80,24 @@ class FeedbackChildView: UIView {
             
             if emotion != "" {
                 self.congratsScreen()
-            }
-            else {
+            } else {
                 print("Sem emoção.")
             }
         }
-        
+    }
+    
+    @IBAction func nextOrOutTap(_ sender: Any) {
+        self.dismissCard()
     }
     
     func congratsScreen() {
+        self.congratsView.isHidden = false
+    }
+    
+    func dismissCard() {
         guard let parent: UIViewController = self.parentViewController else {
             return
         }
-        
         parent.dismiss(animated: true, completion: nil)
     }
 }

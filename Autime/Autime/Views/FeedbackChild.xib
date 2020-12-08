@@ -11,9 +11,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackChildView" customModule="Autime" customModuleProvider="target">
             <connections>
                 <outlet property="cheerfulButton" destination="zko-9R-D5f" id="mOb-24-3NO"/>
+                <outlet property="congratsView" destination="Ogn-yy-p1w" id="eQY-cT-bBf"/>
                 <outlet property="contentView" destination="WJM-Xv-qpa" id="PD4-cZ-cEw"/>
                 <outlet property="continueButton" destination="88o-gJ-aPy" id="MQb-A1-0QQ"/>
                 <outlet property="happyButton" destination="YSb-y2-lP0" id="m3v-td-2fe"/>
+                <outlet property="nextButton" destination="coC-rE-6z5" id="z4q-hi-Uem"/>
+                <outlet property="outButton" destination="23X-Sa-EfW" id="2hf-Hf-qjA"/>
                 <outlet property="popUpView" destination="82K-5c-nje" id="h0S-Xf-fny"/>
                 <outlet property="sadButton" destination="QT1-QK-H5h" id="aig-eO-mm1"/>
                 <outlet property="skipButton" destination="Cz8-Oy-9pM" id="tHK-i7-1bE"/>
@@ -136,12 +139,77 @@
             <viewLayoutGuide key="safeArea" id="OHr-mM-m9Z"/>
             <point key="canvasLocation" x="808.69565217391312" y="75"/>
         </view>
+        <view contentMode="scaleToFill" id="j5t-LD-TIf">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" alpha="0.94999998807907104" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ao-yZ-6Ud">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Q0C-f8-eWx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ogn-yy-p1w">
+                                <rect key="frame" x="17" y="243" width="381" height="411"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coC-rE-6z5">
+                                        <rect key="frame" x="128" y="296" width="131" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="next"/>
+                                        <connections>
+                                            <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="FAm-5L-QcH"/>
+                                            <action selector="nextOrOutTap:" destination="-1" eventType="touchUpInside" id="luQ-95-L9M"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parabensLabel" translatesAutoresizingMaskIntoConstraints="NO" id="3FK-Yo-2W0">
+                                        <rect key="frame" x="70" y="8" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parabens" translatesAutoresizingMaskIntoConstraints="NO" id="7Ce-bV-wS0">
+                                        <rect key="frame" x="73" y="144" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="você concluiu uma atividade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfz-a2-g8M">
+                                        <rect key="frame" x="81" y="107" width="225" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23X-Sa-EfW">
+                                        <rect key="frame" x="178" y="340" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Sair">
+                                            <color key="titleColor" red="0.57198172810000003" green="0.81451219320000001" blue="0.41951823230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="Mnl-06-6Ue"/>
+                                            <action selector="nextOrOutTap:" destination="-1" eventType="touchUpInside" id="hnb-FB-Q5V"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="4Ne-aa-U2r"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <point key="canvasLocation" x="1662" y="75"/>
+        </view>
     </objects>
     <resources>
         <image name="alegre" width="2200.5" height="2200.5"/>
         <image name="chateado" width="2200.5" height="2200.5"/>
         <image name="continueButton" width="537.5" height="141"/>
         <image name="feliz" width="2200.5" height="2200.5"/>
+        <image name="next" width="611.5" height="131.5"/>
+        <image name="parabens" width="2200.5" height="2200.5"/>
+        <image name="parabensLabel" width="243.5" height="47"/>
         <image name="triste" width="2200.5" height="2200.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
