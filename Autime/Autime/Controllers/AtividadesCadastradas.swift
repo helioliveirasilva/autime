@@ -184,7 +184,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         atividade.sexta = self.pressFri
         atividade.sabado = self.pressSat
         atividade.domingo = self.pressSun
-        atividade.categoria = self.categoryTextField.text ?? "Extra"
+        atividade.categoria = self.categoryTextField.text
         
         // Criando Sub-Atividades
         for index in 1...10 {

@@ -94,7 +94,7 @@ class ThisWeekCategoryViewController: UIViewController, UITableViewDelegate, UIT
     
     //Selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let allActList = storyboard?.instantiateViewController(identifier: "ThisWeekAllActViewController") as? ThisWeekAllActViewController else{
+        guard let allActList = storyboard?.instantiateViewController(identifier: "ThisWeekAllActViewController") as? ThisWeekAllActViewController else {
             return
         }
         switch indexPath.row {
