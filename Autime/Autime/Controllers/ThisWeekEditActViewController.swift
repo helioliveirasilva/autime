@@ -13,7 +13,7 @@ import CoreData
 // swiftlint:disable trailing_whitespace
 // swiftlint:disable vertical_whitespace
 
-class ThisWeekEditActViewController: UIViewController {
+class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Outlets
     @IBOutlet weak var actNameTextField: UITextField!
@@ -47,104 +47,17 @@ class ThisWeekEditActViewController: UIViewController {
     var isPressedFri: Bool = false
     var isPressedSat: Bool = false
     var isPressedSun: Bool = false
+    var weekDayName: String = ""
+    var activity: Atividade! {
+        didSet {
+            self.configureScreen()
+        }
+    }
     
-    //Actions DailyButtons
-    @IBAction func monButtonAction(_ sender: Any) {
-        if isPressedMon == false {
-            isPressedMon = true
-            monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedMon == true {
-            isPressedMon = false
-            print("test")
-            monButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func tueButtonAct(_ sender: Any) {
-        if isPressedTue == false {
-            isPressedTue = true
-            tueButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedTue == true {
-            isPressedTue = false
-            print("test")
-            tueButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func wedButtonAct(_ sender: Any) {
-        if isPressedWed == false {
-            isPressedWed = true
-            wedButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedWed == true {
-            isPressedWed = false
-            print("test")
-            wedButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func thuButtonAct(_ sender: Any) {
-        if isPressedThu == false {
-            isPressedThu = true
-            thuButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedThu == true {
-            isPressedThu = false
-            print("test")
-            thuButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func friButtonAct(_ sender: Any) {
-        if isPressedFri == false {
-            isPressedFri = true
-            friButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedFri == true {
-            isPressedFri = false
-            print("test")
-            friButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func satButtonAct(_ sender: Any) {
-        if isPressedSat == false {
-            isPressedSat = true
-            satButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedSat == true {
-            isPressedSat = false
-            print("test")
-            satButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func sunButtonAct(_ sender: Any) {
-        if isPressedSun == false {
-            isPressedSun = true
-            sunButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedSun == true {
-            isPressedSun = false
-            print("test")
-            sunButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.getActivityDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,8 +65,9 @@ class ThisWeekEditActViewController: UIViewController {
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         popupView.backgroundColor = .white
         
-        //Labels
-        actNameTextField.placeholder = actNameInfo
+        //Labels        
+        actNameTextField.placeholder = "Nome da atividade"
+        actNameTextField.text = actNameInfo
         nameLabel.font = .rounded(ofSize: 16, weight: .medium)
         timeLabel.font = .rounded(ofSize: 16, weight: .medium)
         starLabel.font = .rounded(ofSize: 16, weight: .medium)
@@ -197,18 +111,168 @@ class ThisWeekEditActViewController: UIViewController {
         viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
+        
+        self.configureScreen()
+    }
+    
+    //Actions DailyButtons
+    @IBAction func monButtonAction(_ sender: Any) {
+        isPressedMon = !isPressedMon || weekDayName == "Segunda"
+        
+        if isPressedMon {
+            monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            monButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func tueButtonAct(_ sender: Any) {
+        isPressedTue = !isPressedTue || weekDayName == "Terça"
+        
+        if isPressedTue {
+            tueButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            tueButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func wedButtonAct(_ sender: Any) {
+        isPressedWed = !isPressedWed || weekDayName == "Quarta"
+        
+        if isPressedWed {
+            wedButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            wedButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func thuButtonAct(_ sender: Any) {
+        isPressedThu = !isPressedThu || weekDayName == "Quinta"
+        
+        if isPressedThu {
+            thuButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            thuButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func friButtonAct(_ sender: Any) {
+        isPressedFri = !isPressedFri || weekDayName == "Sexta"
+        
+        if isPressedFri {
+            friButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            friButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func satButtonAct(_ sender: Any) {
+        isPressedSat = !isPressedSat || weekDayName == "Sábado"
+        
+        if isPressedSat {
+            satButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            satButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func sunButtonAct(_ sender: Any) {
+        isPressedSun = !isPressedSun || weekDayName == "Domingo"
+        
+        if isPressedSun {
+            sunButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            sunButton.backgroundColor = .systemGray2
+        }
+    }
+    
+    @IBAction func saveButtonTap() {
+        self.updateActivity()
     }
 }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ThisWeekEditActViewController {
+    func getActivityDetails() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
+        let categoryActivities = NSPredicate(format: "%K == %@", #keyPath(Atividade.nome), self.actNameInfo as! CVarArg)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        
+        request.predicate = categoryActivities
+        
+        do {
+            let activitiesBank = try context.fetch(request)
+            
+            if activitiesBank.count > 0 {
+                self.activity = activitiesBank[0] as! Atividade
+            } else {
+                // Alerta de Erro
+                print("Nenhuma atividade encontrada!")
+            }
+        } catch  let erro {
+            print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
+        }
+        
     }
-    */
-
-
+    
+    func updateActivity() {
+        self.activity.setValue(self.actNameTextField.text!, forKey: "nome")
+        self.activity.setValue(self.imageButton.image(for: .normal)?.pngData(), forKey: "image")
+        self.activity.setValue(self.pickerView.date, forKey: "horario")
+        self.activity.setValue(self.isPressedMon, forKey: "segunda")
+        self.activity.setValue(self.isPressedTue, forKey: "terca")
+        self.activity.setValue(self.isPressedWed, forKey: "quarta")
+        self.activity.setValue(self.isPressedThu, forKey: "quinta")
+        self.activity.setValue(self.isPressedFri, forKey: "sexta")
+        self.activity.setValue(self.isPressedSat, forKey: "sabado")
+        self.activity.setValue(self.isPressedSun, forKey: "domingo")
+    }
+    
+    func configureScreen() {
+        var photo: UIImage!
+        
+        if let data = self.activity.image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
+        }
+        
+        self.imageButton.setImage(photo, for: .normal)
+        
+        self.pickerView.setDate(self.activity.horario ?? Date(), animated: false)
+        
+        self.isPressedMon = self.activity.segunda  || self.weekDayName == "Segunda"
+        self.isPressedTue = self.activity.terca    || self.weekDayName == "Terça"
+        self.isPressedWed = self.activity.quarta   || self.weekDayName == "Quarta"
+        self.isPressedThu = self.activity.quinta   || self.weekDayName == "Quinta"
+        self.isPressedFri = self.activity.sexta    || self.weekDayName == "Sexta"
+        self.isPressedSat = self.activity.sabado   || self.weekDayName == "Sábado"
+        self.isPressedSun = self.activity.domingo  || self.weekDayName == "Domingo"
+                
+        self.monButton.backgroundColor = self.isPressedMon ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.tueButton.backgroundColor = self.isPressedTue ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.wedButton.backgroundColor = self.isPressedWed ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.thuButton.backgroundColor = self.isPressedThu ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.friButton.backgroundColor = self.isPressedFri ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.satButton.backgroundColor = self.isPressedSat ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.sunButton.backgroundColor = self.isPressedSun ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        
+    }
+    
+    // Escolher Imagem
+    @IBAction func escolherImagem(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    // PickerController
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
+            self.imageButton.setImage(image, for: .normal)
+            picker.dismiss(animated: true, completion: nil)
+            
+        }
+    }
+    
+    // PickerControllerCancel
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}

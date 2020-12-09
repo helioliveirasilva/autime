@@ -64,7 +64,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         popupView.backgroundColor = .white
         
         //Labels
-        actNameTextField.placeholder = "Digite o nome aqui"
+        actNameTextField.placeholder = "Nome da atividade"
         actNameTextField.text = actNameInfo
         nameLabel.font = .rounded(ofSize: 16, weight: .medium)
         timeLabel.font = .rounded(ofSize: 16, weight: .medium)
@@ -110,18 +110,14 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
         
-        self.configureScreen()
+        self.getActivityDetails()
     }
     
     //Actions DailyButtons
     @IBAction func monButtonAction(_ sender: Any) {
         
-        self.isPressedMon = !isPressedMon
-        
-        if self.weekDayName == "Segunda" {
-            self.isPressedMon = true
-        }
-        
+        isPressedMon = !isPressedMon || self.weekDayName == "Segunda"
+    
         if isPressedMon {
             monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         } else {
@@ -129,11 +125,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func tueButtonAct(_ sender: Any) {
-        self.isPressedTue = !isPressedTue
-        
-        if self.weekDayName == "Terça" {
-            self.isPressedTue = true
-        }
+        isPressedTue = !isPressedTue || self.weekDayName == "Terça"
         
         if isPressedTue {
             tueButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
@@ -142,11 +134,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func wedButtonAct(_ sender: Any) {
-        self.isPressedWed = !isPressedWed
-        
-        if self.weekDayName == "Quarta" {
-            self.isPressedWed = true
-        }
+        isPressedWed = !isPressedWed || self.weekDayName == "Quarta"
         
         if isPressedWed {
             wedButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
@@ -155,12 +143,8 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func thuButtonAct(_ sender: Any) {
-        self.isPressedThu = !isPressedThu
-        
-        if self.weekDayName == "Quinta" {
-            self.isPressedThu = true
-        }
-        
+        isPressedThu = !isPressedThu || self.weekDayName == "Quinta"
+                
         if isPressedThu {
             thuButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         } else {
@@ -168,12 +152,8 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func friButtonAct(_ sender: Any) {
-        self.isPressedFri = !isPressedFri
-        
-        if self.weekDayName == "Sexta" {
-            self.isPressedFri = true
-        }
-        
+        isPressedFri = !isPressedFri || self.weekDayName == "Sexta"
+    
         if isPressedFri {
             friButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         } else {
@@ -181,12 +161,8 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func satButtonAct(_ sender: Any) {
-        self.isPressedSat = !isPressedSat
-        
-        if self.weekDayName == "Sábado" {
-            self.isPressedSat = true
-        }
-        
+        isPressedSat = !isPressedSat || self.weekDayName == "Sábado"
+    
         if isPressedSat {
             satButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         } else {
@@ -194,11 +170,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func sunButtonAct(_ sender: Any) {
-        self.isPressedSun = !isPressedSun
-        
-        if self.weekDayName == "Domingo" {
-            self.isPressedSun = true
-        }
+        isPressedSun = !isPressedSun || self.weekDayName == "Domingo"
         
         if isPressedSun {
             sunButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
@@ -219,6 +191,15 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
             print("Erro em ", error.localizedDescription)
         }
         
+        // Back to Day Table View
+        if weekDayName != "" {
+            for controller in self.navigationController!.viewControllers as Array {
+                if controller.isKind(of: ThisWeekDayViewController.self) {
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
+        }
     }
     
     @IBAction func chooseImage() {

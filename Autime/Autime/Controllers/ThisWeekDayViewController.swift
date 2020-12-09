@@ -8,7 +8,9 @@
 // swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace
 // swiftlint:disable vertical_whitespace
+
 import UIKit
+import CoreData
 
 class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,11 +21,14 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var addButton: UIButton!
     
     //Variables
-    var dayAct: [String] = ["Comer", "Estudar", "Terapia", "Correr"]
-    var actTime: [String] = ["08:00", "09:00", "10:00", "11:00"]
-    var weekDayName: String?
+    var weekDayName: String!
     let viewCreatAct = UIStoryboard(name: "CadastrarAtividade", bundle: nil).instantiateViewController(withIdentifier: "CadastrarAtividade") as? AtividadesCadastradas
     let viewAllAct = UIStoryboard(name: "PaisAllAct", bundle: nil).instantiateViewController(withIdentifier: "AllActPaisViewController") as? AllActPaisViewController
+    var activities: [Atividade] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +63,9 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
         //Button
         self.addButton.layer.cornerRadius = 14
         self.addButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        
+        self.getActivities()
+        self.tableView.reloadData()
     }
     
 
@@ -71,17 +79,21 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
     // Rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dayAct.count
+        return self.activities.count
     }
     
     // Cell Config
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
-        cell.textLabel?.text = String(dayAct[indexPath.row])
+        let date = self.activities[indexPath.row].horario!
+        let format = DateFormatter()
+        format.dateFormat = "HH:mm"
+        let formattedDate = format.string(from: date)
+
+        cell.textLabel?.text = self.activities[indexPath.row].nome
         cell.textLabel?.font = .rounded(ofSize: 17, weight: .regular)
-        cell.detailTextLabel?.text = String(actTime[indexPath.row])
+        cell.detailTextLabel?.text = formattedDate
         cell.detailTextLabel?.font = .rounded(ofSize: 17, weight: .regular)
         return cell
     }
@@ -91,12 +103,14 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
         guard let thisweekFocus = storyboard?.instantiateViewController(identifier: "ThisWeekEditActViewController") as? ThisWeekEditActViewController else {
             return
         }
-        thisweekFocus.actNameInfo = self.dayAct[indexPath.row]
+        thisweekFocus.actNameInfo = self.activities[indexPath.row].nome!
+        thisweekFocus.weekDayName = self.weekDayName!
         navigationController?.pushViewController(thisweekFocus, animated: true)
     }
     
     @IBAction func displayActionSheet(_ sender: Any) {
         let optionMenu = UIAlertController(title: nil, message: "Qual atividade?", preferredStyle: .actionSheet)
+
         //Create Activity
         let creatAct = UIAlertAction(title: "Criar Nova", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -117,6 +131,7 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
                 self.viewCreatAct?.pressSat = true
             }
             
+            self.viewCreatAct?.weekDayName = self.weekDayName
             self.navigationController?.pushViewController(self.viewCreatAct ?? ThisWeekCreatActViewController(), animated: true)
         })
 
@@ -138,6 +153,85 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
         optionMenu.addAction(allAct)
         optionMenu.addAction(cancelAction)
         self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+}
+
+extension ThisWeekDayViewController {
+    
+    func getActivities() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let sortByTime = NSSortDescriptor(key: "horario", ascending: true)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        
+        request.sortDescriptors = [sortByTime]
+        
+        do {
+            let activitiesBank = try context.fetch(request)
+            var weekDay: Int {
+                switch weekDayName {
+                case "Domingo":
+                    return 0
+                case "Segunda":
+                    return 1
+                case "Terça":
+                    return 2
+                case "Quarta":
+                    return 3
+                case "Quinta":
+                    return 4
+                case "Sexta":
+                    return 5
+                case "Sábado":
+                    return 6
+                default:
+                    return 0
+                }
+            }
+
+            if activitiesBank.count > 0 {
+                self.activities.removeAll()
+                
+                for activity in activitiesBank as! [NSManagedObject] {
+                    
+                    let act = activity as! Atividade
+                    
+                    let diasSemana = [
+                        act.domingo,
+                        act.segunda,
+                        act.terca,
+                        act.quarta,
+                        act.quinta,
+                        act.sexta,
+                        act.sabado
+                    ]
+                    
+                    if diasSemana[weekDay] {
+                        self.activities.append(act)
+                    }
+                    
+                }
+                
+                self.activities.sort {
+                    let date0 = $0.horario!
+                    let date1 = $1.horario!
+                    
+                    let format = DateFormatter()
+                    format.dateFormat = "HH:mm"
+                    
+                    let formattedDate0 = format.string(from: date0)
+                    let formattedDate1 = format.string(from: date1)
+                    
+                    return formattedDate0 < formattedDate1
+                }
+                
+            } else {
+                print("Nenhuma atividade encontrada!")
+            }
+        } catch  let erro {
+            print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
+        }
     }
     
 }

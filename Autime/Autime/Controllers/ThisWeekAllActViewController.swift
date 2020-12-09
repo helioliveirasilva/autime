@@ -55,6 +55,7 @@ class ThisWeekAllActViewController: UIViewController, UITableViewDelegate, UITab
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
         
+        self.getActivities()
     }
     
     // MARK: - Table view data source
@@ -90,7 +91,7 @@ class ThisWeekAllActViewController: UIViewController, UITableViewDelegate, UITab
         guard let allActFocus = storyboard?.instantiateViewController(identifier: "ThisWeekAddFocusViewController") as? ThisWeekAddFocusViewController else {
             return
         }
-//        allActFocus.actNameInfo = self.activities[indexPath.row].nome ?? "Atividade Sem Nome"
+
         allActFocus.actNameInfo = self.activities[indexPath.row].nome ?? "Atividade Sem Nome"
         navigationController?.pushViewController(allActFocus, animated: true)
     }

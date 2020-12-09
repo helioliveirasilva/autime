@@ -9,9 +9,7 @@
 // swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace
 // swiftlint:disable vertical_whitespace
-// swiftlint:disable weak_delegate
 // swiftlint:disable opening_brace
-// swiftlint:disable colon
 
 import UIKit
 import CoreData
@@ -115,9 +113,7 @@ extension SemanaViewController {
         let format = DateFormatter()
         format.dateFormat = "dd/MM"
         let formattedDate = format.string(from: date)
-        print(formattedDate)
         let calendar = Calendar.current
-        print(calendar.component(.weekday, from: date))
         var dias: [Date] = []
         
         for activity in activities {

@@ -4,20 +4,19 @@
 //
 //  Created by Hélio Silva on 23/11/20.
 //
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
+// swiftlint:disable weak_delegate
+// swiftlint:disable opening_brace
+// swiftlint:disable colon
+// swiftlint:disable trailing_newline
 
 import UIKit
 import CoreData
 
 class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
-
-    // swiftlint:disable force_cast
-    // swiftlint:disable line_length
-    // swiftlint:disable trailing_whitespace
-    // swiftlint:disable vertical_whitespace
-    // swiftlint:disable weak_delegate
-    // swiftlint:disable opening_brace
-    // swiftlint:disable colon
-    // swiftlint:disable trailing_newline
     
     //Outlets
     @IBOutlet weak var labelNome: UITextField!
@@ -55,6 +54,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var pressFri: Bool = false
     var pressSat: Bool = false
     var pressSun: Bool = false
+    var weekDayName: String = ""
     
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
     
@@ -206,19 +206,19 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     // Weekday Selection
     @IBAction func weekTouch(_ sender: UIButton) {
         if sender == monButton {
-            pressMon = !pressMon
+            pressMon = !pressMon || weekDayName == "Segunda"
         } else if sender == tueButton {
-            pressTue = !pressTue
+            pressTue = !pressTue || weekDayName == "Terça"
         } else if sender == wedButton {
-            pressWed = !pressWed
+            pressWed = !pressWed || weekDayName == "Quarta"
         } else if sender == thuButton {
-            pressThu = !pressThu
+            pressThu = !pressThu || weekDayName == "Quinta"
         } else if sender == friButton {
-            pressFri = !pressFri
+            pressFri = !pressFri || weekDayName == "Sexa"
         } else if sender == satButton {
-            pressSat = !pressSat
+            pressSat = !pressSat || weekDayName == "Sábado"
         } else if sender == sunButton {
-            pressSun = !pressSun
+            pressSun = !pressSun || weekDayName == "Domingo"
         }
         
         self.configureScreen()

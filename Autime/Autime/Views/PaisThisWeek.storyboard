@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="PQm-Wc-RCd" style="IBUITableViewCellStyleDefault" id="KnF-fi-Ras">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="PQm-Wc-RCd" detailTextLabel="p6W-q8-d4M" style="IBUITableViewCellStyleValue1" id="KnF-fi-Ras">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KnF-fi-Ras" id="wgt-7w-Iih">
@@ -30,7 +30,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PQm-Wc-RCd">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                                    <rect key="frame" x="20" y="12" width="33" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p6W-q8-d4M">
+                                                    <rect key="frame" x="331" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -162,6 +169,9 @@
                                 <state key="normal" title="Salvar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonTap" destination="8Rg-54-ra2" eventType="touchUpInside" id="oVw-Am-ljJ"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="POd-N8-dlb">
                                 <rect key="frame" x="20" y="60" width="374" height="601"/>
@@ -174,6 +184,9 @@
                                         <state key="normal" title="Foto do item" image="test5">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="escolherImagem:" destination="8Rg-54-ra2" eventType="touchUpInside" id="kbc-21-7Lj"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome da atividade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoH-28-h8C">
                                         <rect key="frame" x="55" y="200" width="232" height="21"/>
@@ -217,7 +230,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterS"/>
                                         <connections>
-                                            <action selector="monButtonAction:" destination="8Rg-54-ra2" eventType="touchUpInside" id="sAt-Wq-DzD"/>
+                                            <action selector="monButtonAction:" destination="8Rg-54-ra2" eventType="touchUpInside" id="bxq-KU-APB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-vt-Wsq">
@@ -226,7 +239,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterT"/>
                                         <connections>
-                                            <action selector="tueButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="QkF-0c-Kqi"/>
+                                            <action selector="tueButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="i0c-L6-qeF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC4-pq-8OP">
@@ -235,7 +248,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterQ"/>
                                         <connections>
-                                            <action selector="wedButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="aHa-5L-EsH"/>
+                                            <action selector="wedButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="Ia8-sd-XbD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0E-1r-vqV">
@@ -244,7 +257,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterQ"/>
                                         <connections>
-                                            <action selector="thuButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="PIr-5g-vzz"/>
+                                            <action selector="thuButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="mSx-7K-WBG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22c-Aj-Kkp">
@@ -253,7 +266,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterS"/>
                                         <connections>
-                                            <action selector="friButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="6Kz-NB-F5W"/>
+                                            <action selector="friButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="thO-c0-yer"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egu-NV-vaV">
@@ -262,7 +275,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterS"/>
                                         <connections>
-                                            <action selector="satButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="yYi-5M-Psv"/>
+                                            <action selector="satButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="BlS-t8-d0o"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOQ-ky-nc7">
@@ -271,7 +284,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterD"/>
                                         <connections>
-                                            <action selector="sunButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="ath-bw-0FG"/>
+                                            <action selector="sunButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="2md-dr-agr"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gerar Estrela" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ye3-Tf-s4Z">
@@ -742,7 +755,6 @@
                                         <state key="normal" image="letterS"/>
                                         <connections>
                                             <action selector="monButtonAction:" destination="and-Zh-Nhd" eventType="touchUpInside" id="hmf-YT-osq"/>
-                                            <action selector="monButtonAction:" destination="8Rg-54-ra2" eventType="touchUpInside" id="yVT-Jg-Env"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8M-om-3xq">
@@ -751,7 +763,6 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterT"/>
                                         <connections>
-                                            <action selector="tueButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="Ei3-UG-Ud7"/>
                                             <action selector="tueButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="G8n-8r-Edz"/>
                                         </connections>
                                     </button>
@@ -761,7 +772,6 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterQ"/>
                                         <connections>
-                                            <action selector="wedButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="g2r-sZ-UpW"/>
                                             <action selector="wedButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="uGz-CL-N8R"/>
                                         </connections>
                                     </button>
@@ -771,7 +781,6 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterQ"/>
                                         <connections>
-                                            <action selector="thuButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="TaE-4z-lvy"/>
                                             <action selector="thuButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="VV2-uf-7aQ"/>
                                         </connections>
                                     </button>
@@ -781,7 +790,6 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterS"/>
                                         <connections>
-                                            <action selector="friButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="Q8U-pL-D5Y"/>
                                             <action selector="friButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="dhL-rj-pmx"/>
                                         </connections>
                                     </button>
@@ -791,7 +799,6 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterS"/>
                                         <connections>
-                                            <action selector="satButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="ixT-WX-UMC"/>
                                             <action selector="satButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="vaJ-a0-TZb"/>
                                         </connections>
                                     </button>
@@ -802,7 +809,6 @@
                                         <state key="normal" image="letterD"/>
                                         <connections>
                                             <action selector="sunButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="MlV-nh-OV8"/>
-                                            <action selector="sunButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="hA9-by-SSo"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gerar Estrela" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bq-Ac-L4x">
