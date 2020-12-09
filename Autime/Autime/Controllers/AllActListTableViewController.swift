@@ -22,7 +22,8 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
     //Variables
     var categoria: Int?
     var categoriaName: String!
-//    var info = [["Comer", "Dormir"], ["Escola", "Terapia"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"]]
+    var weekDayName: String! = ""
+    
     // MARK: - Garantir que a TV carregue a info do banco de dados
     var activities: [Atividade] = [] {
         didSet {
@@ -93,7 +94,9 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
         guard let allActFocus = storyboard?.instantiateViewController(identifier: "AllActFocusViewController") as? AllActFocusViewController else {
             return
         }
+        allActFocus.weekDayName = self.weekDayName
         allActFocus.actNameInfo = self.activities[indexPath.row].nome ?? "Atividade Sem Nome"
+        
         navigationController?.pushViewController(allActFocus, animated: true)
     }
 

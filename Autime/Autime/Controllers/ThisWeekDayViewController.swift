@@ -4,7 +4,10 @@
 //
 //  Created by Luis Eduardo Ramos on 07/12/20.
 //
-
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
 import UIKit
 
 class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -19,10 +22,9 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
     var dayAct: [String] = ["Comer", "Estudar", "Terapia", "Correr"]
     var actTime: [String] = ["08:00", "09:00", "10:00", "11:00"]
     var weekDayName: String?
-    let viewCreatAct = UIStoryboard(name: "PaisThisWeek", bundle: nil).instantiateViewController(withIdentifier: "ThisWeekCreatActViewController") as? ThisWeekCreatActViewController
-    let viewAllAct = UIStoryboard(name: "PaisThisWeek", bundle: nil).instantiateViewController(withIdentifier: "ThisWeekCategoryViewController") as? ThisWeekCategoryViewController
+    let viewCreatAct = UIStoryboard(name: "CadastrarAtividade", bundle: nil).instantiateViewController(withIdentifier: "CadastrarAtividade") as? AtividadesCadastradas
+    let viewAllAct = UIStoryboard(name: "PaisAllAct", bundle: nil).instantiateViewController(withIdentifier: "AllActPaisViewController") as? AllActPaisViewController
     
-    //DidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .secondarySystemBackground
@@ -30,11 +32,8 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-
-        // Do any additional setup after loading the view.
     }
     
-    //WillAppear
     override func viewWillAppear(_ animated: Bool) {
         //NavBar
         navigationController?.isNavigationBarHidden = false
@@ -59,24 +58,23 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
         //Button
         self.addButton.layer.cornerRadius = 14
         self.addButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-        
-        
-        
     }
     
 
     // MARK: - Table view data source
-    //Sections
+    // Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    //Rows
+    
+    // Rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return dayAct.count
     }
-    //Cell Config
+    
+    // Cell Config
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
@@ -87,7 +85,8 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
         cell.detailTextLabel?.font = .rounded(ofSize: 17, weight: .regular)
         return cell
     }
-    //Select ROw
+    
+    // Select Row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let thisweekFocus = storyboard?.instantiateViewController(identifier: "ThisWeekEditActViewController") as? ThisWeekEditActViewController else {
             return
@@ -97,19 +96,38 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func displayActionSheet(_ sender: Any) {
-        let optionMenu = UIAlertController(title: nil, message: "Qual atividade?" , preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Qual atividade?", preferredStyle: .actionSheet)
         //Create Activity
         let creatAct = UIAlertAction(title: "Criar Nova", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-//            print("Seman Atual")
+
+            if self.weekDayName == "Domingo" {
+                self.viewCreatAct?.pressSun = true
+            } else if self.weekDayName == "Segunda" {
+                self.viewCreatAct?.pressMon = true
+            } else if self.weekDayName == "Terça" {
+                self.viewCreatAct?.pressTue = true
+            } else if self.weekDayName == "Quarta" {
+                self.viewCreatAct?.pressWed = true
+            } else if self.weekDayName == "Quinta" {
+                self.viewCreatAct?.pressThu = true
+            } else if self.weekDayName == "Sexta" {
+                self.viewCreatAct?.pressFri = true
+            } else if self.weekDayName == "Sábado" {
+                self.viewCreatAct?.pressSat = true
+            }
+            
             self.navigationController?.pushViewController(self.viewCreatAct ?? ThisWeekCreatActViewController(), animated: true)
         })
+
         //All Activities
         let allAct = UIAlertAction(title: "Usar Cadastrada", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-//            print("Semanas Anteriores")
+
+            self.viewAllAct?.weekDayName = self.weekDayName
             self.navigationController?.pushViewController(self.viewAllAct ?? ThisWeekCategoryViewController(), animated: true)
         })
+        
         //Cancel Button
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in

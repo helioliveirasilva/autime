@@ -69,13 +69,16 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         
         self.labelNome.delegate = self
         self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
-        
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.categoryPicker.resignFirstResponder))
-        toolbar.setItems([doneButton], animated: true)
-        self.categoryTextField.inputAccessoryView = toolbar
+
+//        botao de done não esta dando dismiss no picker...
+//        let toolbar = UIToolbar()
+//        toolbar.sizeToFit()
+//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.categoryPicker.resignFirstResponder))
+//        self.categoryPicker.delegate = self
+//        toolbar.setItems([doneButton], animated: true)
+//        self.categoryTextField.inputAccessoryView = toolbar
         self.categoryTextField.inputView = self.categoryPicker
+        
     }
     
     //ViewWillAppear
@@ -140,20 +143,19 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
         
-        
+        self.configureScreen()    
     }
     
-    //Escolher Imagem
+    // Escolher Imagem
     @IBAction func escolherImagem(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         present(imagePicker, animated: true)
-        
     }
     
-    //PickerCOntroller
+    // PickerController
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
             imageButton.setImage(image, for: .normal)
@@ -162,13 +164,12 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    
-    //PickerControllerCancel
+    // PickerControllerCancel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
     
-    //Salvar
+    // Salvar
     @IBAction func salvar(_ sender: Any) {
                 
         let atividade = Atividade(context: self.context)
@@ -202,66 +203,70 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    //Weekday Selection
+    // Weekday Selection
     @IBAction func weekTouch(_ sender: UIButton) {
         if sender == monButton {
-            pressMon = !pressMon // inverte o booleano
-            if pressMon {
-                monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            } else {
-                monButton.backgroundColor = .systemGray2
-            }
-            
+            pressMon = !pressMon
         } else if sender == tueButton {
-            pressTue = !pressTue // inverte o booleano
-            if pressTue {
-                tueButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            } else {
-                tueButton.backgroundColor = .systemGray2
-            }
-            
+            pressTue = !pressTue
         } else if sender == wedButton {
-            pressWed = !pressWed // inverte o booleano
-            if pressWed {
-                wedButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            } else {
-                wedButton.backgroundColor = .systemGray2
-            }
-            
+            pressWed = !pressWed
         } else if sender == thuButton {
-            pressThu = !pressThu // inverte o booleano
-            if pressThu {
-                thuButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            } else {
-                thuButton.backgroundColor = .systemGray2
-            }
-            
+            pressThu = !pressThu
         } else if sender == friButton {
-            pressFri = !pressFri // inverte o booleano
-            if pressFri {
-                friButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            } else {
-                friButton.backgroundColor = .systemGray2
-            }
-            
+            pressFri = !pressFri
         } else if sender == satButton {
-            pressSat = !pressSat // inverte o booleano
-            if pressSat {
-                satButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            } else {
-                satButton.backgroundColor = .systemGray2
-            }
-            
+            pressSat = !pressSat
         } else if sender == sunButton {
-            pressSun = !pressSun // inverte o booleano
-            if pressSun {
-                sunButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            } else {
-                sunButton.backgroundColor = .systemGray2
-            }
+            pressSun = !pressSun
+        }
+        
+        self.configureScreen()
+    }
+    
+    func configureScreen() {
+        if pressMon {
+            monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            monButton.backgroundColor = .systemGray2
+        }
+        
+        if pressTue {
+            tueButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            tueButton.backgroundColor = .systemGray2
+        }
+        
+        if pressWed {
+            wedButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            wedButton.backgroundColor = .systemGray2
+        }
+        
+        if pressThu {
+            thuButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            thuButton.backgroundColor = .systemGray2
+        }
+        
+        if pressFri {
+            friButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            friButton.backgroundColor = .systemGray2
+        }
+        
+        if pressSat {
+            satButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            satButton.backgroundColor = .systemGray2
+        }
+        
+        if pressSun {
+            sunButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            sunButton.backgroundColor = .systemGray2
         }
     }
-    //End
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

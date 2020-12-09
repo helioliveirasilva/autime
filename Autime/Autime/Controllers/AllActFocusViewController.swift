@@ -4,18 +4,15 @@
 //
 //  Created by Luis Eduardo Ramos on 30/11/20.
 //
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace
 // swiftlint:disable vertical_whitespace
 
 import UIKit
 import CoreData
 
-// swiftlint:disable force_cast
-// swiftlint:disable line_length
-// swiftlint:disable trailing_whitespace
-// swiftlint:disable vertical_whitespace
-
-class AllActFocusViewController: UIViewController {
+class AllActFocusViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     //Outlets
     @IBOutlet weak var actNameTextField: UITextField!
@@ -49,121 +46,13 @@ class AllActFocusViewController: UIViewController {
     var isPressedFri: Bool = false
     var isPressedSat: Bool = false
     var isPressedSun: Bool = false
+    var weekDayName: String! = ""
     var activity: Atividade! {
         didSet {
             self.configureScreen()
         }
     }
     
-    //Actions DailyButtons
-    @IBAction func monButtonAction(_ sender: Any) {
-        if isPressedMon == false {
-            isPressedMon = true
-            monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedMon == true {
-            isPressedMon = false
-            print("test")
-            monButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func tueButtonAct(_ sender: Any) {
-        if isPressedTue == false {
-            isPressedTue = true
-            tueButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedTue == true {
-            isPressedTue = false
-            print("test")
-            tueButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func wedButtonAct(_ sender: Any) {
-        if isPressedWed == false {
-            isPressedWed = true
-            wedButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedWed == true {
-            isPressedWed = false
-            print("test")
-            wedButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func thuButtonAct(_ sender: Any) {
-        if isPressedThu == false {
-            isPressedThu = true
-            thuButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedThu == true {
-            isPressedThu = false
-            print("test")
-            thuButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func friButtonAct(_ sender: Any) {
-        if isPressedFri == false {
-            isPressedFri = true
-            friButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedFri == true {
-            isPressedFri = false
-            print("test")
-            friButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func satButtonAct(_ sender: Any) {
-        if isPressedSat == false {
-            isPressedSat = true
-            satButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedSat == true {
-            isPressedSat = false
-            print("test")
-            satButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    @IBAction func sunButtonAct(_ sender: Any) {
-        if isPressedSun == false {
-            isPressedSun = true
-            sunButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-            return
-        }
-        if isPressedSun == true {
-            isPressedSun = false
-            print("test")
-            sunButton.backgroundColor = .systemGray2
-            return
-        }
-    }
-    
-    @IBAction func saveActivity() {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
-        
-        do {
-            self.updateActivity()
-            try context.save()
-        } catch let error {
-            print("Erro em ", error.localizedDescription)
-        }
-        
-    }
-    
-    
-    //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getActivityDetails()
@@ -175,7 +64,8 @@ class AllActFocusViewController: UIViewController {
         popupView.backgroundColor = .white
         
         //Labels
-        actNameTextField.placeholder = actNameInfo
+        actNameTextField.placeholder = "Digite o nome aqui"
+        actNameTextField.text = actNameInfo
         nameLabel.font = .rounded(ofSize: 16, weight: .medium)
         timeLabel.font = .rounded(ofSize: 16, weight: .medium)
         starLabel.font = .rounded(ofSize: 16, weight: .medium)
@@ -219,7 +109,141 @@ class AllActFocusViewController: UIViewController {
         viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
+        
+        self.configureScreen()
     }
+    
+    //Actions DailyButtons
+    @IBAction func monButtonAction(_ sender: Any) {
+        
+        self.isPressedMon = !isPressedMon
+        
+        if self.weekDayName == "Segunda" {
+            self.isPressedMon = true
+        }
+        
+        if isPressedMon {
+            monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            monButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func tueButtonAct(_ sender: Any) {
+        self.isPressedTue = !isPressedTue
+        
+        if self.weekDayName == "Terça" {
+            self.isPressedTue = true
+        }
+        
+        if isPressedTue {
+            tueButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            tueButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func wedButtonAct(_ sender: Any) {
+        self.isPressedWed = !isPressedWed
+        
+        if self.weekDayName == "Quarta" {
+            self.isPressedWed = true
+        }
+        
+        if isPressedWed {
+            wedButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            wedButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func thuButtonAct(_ sender: Any) {
+        self.isPressedThu = !isPressedThu
+        
+        if self.weekDayName == "Quinta" {
+            self.isPressedThu = true
+        }
+        
+        if isPressedThu {
+            thuButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            thuButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func friButtonAct(_ sender: Any) {
+        self.isPressedFri = !isPressedFri
+        
+        if self.weekDayName == "Sexta" {
+            self.isPressedFri = true
+        }
+        
+        if isPressedFri {
+            friButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            friButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func satButtonAct(_ sender: Any) {
+        self.isPressedSat = !isPressedSat
+        
+        if self.weekDayName == "Sábado" {
+            self.isPressedSat = true
+        }
+        
+        if isPressedSat {
+            satButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            satButton.backgroundColor = .systemGray2
+        }
+    }
+    @IBAction func sunButtonAct(_ sender: Any) {
+        self.isPressedSun = !isPressedSun
+        
+        if self.weekDayName == "Domingo" {
+            self.isPressedSun = true
+        }
+        
+        if isPressedSun {
+            sunButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        } else {
+            sunButton.backgroundColor = .systemGray2
+        }
+    }
+    
+    @IBAction func saveActivity() {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
+        
+        do {
+            self.updateActivity()
+            try context.save()
+        } catch let error {
+            print("Erro em ", error.localizedDescription)
+        }
+        
+    }
+    
+    @IBAction func chooseImage() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    // PickerController
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
+            imageButton.setImage(image, for: .normal)
+            picker.dismiss(animated: true, completion: nil)
+            
+        }
+    }
+    
+    // PickerControllerCancel
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+        
+    
 }
 
 extension AllActFocusViewController {
@@ -271,23 +295,22 @@ extension AllActFocusViewController {
         self.imageButton.setImage(photo, for: .normal)
         
         self.pickerView.setDate(self.activity.horario ?? Date(), animated: false)
+        
+        self.isPressedMon = self.activity.segunda  || self.weekDayName == "Segunda"
+        self.isPressedTue = self.activity.terca    || self.weekDayName == "Terça"
+        self.isPressedWed = self.activity.quarta   || self.weekDayName == "Quarta"
+        self.isPressedThu = self.activity.quinta   || self.weekDayName == "Quinta"
+        self.isPressedFri = self.activity.sexta    || self.weekDayName == "Sexta"
+        self.isPressedSat = self.activity.sabado   || self.weekDayName == "Sábado"
+        self.isPressedSun = self.activity.domingo  || self.weekDayName == "Domingo"
                 
-        self.monButton.backgroundColor = self.activity.segunda ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
-        self.tueButton.backgroundColor = self.activity.terca ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
-        self.wedButton.backgroundColor = self.activity.quarta ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
-        self.thuButton.backgroundColor = self.activity.quinta ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
-        self.friButton.backgroundColor = self.activity.sexta ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
-        self.satButton.backgroundColor = self.activity.sabado ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
-        self.sunButton.backgroundColor = self.activity.domingo ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
-        
-        self.isPressedMon = self.activity.segunda
-        self.isPressedTue = self.activity.terca
-        self.isPressedWed = self.activity.quarta
-        self.isPressedThu = self.activity.quinta
-        self.isPressedFri = self.activity.sexta
-        self.isPressedSat = self.activity.sabado
-        self.isPressedSun = self.activity.domingo
-        
+        self.monButton.backgroundColor = self.isPressedMon ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.tueButton.backgroundColor = self.isPressedTue ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.wedButton.backgroundColor = self.isPressedWed ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.thuButton.backgroundColor = self.isPressedThu ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.friButton.backgroundColor = self.isPressedFri ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.satButton.backgroundColor = self.isPressedSat ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
+        self.sunButton.backgroundColor = self.isPressedSun ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
         
     }
 }

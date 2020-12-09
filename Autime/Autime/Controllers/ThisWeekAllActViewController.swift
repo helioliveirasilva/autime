@@ -22,7 +22,6 @@ class ThisWeekAllActViewController: UIViewController, UITableViewDelegate, UITab
     //Variables
     var categoria: Int?
     var categoriaName: String!
-//    var info = [["Comer", "Dormir"], ["Escola", "Terapia"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"], ["Em Breve"]]
     var activities: [Atividade] = [] {
         didSet {
             tableView.reloadData()
@@ -38,12 +37,10 @@ class ThisWeekAllActViewController: UIViewController, UITableViewDelegate, UITab
         tableView.tableFooterView = UIView()
         
         self.getActivities()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //BackGround
+        //Background
         self.view.backgroundColor = .secondarySystemBackground
         
         //NavBar
@@ -58,7 +55,6 @@ class ThisWeekAllActViewController: UIViewController, UITableViewDelegate, UITab
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
         
-//        self.getActivities()
     }
     
     // MARK: - Table view data source
