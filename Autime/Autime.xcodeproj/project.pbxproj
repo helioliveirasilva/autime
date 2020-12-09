@@ -10,7 +10,6 @@
 		14DB7EB0F25457D30A4D9562 /* Pods_AutimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F36CE04F6B32A9EC192B835F /* Pods_AutimeTests.framework */; };
 		23F60844B30509A0E878EF10 /* Pods_Autime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78EE28FD2397C5709D4B2F0F /* Pods_Autime.framework */; };
 		24192998256C427C0044A530 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24192997256C427C0044A530 /* TableViewCell.swift */; };
-		241929A0256C4CCF0044A530 /* AtividadesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419299F256C4CCF0044A530 /* AtividadesTableViewController.swift */; };
 		24429702255D841900CCEBAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429701255D841900CCEBAB /* AppDelegate.swift */; };
 		24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429703255D841900CCEBAB /* SceneDelegate.swift */; };
 		24429706255D841900CCEBAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429705255D841900CCEBAB /* ViewController.swift */; };
@@ -77,7 +76,6 @@
 
 /* Begin PBXFileReference section */
 		24192997256C427C0044A530 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		2419299F256C4CCF0044A530 /* AtividadesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtividadesTableViewController.swift; sourceTree = "<group>"; };
 		244296FE255D841900CCEBAB /* Autime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24429701255D841900CCEBAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24429703255D841900CCEBAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 				F7D61BBD25714F4B00B2B7AB /* AllActListTableViewController.swift */,
 				F7F0AC6B25752E2000D89AF1 /* AllActFocusViewController.swift */,
 				246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */,
-				2419299F256C4CCF0044A530 /* AtividadesTableViewController.swift */,
 				572514CA25669BA600AB79B9 /* DiaFilhoViewController.swift */,
 				572514D72566AE8D00AB79B9 /* DayViewController.swift */,
 				F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */,
@@ -549,7 +546,6 @@
 				24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */,
 				F7D61BAE256BEB5500B2B7AB /* PastWeeksPaisViewController.swift in Sources */,
 				57549459256FD25400BF0CE3 /* SectionHeaderView.swift in Sources */,
-				241929A0256C4CCF0044A530 /* AtividadesTableViewController.swift in Sources */,
 				24192998256C427C0044A530 /* TableViewCell.swift in Sources */,
 				F7F0AC6C25752E2000D89AF1 /* AllActFocusViewController.swift in Sources */,
 				572514D32566ADB600AB79B9 /* FilhoCollectionViewCell.swift in Sources */,
