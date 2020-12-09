@@ -200,6 +200,9 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
                 }
             }
         }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func chooseImage() {

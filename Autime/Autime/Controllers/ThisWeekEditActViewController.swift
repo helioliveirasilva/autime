@@ -182,6 +182,7 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
     
     @IBAction func saveButtonTap() {
         self.updateActivity()
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

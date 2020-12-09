@@ -201,6 +201,8 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         } catch {
             print("Erro ao salvar os dados")
         }
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     // Weekday Selection
