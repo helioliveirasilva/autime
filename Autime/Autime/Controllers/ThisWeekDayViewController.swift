@@ -19,7 +19,10 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
     var dayAct: [String] = ["Comer", "Estudar", "Terapia", "Correr"]
     var actTime: [String] = ["08:00", "09:00", "10:00", "11:00"]
     var weekDayName: String?
+    let viewCreatAct = UIStoryboard(name: "PaisThisWeek", bundle: nil).instantiateViewController(withIdentifier: "ThisWeekCreatActViewController") as? ThisWeekCreatActViewController
+    let viewAllAct = UIStoryboard(name: "PaisThisWeek", bundle: nil).instantiateViewController(withIdentifier: "ThisWeekCategoryViewController") as? ThisWeekCategoryViewController
     
+    //DidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .secondarySystemBackground
@@ -31,6 +34,7 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
     }
     
+    //WillAppear
     override func viewWillAppear(_ animated: Bool) {
         //NavBar
         navigationController?.isNavigationBarHidden = false
@@ -84,11 +88,38 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     //Select ROw
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let thisweekFocus = storyboard?.instantiateViewController(identifier: "ThisWeekEditActViewController") as? ThisWeekEditActViewController else {
             return
         }
-        thisweekFocus.actNameInfo = self.dayAct[indexPath.row] ?? "Atividade Sem Nome"
+        thisweekFocus.actNameInfo = self.dayAct[indexPath.row]
         navigationController?.pushViewController(thisweekFocus, animated: true)
     }
+    
+    @IBAction func displayActionSheet(_ sender: Any) {
+        let optionMenu = UIAlertController(title: nil, message: "Qual atividade?" , preferredStyle: .actionSheet)
+        //Create Activity
+        let creatAct = UIAlertAction(title: "Criar Nova", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+//            print("Seman Atual")
+            self.navigationController?.pushViewController(self.viewCreatAct ?? ThisWeekCreatActViewController(), animated: true)
+        })
+        //All Activities
+        let allAct = UIAlertAction(title: "Usar Cadastrada", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+//            print("Semanas Anteriores")
+            self.navigationController?.pushViewController(self.viewAllAct ?? ThisWeekCategoryViewController(), animated: true)
+        })
+        //Cancel Button
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+//            print("Canceled")
+        })
+        //Add actions on Action Sheet
+        optionMenu.addAction(creatAct)
+        optionMenu.addAction(allAct)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
 }

@@ -117,6 +117,9 @@
                                         <state key="normal" title="Adicionar Atividade">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="displayActionSheet:" destination="ZEf-EH-gYl" eventType="touchUpInside" id="ATj-KT-f5s"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -366,19 +369,14 @@
             </objects>
             <point key="canvasLocation" x="1602.8985507246377" y="-622.09821428571422"/>
         </scene>
-        <!--Title-->
+        <!--Categorias-->
         <scene sceneID="nwZ-35-4jk">
             <objects>
-                <viewController id="PoJ-Ku-IBh" customClass="ThisWeekCategoryViewController" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThisWeekCategoryViewController" id="PoJ-Ku-IBh" customClass="ThisWeekCategoryViewController" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tlj-ff-itl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-y3-FQt">
-                                <rect key="frame" x="0.0" y="-91" width="414" height="115"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.2274509804" green="0.45882352939999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BWu-fv-9tX">
                                 <rect key="frame" x="0.0" y="24" width="414" height="872"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -407,11 +405,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-y3-FQt">
+                                <rect key="frame" x="0.0" y="-91" width="414" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.45882352939999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eZR-Jh-ebd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" leftItemsSupplementBackButton="YES" id="ec8-cg-2am">
+                    <navigationItem key="navigationItem" title="Categorias" leftItemsSupplementBackButton="YES" id="ec8-cg-2am">
                         <barButtonItem key="backBarButtonItem" title=" " id="0N5-dY-H79"/>
                     </navigationItem>
                     <connections>
@@ -426,7 +429,7 @@
         <!--This Week Creat Act View Controller-->
         <scene sceneID="5wA-TK-4JA">
             <objects>
-                <viewController id="AVE-Na-c87" customClass="ThisWeekCreatActViewController" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThisWeekCreatActViewController" id="AVE-Na-c87" customClass="ThisWeekCreatActViewController" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EBV-3v-bGg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -623,11 +626,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qai-84-CHs">
-                                <rect key="frame" x="0.0" y="-97" width="414" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.2274509804" green="0.45882352939999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dPC-aR-bB4">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -652,10 +650,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qai-84-CHs">
+                                <rect key="frame" x="0.0" y="-97" width="414" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.45882352939999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bb2-Aa-qGT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="dPC-aR-bB4" id="rTy-Zy-hDI"/>
+                        <outlet property="viewFakeBar" destination="Qai-84-CHs" id="iFu-Y8-feI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Wc-E5-pA0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -676,6 +683,9 @@
                                 <state key="normal" title="Salvar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveActivity" destination="and-Zh-Nhd" eventType="touchUpInside" id="Mqx-07-6NC"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-nJ-G01">
                                 <rect key="frame" x="20" y="60" width="374" height="601"/>
@@ -731,6 +741,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterS"/>
                                         <connections>
+                                            <action selector="monButtonAction:" destination="and-Zh-Nhd" eventType="touchUpInside" id="hmf-YT-osq"/>
                                             <action selector="monButtonAction:" destination="8Rg-54-ra2" eventType="touchUpInside" id="yVT-Jg-Env"/>
                                         </connections>
                                     </button>
@@ -741,6 +752,7 @@
                                         <state key="normal" image="letterT"/>
                                         <connections>
                                             <action selector="tueButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="Ei3-UG-Ud7"/>
+                                            <action selector="tueButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="G8n-8r-Edz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d38-t4-z3d">
@@ -750,6 +762,7 @@
                                         <state key="normal" image="letterQ"/>
                                         <connections>
                                             <action selector="wedButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="g2r-sZ-UpW"/>
+                                            <action selector="wedButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="uGz-CL-N8R"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-ca-7TQ">
@@ -759,6 +772,7 @@
                                         <state key="normal" image="letterQ"/>
                                         <connections>
                                             <action selector="thuButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="TaE-4z-lvy"/>
+                                            <action selector="thuButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="VV2-uf-7aQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQd-wS-I2Z">
@@ -768,6 +782,7 @@
                                         <state key="normal" image="letterS"/>
                                         <connections>
                                             <action selector="friButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="Q8U-pL-D5Y"/>
+                                            <action selector="friButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="dhL-rj-pmx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1K-12-nXX">
@@ -777,6 +792,7 @@
                                         <state key="normal" image="letterS"/>
                                         <connections>
                                             <action selector="satButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="ixT-WX-UMC"/>
+                                            <action selector="satButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="vaJ-a0-TZb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mg2-NB-86F">
@@ -785,6 +801,7 @@
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="letterD"/>
                                         <connections>
+                                            <action selector="sunButtonAct:" destination="and-Zh-Nhd" eventType="touchUpInside" id="MlV-nh-OV8"/>
                                             <action selector="sunButtonAct:" destination="8Rg-54-ra2" eventType="touchUpInside" id="hA9-by-SSo"/>
                                         </connections>
                                     </button>
@@ -860,6 +877,29 @@
                         <viewLayoutGuide key="safeArea" id="Zr4-IN-3F3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="actNameTextField" destination="UJI-D6-DgR" id="k2L-gL-eWd"/>
+                        <outlet property="dayLabel" destination="ZIW-cD-8d3" id="hgi-Su-b7N"/>
+                        <outlet property="friButton" destination="HQd-wS-I2Z" id="V86-Lh-7vY"/>
+                        <outlet property="imageButton" destination="nwQ-Kk-qaG" id="8K3-JO-alb"/>
+                        <outlet property="monButton" destination="qBw-7v-9ME" id="olG-9z-C6T"/>
+                        <outlet property="nameLabel" destination="Zc4-wD-mJd" id="BoH-O5-hEp"/>
+                        <outlet property="pickerView" destination="qyP-xp-W57" id="dur-eN-mkj"/>
+                        <outlet property="popupView" destination="m3D-nJ-G01" id="4J3-gi-mjr"/>
+                        <outlet property="repeatLabel" destination="JXN-76-YkQ" id="ZcV-9X-ZQP"/>
+                        <outlet property="satButton" destination="E1K-12-nXX" id="5RM-dk-mXA"/>
+                        <outlet property="saveButton" destination="QUr-rK-TPD" id="1ga-VW-XQH"/>
+                        <outlet property="starLabel" destination="5Bq-Ac-L4x" id="22O-Gx-U59"/>
+                        <outlet property="starSwitch" destination="HaX-fQ-NgO" id="0Ql-Wh-nZM"/>
+                        <outlet property="subActLabel" destination="lUa-Sk-jUa" id="aQO-Ct-jeH"/>
+                        <outlet property="sunButton" destination="Mg2-NB-86F" id="ySW-Oy-xkc"/>
+                        <outlet property="thuButton" destination="OLn-ca-7TQ" id="Mxu-kb-lh8"/>
+                        <outlet property="timeLabel" destination="8iN-5k-gcp" id="YPE-uT-mgF"/>
+                        <outlet property="tueButton" destination="p8M-om-3xq" id="pM6-2c-f5u"/>
+                        <outlet property="viewFakeBar" destination="Ke5-rH-hbb" id="Vab-Iv-7O9"/>
+                        <outlet property="wedButton" destination="d38-t4-z3d" id="HW8-5U-mcd"/>
+                        <outlet property="weeklySwitch" destination="re1-AI-jra" id="BQe-Ji-nEX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vU9-Cc-J2f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

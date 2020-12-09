@@ -254,7 +254,6 @@
 				F79A33972562C70900CD52C5 /* PaisMenu.storyboard */,
 				F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */,
 				F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */,
-				F7C2F274257FFEB0005D5F66 /* ThisWeekCreatActViewController.swift */,
 				57DE9B77256BEEE800AB20A6 /* SubTarefas.storyboard */,
 				3EFCB96D257E7013001CA39B /* FeedbackChild.xib */,
 			);
@@ -282,6 +281,7 @@
 				F7C2F25F257FF7B7005D5F66 /* ThisWeekCategoryViewController.swift */,
 				F7C2F25A257FD8FD005D5F66 /* ThisWeekEditActViewController.swift */,
 				F7C2F26C257FFE78005D5F66 /* ThisWeekAddFocusViewController.swift */,
+				F7C2F274257FFEB0005D5F66 /* ThisWeekCreatActViewController.swift */,
 				F729AFC32576CE7200916A46 /* TutorialViewController.swift */,
 				24429705255D841900CCEBAB /* ViewController.swift */,
 				3EFCB975257E7616001CA39B /* FeedbackChildView.swift */,
