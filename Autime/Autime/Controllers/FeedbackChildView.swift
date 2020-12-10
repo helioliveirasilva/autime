@@ -38,10 +38,12 @@ class FeedbackChildView: UIView {
         self.happyButton.layer.cornerRadius = self.happyButton.bounds.width/4
         self.cheerfulButton.layer.cornerRadius = self.cheerfulButton.bounds.width/4
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -72,6 +74,7 @@ class FeedbackChildView: UIView {
             print("Foi bug, papai...")
         }
     }
+    
     @IBAction func continueOrSkipTap(_ sender: UIButton) {
         
         if sender == skipButton {
@@ -99,11 +102,5 @@ class FeedbackChildView: UIView {
             return
         }
         parent.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension UIResponder {
-    public var parentViewController: UIViewController? {
-        return next as? UIViewController ?? next?.parentViewController
     }
 }

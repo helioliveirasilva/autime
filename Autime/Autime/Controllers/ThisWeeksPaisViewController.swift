@@ -5,6 +5,12 @@
 //  Created by Luis Eduardo Ramos on 23/11/20.
 //
 
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
+// swiftlint:disable opening_brace
+
 import UIKit
 
 class ThisWeeksPaisViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -14,7 +20,9 @@ class ThisWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var viewFakeBar: UIView!
     
     //Variables
-    var diasDaSemana: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta"]
+    var diasDaSemana: [String] = []
+    var week: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +32,8 @@ class ThisWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        
+        self.setWeek()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,9 +64,39 @@ class ThisWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
+        let date = addNumberOfDaysToDate(date: Date(), count: indexPath.row)
+        let format = DateFormatter()
+        format.dateFormat = "dd/MM"
+        let formattedDate = format.string(from: date)
+        
         cell.textLabel?.text = String(diasDaSemana[indexPath.row])
+        cell.detailTextLabel?.text = formattedDate
         cell.textLabel?.font = .rounded(ofSize: 17, weight: .regular)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let dayActList = storyboard?.instantiateViewController(identifier: "ThisWeekDayViewController") as? ThisWeekDayViewController else {
+            return
+        }
+        dayActList.weekDayName = diasDaSemana[indexPath.row]
+        navigationController?.pushViewController(dayActList, animated: true)
+    }
+    
+    func setWeek() {
+        let calendar = Calendar.current
+        let weekDay = calendar.component(.weekday, from: Date()) - 1
+
+        for ind in 0...self.week.count-1 {
+            diasDaSemana.append(week[(weekDay + ind)%7])
+        }
+    }
+    
+    func addNumberOfDaysToDate(date: Date, count: Int) -> Date{
+        let newComponent = DateComponents(day: count)
+        guard let newDate = Calendar.current.date(byAdding: newComponent, to: date) else {
+            return date
+        }
+        return newDate
     }
 }

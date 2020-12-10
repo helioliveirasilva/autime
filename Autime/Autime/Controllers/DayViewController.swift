@@ -38,7 +38,6 @@ class DayViewController: UIViewController {
         tarefasCollection.dataSource = self
         
         self.navigationController?.navigationBar.isHidden = false
-        self.getActivities()
     }
     
     /*

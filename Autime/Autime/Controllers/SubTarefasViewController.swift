@@ -80,7 +80,7 @@ class SubTarefasViewController: UIViewController {
 extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     override func didReceiveMemoryWarning() {
-    // Salvar contexto da sub Atividade
+        // Salvar contexto da sub Atividade
         super.didReceiveMemoryWarning()
     }
     
