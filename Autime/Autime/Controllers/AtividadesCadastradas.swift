@@ -93,6 +93,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         
         subCollectionView.delegate = self
         subCollectionView.dataSource = self
+        
     }
     
     //ViewWillAppear

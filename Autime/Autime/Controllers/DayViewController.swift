@@ -29,13 +29,13 @@ class DayViewController: UIViewController {
     @IBOutlet weak var labelNExiste: UILabel!
     
     var todayActivities: [Atividade] = []
-    var arrayPremio:[Bool] = [false,false,false]
+    var arrayPremio: [Bool] = [false, false, false]
     var activities: [Atividade] = [] {
         didSet {
             tarefasCollection.reloadData()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,7 +70,7 @@ class DayViewController: UIViewController {
         if arrayPremio[2] == true  {
             premioStar3.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
         }
-                
+        
     }
     
     /*
@@ -127,7 +127,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         cell.hora.text =  newDate
         cell.atividade.text = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
-        cell.subTarefas.text = "12 subtarefas"
+        cell.subTarefas.text = String(self.todayActivities[indexPath.item].passos!.count) + " subtarefas"
         
         // Icone
         
@@ -142,14 +142,14 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         subtarefaView?.activity = self.todayActivities[indexPath.item]
         
-       subtarefaView?.tituloAtividade = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
-
+        subtarefaView?.tituloAtividade = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
+        
         var indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
         subtarefaView?.imagemIconce = UIImage(named: catImages[indice])
         
         subtarefaView?.isPremio = self.todayActivities[indexPath.item].gerarEstrela
         subtarefaView?.dayView = self
-                    
+        
         // subtarefaView.navigationController?.navigationBar.isHidden = false
         self.navigationController?.present(subtarefaView ?? UIViewController(), animated: true, completion: nil)
         
@@ -167,7 +167,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         if arrayPremio[2] == true  {
             premioStar3.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
         }
-            
+        
     }
     
 }
@@ -237,13 +237,7 @@ extension DayViewController {
             }
         }
     }
+    
 }
 
-extension UIView {
-   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
-    }
-}
+
