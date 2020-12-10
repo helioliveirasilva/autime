@@ -5,7 +5,13 @@
 //  Created by Victor Vieira on 09/12/20.
 //
 
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
+
 import UIKit
+import CoreData
 
 class AddSubAtividadeView: UIView, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
@@ -37,17 +43,36 @@ class AddSubAtividadeView: UIView, UIImagePickerControllerDelegate & UINavigatio
     
     @IBAction func save(){
         
-        var subAtividade = SubAtividade()
-        subAtividade.nome = "xib"//textfield.text
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        var subAtividade = SubAtividade(context: context)
+        subAtividade.nome = textfield.text//(textfield.text, forKey: "nome")
         subAtividade.image = buttonImage.imageView?.image!.pngData()
         subAtividade.completa = false
         
-        if let topMostViewController = UIApplication.shared.topMostViewController() as? AtividadesCadastradas{
+//        if let topMostViewController = UIApplication.shared.topMostViewController() as? AtividadesCadastradas{
+//            print("oxe2")
+//            subAtividade.ordem = Int16(topMostViewController.subAtividades.count)
+//            topMostViewController.subAtividades.append(subAtividade)
+//
+//
+//        }
+        
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+
+        if var topController = keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            guard let topMostViewController = topController as? AtividadesCadastradas else { print("fudeu")
+                return }
+            print("oxe2")
             subAtividade.ordem = Int16(topMostViewController.subAtividades.count)
             topMostViewController.subAtividades.append(subAtividade)
-            
-            
+            // topController should now be your topmost view controller
         }
+        
         print("zaga")
         dismissCard()
     }
@@ -77,7 +102,9 @@ class AddSubAtividadeView: UIView, UIImagePickerControllerDelegate & UINavigatio
         picker.dismiss(animated: true, completion: nil)
     }
     func dismissCard() {
+        print("Oxente")
         if let topMostViewController = UIApplication.shared.topMostViewController() as? AtividadesCadastradas{
+            print("Oxe")
             topMostViewController.subAtividadeView.isHidden = true
             
         }
