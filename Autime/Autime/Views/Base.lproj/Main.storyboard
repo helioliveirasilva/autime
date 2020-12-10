@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lGo-q9-mCh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -24,7 +24,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JYc-ev-ZbF"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JD1-va-g7a"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8B-nV-aeX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -51,16 +51,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cadastrar"/>
                                 <connections>
-                                    <segue destination="rMn-Nz-y2f" kind="show" id="DAg-GU-YHL"/>
+                                    <segue destination="rMn-Nz-y2f" kind="replace" splitViewControllerTargetIndex="1" id="md4-9B-LqL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlP-KR-pEm">
                                 <rect key="frame" x="188" y="465" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="04W-h0-t4y" kind="show" id="Ezn-On-My0"/>
-                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaj-At-SVF">
+                                <rect key="frame" x="164" y="578" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="NOVA CV"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -69,10 +71,21 @@
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="g20-zk-opz">
                         <barButtonItem key="backBarButtonItem" title=" " id="x9D-es-55q"/>
                     </navigationItem>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138" y="138"/>
+        </scene>
+        <!--serassevai-->
+        <scene sceneID="FMD-IH-ahu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UDW-Sa-RhW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="serassevai" storyboardName="Filhos" referencedIdentifier="serassevai" id="R6x-1W-Tn2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Cgc-fn-wgZ"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="-191" y="645"/>
         </scene>
         <!--Cadastrar-->
         <scene sceneID="H4f-Dc-z1u">
@@ -107,7 +120,7 @@
             <objects>
                 <viewController storyboardIdentifier="PerfilViewController" id="5fY-t0-EC3" customClass="PerfilViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSU-12-Nry">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quem é você?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHq-LU-gta">
@@ -138,6 +151,11 @@
                                 <connections>
                                     <segue destination="zyD-RV-6bz" kind="show" id="HMi-Gl-4vN"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFj-Ei-5rV">
+                                <rect key="frame" x="184" y="578" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YMK-md-7qL"/>
@@ -176,7 +194,7 @@
             <objects>
                 <viewController id="04W-h0-t4y" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gWQ-6G-5qT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYB-ZP-0sM">
@@ -184,7 +202,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Confirmar"/>
                                 <connections>
-                                    <segue destination="5fY-t0-EC3" kind="show" id="Q7Y-mY-IZD"/>
+                                    <segue destination="5fY-t0-EC3" kind="show" id="qqb-gk-Qf4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -201,7 +219,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Q7Y-mY-IZD"/>
+        <segue reference="qqb-gk-Qf4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="linkColor">

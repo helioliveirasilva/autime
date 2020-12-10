@@ -132,3 +132,13 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         navigationController?.pushViewController(allActList, animated: true)
     }
 }
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}

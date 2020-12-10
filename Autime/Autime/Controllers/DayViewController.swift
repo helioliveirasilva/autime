@@ -76,8 +76,8 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         // Fontes
         cell.hora.font = .rounded(ofSize: 16, weight: .heavy)
-        cell.atividade.font = .rounded(ofSize: 20, weight: .medium)
-        cell.subTarefas.font = .rounded(ofSize: 15, weight: .medium)
+        cell.atividade.font = .rounded(ofSize: 20, weight: .bold)
+        cell.subTarefas.font = .rounded(ofSize: 15, weight: .bold)
         
         // Date Formatter
         let dateFormatter = DateFormatter()
@@ -85,7 +85,8 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         let newDate = dateFormatter.string(from: self.todayActivities[indexPath.item].horario!)
         
         cell.hora.text =  newDate
-        cell.atividade.text = self.todayActivities[indexPath.item].nome ?? "Sem nome"
+        cell.atividade.text = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
+        cell.subTarefas.text = "12 subtarefas"
         return cell
     }
     

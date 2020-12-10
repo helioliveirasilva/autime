@@ -19,6 +19,8 @@
 		2442970E255D841A00CCEBAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2442970C255D841A00CCEBAB /* LaunchScreen.storyboard */; };
 		24429719255D841A00CCEBAB /* AutimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429718255D841A00CCEBAB /* AutimeTests.swift */; };
 		24429724255D841A00CCEBAB /* AutimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24429723255D841A00CCEBAB /* AutimeUITests.swift */; };
+		2455E57A2581566E005A174F /* SemanaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2455E5792581566E005A174F /* SemanaCollectionViewController.swift */; };
+		2455E58225815A8F005A174F /* SemanaNovaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2455E58125815A8F005A174F /* SemanaNovaCollectionViewCell.swift */; };
 		246F6659256BF90B001E2256 /* CadastrarAtividade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F6658256BF90B001E2256 /* CadastrarAtividade.storyboard */; };
 		246F665E256BFCAC001E2256 /* AtividadesCadastradas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */; };
 		3E4F9EAA256D3B710039BFFC /* DataBanco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F9EA8256D3B710039BFFC /* DataBanco.xcdatamodeld */; };
@@ -86,6 +88,8 @@
 		2442971F255D841A00CCEBAB /* AutimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24429723255D841A00CCEBAB /* AutimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutimeUITests.swift; sourceTree = "<group>"; };
 		24429725255D841A00CCEBAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2455E5792581566E005A174F /* SemanaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanaCollectionViewController.swift; sourceTree = "<group>"; };
+		2455E58125815A8F005A174F /* SemanaNovaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanaNovaCollectionViewCell.swift; sourceTree = "<group>"; };
 		246F6658256BF90B001E2256 /* CadastrarAtividade.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CadastrarAtividade.storyboard; sourceTree = "<group>"; };
 		246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtividadesCadastradas.swift; sourceTree = "<group>"; };
 		3D53C705005DE7FBE96A95A1 /* Pods-AutimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.debug.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 				570183CD256D2D7000B038F8 /* SubtarefasCollectionCell.swift */,
 				57549443256FCE9C00BF0CE3 /* SemanaCollectionViewCell.swift */,
 				57549458256FD25400BF0CE3 /* SectionHeaderView.swift */,
+				2455E58125815A8F005A174F /* SemanaNovaCollectionViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 		3E894EAD256FF95300CE75C4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2455E5792581566E005A174F /* SemanaCollectionViewController.swift */,
 				F7D61BB2256D416800B2B7AB /* AllActCategoriesTableViewController.swift */,
 				F729AFCB2576D06A00916A46 /* PerfilViewController.swift */,
 				F7D61BBD25714F4B00B2B7AB /* AllActListTableViewController.swift */,
@@ -516,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D61BA6256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift in Sources */,
+				2455E58225815A8F005A174F /* SemanaNovaCollectionViewCell.swift in Sources */,
 				24429706255D841900CCEBAB /* ViewController.swift in Sources */,
 				F7D61BB3256D416800B2B7AB /* AllActCategoriesTableViewController.swift in Sources */,
 				F74DA583256BE6C6005E6A2E /* MenuPaisViewController.swift in Sources */,
@@ -528,6 +535,7 @@
 				24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */,
 				F7D61BAE256BEB5500B2B7AB /* PastWeeksPaisViewController.swift in Sources */,
 				57549459256FD25400BF0CE3 /* SectionHeaderView.swift in Sources */,
+				2455E57A2581566E005A174F /* SemanaCollectionViewController.swift in Sources */,
 				241929A0256C4CCF0044A530 /* AtividadesTableViewController.swift in Sources */,
 				24192998256C427C0044A530 /* TableViewCell.swift in Sources */,
 				F7F0AC6C25752E2000D89AF1 /* AllActFocusViewController.swift in Sources */,
