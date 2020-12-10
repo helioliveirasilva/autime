@@ -40,6 +40,9 @@ class CadastrarSubAtividadeViewController: UIViewController, UITextFieldDelegate
         imageButton.layer.cornerRadius = 21
         
         contentView.layer.cornerRadius = 21
+        
+        self.nameTextField.addDoneButtonToKeyboard(myAction:  #selector(self.nameTextField.resignFirstResponder))
+
     }
     
     @IBAction func createTap() {

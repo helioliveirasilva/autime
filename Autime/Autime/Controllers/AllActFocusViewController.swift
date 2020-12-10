@@ -368,7 +368,7 @@ extension AllActFocusViewController: UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubAtividadeEditCell", for: indexPath) as! SubAtividadeCell
         
         if indexPath.item == 0 {
-            cell.image = UIImage(systemName: "plus")
+            cell.image = UIImage(systemName: "plus.circle.fill")
             return cell
         }
         

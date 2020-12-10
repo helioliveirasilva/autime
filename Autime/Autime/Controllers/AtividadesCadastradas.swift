@@ -58,6 +58,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var weekDayName: String = ""
     var subAtividades: [SubAtividade] = [SubAtividade()] {
         didSet {
+            print(subAtividades)
             self.subCollectionView.reloadData()
         }
     }
@@ -86,11 +87,9 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         //        self.categoryTextField.inputAccessoryView = toolbar
         self.categoryTextField.inputView = self.categoryPicker
         
-        
         self.subAtividadeView = AddSubAtividadeView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.view.addSubview(subAtividadeView)
         self.subAtividadeView.isHidden = true
-        
         
         subCollectionView.delegate = self
         subCollectionView.dataSource = self
@@ -202,9 +201,12 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         atividade.domingo = self.pressSun
         atividade.categoria = self.categoryTextField.text
         
+        // Remove o botão de Adicionar
+        subAtividades.remove(at: 0)
+        
         // Criando Sub-Atividades
-        for index in 1...subAtividades.count-1 {
-            atividade.addToPassos(subAtividades[index])
+        for sub in subAtividades {
+            atividade.addToPassos(sub)
         }
         
         do {
@@ -315,7 +317,7 @@ extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataS
 
         if indexPath.item == 0 {
             
-            cell.image = UIImage(systemName: "plus")
+            cell.image = UIImage(systemName: "plus.circle.fill")
             return cell
         }
         
