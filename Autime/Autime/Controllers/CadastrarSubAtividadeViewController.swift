@@ -22,6 +22,7 @@ class CadastrarSubAtividadeViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var contentView: UIView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var context: NSManagedObjectContext!
@@ -33,6 +34,12 @@ class CadastrarSubAtividadeViewController: UIViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         context = appDelegate.persistentContainer.viewContext
+        
+        imageButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        imageButton.layer.masksToBounds = true
+        imageButton.layer.cornerRadius = 21
+        
+        contentView.layer.cornerRadius = 21
     }
     
     @IBAction func createTap() {

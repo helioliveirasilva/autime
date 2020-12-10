@@ -71,19 +71,19 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         self.categoryPicker.delegate = self
         self.categoryPicker.dataSource = self
         
-//        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-//        view.addGestureRecognizer(tap)
+        //        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        //        view.addGestureRecognizer(tap)
         
         self.labelNome.delegate = self
         self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
-
-//        botao de done não esta dando dismiss no picker...
-//        let toolbar = UIToolbar()
-//        toolbar.sizeToFit()
-//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.categoryPicker.resignFirstResponder))
-//        self.categoryPicker.delegate = self
-//        toolbar.setItems([doneButton], animated: true)
-//        self.categoryTextField.inputAccessoryView = toolbar
+        
+        //        botao de done não esta dando dismiss no picker...
+        //        let toolbar = UIToolbar()
+        //        toolbar.sizeToFit()
+        //        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.categoryPicker.resignFirstResponder))
+        //        self.categoryPicker.delegate = self
+        //        toolbar.setItems([doneButton], animated: true)
+        //        self.categoryTextField.inputAccessoryView = toolbar
         self.categoryTextField.inputView = self.categoryPicker
         
         
@@ -186,7 +186,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     
     // Salvar
     @IBAction func salvar(_ sender: Any) {
-                
+        
         let atividade = Atividade(context: self.context)
         atividade.nome = self.labelNome.text ?? "Sem Nome"
         atividade.horario = self.pickerHora.date
@@ -301,7 +301,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     
 }
 
-extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataSource{
+extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -329,24 +329,18 @@ extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataS
         
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
         if indexPath.item == 0{
             let viewCreatSubAct = UIStoryboard(name: "CadastrarAtividade", bundle: nil).instantiateViewController(withIdentifier: "CadastrarSubAtividade") as? CadastrarSubAtividadeViewController
-        
-            viewCreatSubAct?.modalPresentationStyle = .automatic
-            viewCreatSubAct?.atividadesCadastradas = self
+            
+            viewCreatSubAct!.modalPresentationStyle = UIModalPresentationStyle.automatic
+            viewCreatSubAct!.transitioningDelegate = self
             self.present(viewCreatSubAct!, animated: true, completion: nil)
             
         }
-//        let vc = SubAtividadesCadastradas()
-//        vc.view.backgroundColor = .white
-//        self.navigationController?.present(vc, animated: true, completion: nil)
-        
     }
-    
+        
     func onUserAction(subAtividade: SubAtividade) {
         subAtividade.setValue(subAtividades.count, forKey: "ordem")
         subAtividades.append(subAtividade)
