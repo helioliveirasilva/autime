@@ -80,9 +80,8 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.imageView.image = photo
         
         // Icone
-        var indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
+        let indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
         cell.iconActivity.image = UIImage(named: catImages[indice])
-        
         
         // Fontes
         cell.hora.font = .rounded(ofSize: 16, weight: .heavy)

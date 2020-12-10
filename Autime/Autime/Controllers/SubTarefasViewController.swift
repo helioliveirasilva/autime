@@ -11,7 +11,7 @@
 import UIKit
 import CoreData
 
-var titulos: [String] = ["Casa", "Sapato", "Perna", "Bilola", "Panela", "Bacia", "1", "1", "1"]
+var titulos: [String] = ["Casa", "Sapato", "Perna", "Braço", "Panela", "Bacia", "Cabeça", "Ombro", "Joelho"]
 var checado: [Bool] = [true, true, true, true, true, true, true, true, true]
 var progresso: Float = 0
 
@@ -21,17 +21,12 @@ class SubTarefasViewController: UIViewController {
     @IBOutlet weak var barraProgresso: UIProgressView!
     @IBOutlet weak var tituloLabel: UILabel!
     @IBOutlet weak var icone: UIImageView!
+    
     var imagemIconce: UIImage!
-    
-    
     var tituloAtividade: String!
-    
     var feedback: FeedbackChildView!
-
-    var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
-    
+    var imagens: [UIImage] = [UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!]
     var activity: Atividade?
-
     var subActivities: [SubAtividade]! = [] {
         didSet {
             subtarefasCollection.reloadData()
@@ -86,8 +81,7 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
     
     override func didReceiveMemoryWarning() {
     // Salvar contexto da sub Atividade
-    
-    super.didReceiveMemoryWarning()
+        super.didReceiveMemoryWarning()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -114,8 +108,6 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.label.font = .rounded(ofSize: 15, weight: .medium)
         cell.imagecheck.isHidden = checado[indexPath.item]
         
-        
-
         return cell
     }
     
@@ -124,7 +116,6 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         
         let cell = subtarefasCollection.cellForItem(at: indexPath) as! SubtarefasCollectionCell
 
-        
         if indexPath.item == 0 {
             
             if checado[indexPath.item] == true {
@@ -171,8 +162,6 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
 
         subtarefasCollection.reloadData()
     }
-    
-    
     
 }
 
