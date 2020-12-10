@@ -16,7 +16,7 @@
 import UIKit
 import CoreData
 
-class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIViewControllerTransitioningDelegate {
     
     //Outlets
     @IBOutlet weak var labelNome: UITextField!
