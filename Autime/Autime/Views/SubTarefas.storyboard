@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="barraProgresso" destination="pVq-lZ-crw" id="Ff8-G1-RQ5"/>
                         <outlet property="botaoconcluir" destination="47K-R2-PfG" id="gqW-WX-hDh"/>
+                        <outlet property="icone" destination="CLA-ty-i8z" id="LCm-0Y-6Jd"/>
                         <outlet property="subtarefasCollection" destination="M1Q-os-nxP" id="7lO-zI-SsN"/>
                         <outlet property="tituloLabel" destination="Y6D-ok-jg9" id="4zW-Tb-xCP"/>
                     </connections>

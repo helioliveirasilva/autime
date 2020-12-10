@@ -20,6 +20,11 @@ class SubTarefasViewController: UIViewController {
     @IBOutlet weak var botaoconcluir: UIButton!
     @IBOutlet weak var barraProgresso: UIProgressView!
     @IBOutlet weak var tituloLabel: UILabel!
+    @IBOutlet weak var icone: UIImageView!
+    var imagemIconce: UIImage!
+    
+    
+    var tituloAtividade: String!
     
     var feedback: FeedbackChildView!
 
@@ -36,6 +41,8 @@ class SubTarefasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.icone.image = imagemIconce
+        tituloLabel.text = tituloAtividade
         tituloLabel.font = .rounded(ofSize: 25, weight: .bold)
         
         botaoconcluir.layer.cornerRadius = botaoconcluir.frame.height/3
@@ -117,6 +124,7 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         
         let cell = subtarefasCollection.cellForItem(at: indexPath) as! SubtarefasCollectionCell
 
+        
         if indexPath.item == 0 {
             
             if checado[indexPath.item] == true {
