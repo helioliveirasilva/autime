@@ -43,6 +43,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var viewFakeBar: UIView!
     @IBOutlet weak var categoryTextField: UITextField!
     var categoryPicker: UIPickerView! = UIPickerView()
+    @IBOutlet var subCollectionView: UICollectionView!
     
     //Variables
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -55,6 +56,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var pressSat: Bool = false
     var pressSun: Bool = false
     var weekDayName: String = ""
+    var subAtividades: [SubAtividade] = [SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade()]
     
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
     
@@ -64,8 +66,8 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         self.categoryPicker.delegate = self
         self.categoryPicker.dataSource = self
         
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+//        view.addGestureRecognizer(tap)
         
         self.labelNome.delegate = self
         self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
@@ -79,6 +81,8 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
 //        self.categoryTextField.inputAccessoryView = toolbar
         self.categoryTextField.inputView = self.categoryPicker
         
+        subCollectionView.delegate = self
+        subCollectionView.dataSource = self
     }
     
     //ViewWillAppear
@@ -290,3 +294,47 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     
 }
 
+extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        subAtividades.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubAtividadeCell", for: indexPath) as! SubAtividadeCell
+        var photo: UIImage!
+        print(indexPath.item)
+        if indexPath.item == 0 {
+            
+            cell.image = UIImage(systemName: "plus")
+            return cell
+        }
+        if indexPath.item >= 1 {
+            
+            cell.image = UIImage(systemName: "trash")
+            return cell
+        }
+
+        if let data = self.subAtividades[indexPath.item].image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
+        }
+        
+        cell.image = photo
+        return cell
+        
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+        let vc = SubAtividadesCadastradas()
+        vc.view.backgroundColor = .white
+        self.navigationController?.present(vc, animated: true, completion: nil)
+
+    }
+    
+}
