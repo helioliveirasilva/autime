@@ -21,6 +21,9 @@ class SubTarefasViewController: UIViewController {
     @IBOutlet weak var barraProgresso: UIProgressView!
     @IBOutlet weak var tituloLabel: UILabel!
     @IBOutlet weak var icone: UIImageView!
+    var isPremio: Bool!
+    var dayView: DayViewController?
+
     
     var imagemIconce: UIImage!
     var tituloAtividade: String!
@@ -71,6 +74,26 @@ class SubTarefasViewController: UIViewController {
     
     @IBAction func concluir(_ sender: Any) {
         self.feedback.isHidden = false
+       
+
+        var arrayPremio = dayView?.arrayPremio
+        
+        if isPremio == true {
+            
+            if arrayPremio![0] == false {
+                arrayPremio![0] = true
+            }else if arrayPremio![1] == false {
+                arrayPremio![1] = true
+            }else if arrayPremio![2] == false {
+                arrayPremio![2] = true
+            }
+            
+            print(arrayPremio)
+        }
+        
+        dayView?.onUserAction(array: arrayPremio!)
+
+       
         // self.dismiss(animated: true, completion: nil)
     }
     
