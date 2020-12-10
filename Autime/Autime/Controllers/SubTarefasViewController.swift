@@ -26,6 +26,8 @@ class SubTarefasViewController: UIViewController {
     var tituloAtividade: String!
     var feedback: FeedbackChildView!
     var imagens: [UIImage] = [UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!]
+    var isPremio: Bool!
+    var dayView: DayViewController?
     var activity: Atividade?
     var subActivities: [SubAtividade]! = [] {
         didSet {
@@ -74,9 +76,26 @@ class SubTarefasViewController: UIViewController {
     
     @IBAction func concluir(_ sender: Any) {
         self.feedback.isHidden = false
-    }
-    
 
+        var arrayPremio = dayView?.arrayPremio
+        
+        if isPremio == true {
+            
+            if arrayPremio![0] == false {
+                arrayPremio![0] = true
+            }else if arrayPremio![1] == false {
+                arrayPremio![1] = true
+            }else if arrayPremio![2] == false {
+                arrayPremio![2] = true
+            }
+            
+            print(arrayPremio)
+        }
+        
+        dayView?.onUserAction(array: arrayPremio!)
+
+    }    
+  
 }
 
 extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource {
