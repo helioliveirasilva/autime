@@ -554,7 +554,6 @@
 				F7D61BAE256BEB5500B2B7AB /* PastWeeksPaisViewController.swift in Sources */,
 				57549459256FD25400BF0CE3 /* SectionHeaderView.swift in Sources */,
 				2455E57A2581566E005A174F /* SemanaCollectionViewController.swift in Sources */,
-				241929A0256C4CCF0044A530 /* AtividadesTableViewController.swift in Sources */,
 				24192998256C427C0044A530 /* TableViewCell.swift in Sources */,
 				F7F0AC6C25752E2000D89AF1 /* AllActFocusViewController.swift in Sources */,
 				572514D32566ADB600AB79B9 /* FilhoCollectionViewCell.swift in Sources */,
@@ -745,16 +744,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = CT66845T5J;
 				INFOPLIST_FILE = Autime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = academy.Autime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -765,16 +766,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = CT66845T5J;
 				INFOPLIST_FILE = Autime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = academy.Autime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

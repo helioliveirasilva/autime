@@ -57,6 +57,11 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Teclado
+        self.actNameTextField.addDoneButtonToKeyboard(myAction:  #selector(self.actNameTextField.resignFirstResponder))
+
+        
+        
         self.getActivityDetails()
     }
     
@@ -113,6 +118,8 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
         viewFakeBar.layer.shadowRadius = 4.0
         
         self.configureScreen()
+        
+
     }
     
     //Actions DailyButtons
