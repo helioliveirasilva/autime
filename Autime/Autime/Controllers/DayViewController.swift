@@ -20,24 +20,57 @@ class DayViewController: UIViewController {
     var catImages: [String] = ["CatDomestic", "CatHygiene", "CatEducation", "CatHealth", "CatFamily", "CatFriends", "CatFood", "CatEntertainment", "CatPrize", "CatExtras"]
     
     @IBOutlet var tarefasCollection: UICollectionView!
+    @IBOutlet weak var premioView: UIView!
+    @IBOutlet weak var premioStar1: UIImageView!
+    @IBOutlet weak var premioStar2: UIImageView!
+    @IBOutlet weak var premioStar3: UIImageView!
+    @IBOutlet weak var labelAtividadePremio: UILabel!
+    @IBOutlet weak var labelDescricao: UILabel!
+    @IBOutlet weak var labelNExiste: UILabel!
     
+    var todayActivities: [Atividade] = []
+    var arrayPremio:[Bool] = [false,false,false]
     var activities: [Atividade] = [] {
         didSet {
             tarefasCollection.reloadData()
         }
     }
-    var todayActivities: [Atividade] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.getActivities()
         self.getTodayActivities()
         
+        // Premio View
+        premioView.roundCorners(corners: [.topLeft, .topRight], radius: 21)
+        premioView.layer.shadowColor = UIColor.black.cgColor
+        premioView.layer.shadowOpacity = 1
+        premioView.layer.shadowOffset = .zero
+        premioView.layer.shadowRadius = 10
+        labelAtividadePremio.font = .rounded(ofSize: 19, weight: .bold)
+        labelNExiste.font = .rounded(ofSize: 16, weight: .bold)
+        labelNExiste.isHidden = true
+        labelDescricao.font = .rounded(ofSize: 14, weight: .bold)
+        
         tarefasCollection.delegate = self
         tarefasCollection.dataSource = self
         
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if arrayPremio[0] == true {
+            premioStar1.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+        if arrayPremio[1] == true {
+            premioStar2.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+        if arrayPremio[2] == true  {
+            premioStar3.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+                
     }
     
     /*
@@ -98,15 +131,11 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         // Icone
         
-        
-        
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
         
         let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
@@ -114,14 +143,31 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         subtarefaView?.activity = self.todayActivities[indexPath.item]
         
        subtarefaView?.tituloAtividade = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
-//
+
         var indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
         subtarefaView?.imagemIconce = UIImage(named: catImages[indice])
-            
         
+        subtarefaView?.isPremio = self.todayActivities[indexPath.item].gerarEstrela
+        subtarefaView?.dayView = self
+                    
         // subtarefaView.navigationController?.navigationBar.isHidden = false
         self.navigationController?.present(subtarefaView ?? UIViewController(), animated: true, completion: nil)
         
+    }
+    
+    func onUserAction(array: [Bool]){
+        arrayPremio = array
+        
+        if arrayPremio[0] == true {
+            premioStar1.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+        if arrayPremio[1] == true {
+            premioStar2.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+        if arrayPremio[2] == true  {
+            premioStar3.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+            
     }
     
 }
@@ -190,5 +236,14 @@ extension DayViewController {
                 todayActivities.append(activity)
             }
         }
+    }
+}
+
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
 }
