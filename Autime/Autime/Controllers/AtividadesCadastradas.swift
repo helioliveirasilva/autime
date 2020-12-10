@@ -59,6 +59,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var subAtividades: [SubAtividade] = [SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade()]
     
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
+    var subAtividadeView: AddSubAtividadeView!
     
     override func viewDidLoad() {
         self.context = appDelegate.persistentContainer.viewContext
@@ -80,6 +81,12 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
 //        toolbar.setItems([doneButton], animated: true)
 //        self.categoryTextField.inputAccessoryView = toolbar
         self.categoryTextField.inputView = self.categoryPicker
+        
+        
+        self.subAtividadeView = AddSubAtividadeView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        self.view.addSubview(subAtividadeView)
+        self.subAtividadeView.isHidden = true
+        
         
         subCollectionView.delegate = self
         subCollectionView.dataSource = self
@@ -331,10 +338,13 @@ extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
-        let vc = SubAtividadesCadastradas()
-        vc.view.backgroundColor = .white
-        self.navigationController?.present(vc, animated: true, completion: nil)
-
+        if indexPath.item == 0{
+            self.subAtividadeView.isHidden = false
+        }
+//        let vc = SubAtividadesCadastradas()
+//        vc.view.backgroundColor = .white
+//        self.navigationController?.present(vc, animated: true, completion: nil)
+        
     }
     
 }

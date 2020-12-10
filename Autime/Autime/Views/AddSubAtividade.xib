@@ -11,6 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddSubAtividadeView" customModule="Autime" customModuleProvider="target">
             <connections>
                 <outlet property="button" destination="rqr-dU-1FO" id="cWM-Yi-xiJ"/>
+                <outlet property="buttonImage" destination="cns-aP-0Le" id="QeA-Pi-SR6"/>
+                <outlet property="subview" destination="l8c-0Y-sd9" id="tGo-Xu-nII"/>
+                <outlet property="textfield" destination="lju-fb-366" id="xsE-Eo-dEa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70w-28-fyv">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70w-28-fyv">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -26,17 +29,24 @@
                             <rect key="frame" x="0.0" y="247" width="414" height="403"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MwT-ph-PcX">
-                                    <rect key="frame" x="87" y="36" width="240" height="128"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqr-dU-1FO">
-                                    <rect key="frame" x="159" y="186" width="105" height="30"/>
+                                    <rect key="frame" x="195" y="244" width="34" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Choose picture"/>
+                                    <state key="normal" title="Save"/>
+                                    <connections>
+                                        <action selector="save" destination="-1" eventType="touchUpInside" id="S9A-Jt-qaw"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cns-aP-0Le">
+                                    <rect key="frame" x="20" y="18" width="374" height="167"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="creatActImg"/>
+                                    <connections>
+                                        <action selector="escolherImagem:" destination="-1" eventType="touchUpInside" id="b9e-0b-g7e"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lju-fb-366">
-                                    <rect key="frame" x="159" y="246" width="97" height="34"/>
+                                    <rect key="frame" x="159" y="202" width="97" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -52,6 +62,7 @@
         </view>
     </objects>
     <resources>
+        <image name="creatActImg" width="374" height="167"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
