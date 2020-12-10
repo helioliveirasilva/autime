@@ -144,6 +144,7 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         allActList.weekDayName = self.weekDayName
         navigationController?.pushViewController(allActList, animated: true)
     }
+    
 }
 
 extension String {

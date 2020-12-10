@@ -99,6 +99,7 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
         
         navigationController?.pushViewController(allActFocus, animated: true)
     }
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -65,7 +65,9 @@ class MenuPaisViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(#colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1).image(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.layoutIfNeeded()
+        navigationController?.navigationBar.barStyle = .black
         navigationController?.isNavigationBarHidden = true
+        
         
         //FakeNavBar
         self.viewNavBar.layer.cornerRadius = 21
@@ -99,7 +101,4 @@ class MenuPaisViewController: UIViewController {
         tutorialButton.layer.shadowRadius = 30.0
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 }

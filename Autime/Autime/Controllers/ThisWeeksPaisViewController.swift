@@ -99,4 +99,8 @@ class ThisWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
         }
         return newDate
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

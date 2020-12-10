@@ -125,5 +125,7 @@ extension ThisWeekAllActViewController {
             print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
         }
     }
-
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

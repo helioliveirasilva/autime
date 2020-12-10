@@ -128,6 +128,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         //NavBar
         self.title = "Criar Atividade"
         navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.barStyle = .black
         
         //PopUpView
         popupView.layer.cornerRadius = 21

@@ -29,7 +29,11 @@ class TutorialViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont.rounded(ofSize: 22, weight: .bold)
         ]
+        navigationController?.navigationBar.barStyle = .black
+        
     }
+    
+  
     
 
     /*

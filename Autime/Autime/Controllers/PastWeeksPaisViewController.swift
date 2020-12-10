@@ -17,7 +17,7 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     //Variables
-    var semanasNovembro: [String] = ["22 a 28", "15 a 21", "08 a 14", "01 a 17"]
+    var semanasNovembro: [String] = ["Em Breve"]
     var semanasOutubro: [String] = ["Em Breve"]
     var semanasSetembro: [String] = ["Em Breve"]
     var semanasAgosto: [String] = ["Em Breve"]
@@ -56,6 +56,7 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
         navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont.rounded(ofSize: 22, weight: .bold)
         ]
+        navigationController?.navigationBar.barStyle = .black
     }
     // MARK: - Table view data source
     //Header TableView
@@ -160,4 +161,5 @@ class PastWeeksPaisViewController: UIViewController, UITableViewDelegate, UITabl
         cell.textLabel?.text = String(semanasAnteriores[indexPath.row])
         return cell
     }
+    
 }
