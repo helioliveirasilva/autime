@@ -22,7 +22,7 @@ class DiaFilhoViewController: UIViewController {
         self.navigationView.layer.cornerRadius = 21
         // Data e hora
         let hour = DateFormatter()
-        hour.dateFormat = "hh:mm"
+        hour.dateFormat = "HH:mm"
         let date = DateFormatter()
         date.dateFormat = "EEEE"
         date.locale = Locale(identifier: "pt_BR")
