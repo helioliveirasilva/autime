@@ -56,7 +56,11 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var pressSat: Bool = false
     var pressSun: Bool = false
     var weekDayName: String = ""
-    var subAtividades: [SubAtividade] = [SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade(), SubAtividade()]
+    var subAtividades: [SubAtividade] = [SubAtividade()] {
+        didSet {
+            self.subCollectionView.reloadData()
+        }
+    }
     
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
     var subAtividadeView: AddSubAtividadeView!
@@ -198,12 +202,8 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         atividade.categoria = self.categoryTextField.text
         
         // Criando Sub-Atividades
-        for index in 1...10 {
-            let step: SubAtividade! = SubAtividade(context: self.context)
-            step.nome = "Step\(index)"
-            step.image = UIImage(named: "test1.jpeg")?.pngData()
-            step.ordem = Int16(index)
-            atividade.addToPassos(step)
+        for index in 1...subAtividades.count-1 {
+            atividade.addToPassos(subAtividades[index])
         }
         
         do {
@@ -311,18 +311,13 @@ extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubAtividadeCell", for: indexPath) as! SubAtividadeCell
         var photo: UIImage!
-        print(indexPath.item)
+
         if indexPath.item == 0 {
             
             cell.image = UIImage(systemName: "plus")
             return cell
         }
-        if indexPath.item >= 1 {
-            
-            cell.image = UIImage(systemName: "trash")
-            return cell
-        }
-
+        
         if let data = self.subAtividades[indexPath.item].image {
             photo = UIImage(data: data)
         } else {
@@ -339,12 +334,23 @@ extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
         if indexPath.item == 0{
-            self.subAtividadeView.isHidden = false
+            let viewCreatSubAct = UIStoryboard(name: "CadastrarAtividade", bundle: nil).instantiateViewController(withIdentifier: "CadastrarSubAtividade") as? CadastrarSubAtividadeViewController
+        
+            viewCreatSubAct?.modalPresentationStyle = .automatic
+            viewCreatSubAct?.atividadesCadastradas = self
+            self.present(viewCreatSubAct!, animated: true, completion: nil)
+            
         }
 //        let vc = SubAtividadesCadastradas()
 //        vc.view.backgroundColor = .white
 //        self.navigationController?.present(vc, animated: true, completion: nil)
         
+    }
+    
+    func onUserAction(subAtividade: SubAtividade) {
+        subAtividade.setValue(subAtividades.count, forKey: "ordem")
+        subAtividades.append(subAtividade)
+        self.subCollectionView.reloadData()
     }
     
 }

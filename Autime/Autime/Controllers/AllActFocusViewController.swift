@@ -36,6 +36,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var viewFakeBar: UIView!
     @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var subCollection: UICollectionView!
     
     //Variables
     var actNameInfo: String = "Erro"
@@ -52,9 +53,19 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
             self.configureScreen()
         }
     }
+    var subAtividades: [SubAtividade] = [SubAtividade()] {
+        didSet {
+            self.subCollection.reloadData()
+        }
+    }
+    var newSubs: [SubAtividade] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.subCollection.delegate = self
+        self.subCollection.dataSource = self
         self.getActivityDetails()
     }
     
@@ -184,13 +195,9 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
         
-        do {
-            self.updateActivity()
-            try context.save()
-        } catch let error {
-            print("Erro em ", error.localizedDescription)
-        }
-        
+        // Update and Save
+        self.updateActivity()
+                
         // Back to Day Table View
         if weekDayName != "" {
             for controller in self.navigationController!.viewControllers as Array {
@@ -227,10 +234,10 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         picker.dismiss(animated: true, completion: nil)
     }
         
-    
 }
 
 extension AllActFocusViewController {
+    
     func getActivityDetails() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
@@ -244,6 +251,7 @@ extension AllActFocusViewController {
             
             if activitiesBank.count > 0 {
                 self.activity = activitiesBank[0] as! Atividade
+                self.getSubActivities()
             } else {
                 // Alerta de Erro
                 print("Nenhuma atividade encontrada!")
@@ -254,7 +262,47 @@ extension AllActFocusViewController {
         
     }
     
+    func getSubActivities() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let nameFilter = NSPredicate(format: "%K == %@", #keyPath(Atividade.nome), self.activity?.nome! as! CVarArg)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        request.predicate = nameFilter
+        
+        self.subAtividades.removeAll()
+        
+        do {
+            let activitiesBank = try context.fetch(request)
+            
+            if activitiesBank.count > 0 {
+                
+                let activityResult = activitiesBank[0] as! Atividade
+                
+                for task in activityResult.passos! {
+                    self.subAtividades.append(task as! SubAtividade)
+                }
+                            
+            } else {
+                print("Nenhuma atividade encontrada!")
+            }
+        } catch  let erro {
+            print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
+        }
+        
+        self.subAtividades.sort {
+            $0.ordem < $1.ordem
+        }
+        
+        // Botão de Add
+        self.subAtividades.insert(SubAtividade(), at: 0)
+        self.subCollection.reloadData()
+        
+    }
+    
     func updateActivity() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
         self.activity.setValue(self.actNameTextField.text!, forKey: "nome")
         self.activity.setValue(self.imageButton.image(for: .normal)?.pngData(), forKey: "image")
         self.activity.setValue(self.pickerView.date, forKey: "horario")
@@ -265,6 +313,17 @@ extension AllActFocusViewController {
         self.activity.setValue(self.isPressedFri, forKey: "sexta")
         self.activity.setValue(self.isPressedSat, forKey: "sabado")
         self.activity.setValue(self.isPressedSun, forKey: "domingo")
+        
+        for sub in newSubs {
+            self.activity.addToPassos(sub)
+        }
+        
+        do {
+            try context.save()
+            print("Seus dados foram salvos corretamente")
+        } catch {
+            print("Erro ao salvar os dados")
+        }
     }
     
     func configureScreen() {
@@ -297,4 +356,50 @@ extension AllActFocusViewController {
         self.sunButton.backgroundColor = self.isPressedSun ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
         
     }
+}
+
+extension AllActFocusViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.subAtividades.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubAtividadeEditCell", for: indexPath) as! SubAtividadeCell
+        
+        if indexPath.item == 0 {
+            cell.image = UIImage(systemName: "plus")
+            return cell
+        }
+        
+        var photo: UIImage!
+        
+        if let data = self.subAtividades[indexPath.item].image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
+        }
+        
+        cell.image = photo
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item == 0 {
+            let viewCreatSubAct = UIStoryboard(name: "CadastrarAtividade", bundle: nil).instantiateViewController(withIdentifier: "CadastrarSubAtividade") as? CadastrarSubAtividadeViewController
+        
+            viewCreatSubAct?.modalPresentationStyle = .automatic
+            viewCreatSubAct?.allActFocus = self
+            self.present(viewCreatSubAct!, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func onUserAction(subAtividade: SubAtividade) {
+        subAtividade.setValue(subAtividades.count, forKey: "ordem")
+        subAtividades.append(subAtividade)
+        newSubs.append(subAtividade)
+        self.subCollection.reloadData()
+    }
+    
 }

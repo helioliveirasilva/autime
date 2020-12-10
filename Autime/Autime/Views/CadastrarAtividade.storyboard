@@ -263,9 +263,66 @@
             </objects>
             <point key="canvasLocation" x="-1742.0289855072465" y="-222.32142857142856"/>
         </scene>
+        <!--Atividade-->
+        <scene sceneID="EsU-dk-wgw">
+            <objects>
+                <viewController storyboardIdentifier="CadastrarSubAtividade" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zMx-mW-cLr" customClass="CadastrarSubAtividadeViewController" customModule="Autime" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yV9-OA-HbV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite o nome da subatividade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q8g-Ys-Zgo">
+                                <rect key="frame" x="55" y="622" width="265" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome da subatividade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bis-ga-KV2">
+                                <rect key="frame" x="55" y="579" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsT-s4-M4D">
+                                <rect key="frame" x="20" y="365" width="374" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="creatActImg"/>
+                                <connections>
+                                    <action selector="escolherImagem:" destination="zMx-mW-cLr" eventType="touchUpInside" id="KEh-O4-DsS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbB-9T-29Q">
+                                <rect key="frame" x="154" y="725" width="107" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="createButton"/>
+                                <connections>
+                                    <action selector="createTap" destination="zMx-mW-cLr" eventType="touchUpInside" id="sXa-9X-Tgo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Z9i-fY-Z6D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Atividade" leftItemsSupplementBackButton="YES" id="oUt-f8-Oth">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Byt-4t-3CO"/>
+                    </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="414" height="896"/>
+                    <connections>
+                        <outlet property="createButton" destination="HbB-9T-29Q" id="fwP-bU-RsO"/>
+                        <outlet property="imageButton" destination="OsT-s4-M4D" id="ZAm-iM-5wK"/>
+                        <outlet property="nameLabel" destination="bis-ga-KV2" id="bq5-G4-zNt"/>
+                        <outlet property="nameTextField" destination="q8g-Ys-Zgo" id="2lI-e1-vtJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="maA-MM-ha1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-613.04347826086962" y="-222.32142857142856"/>
+        </scene>
     </scenes>
     <resources>
         <image name="creatActImg" width="374" height="167"/>
+        <image name="createButton" width="537.5" height="141"/>
         <image name="letterD" width="27" height="27"/>
         <image name="letterQ" width="27" height="27"/>
         <image name="letterS" width="27" height="27"/>

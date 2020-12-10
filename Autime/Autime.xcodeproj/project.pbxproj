@@ -23,6 +23,7 @@
 		246F6659256BF90B001E2256 /* CadastrarAtividade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F6658256BF90B001E2256 /* CadastrarAtividade.storyboard */; };
 		246F665E256BFCAC001E2256 /* AtividadesCadastradas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */; };
 		3E4F9EAA256D3B710039BFFC /* DataBanco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F9EA8256D3B710039BFFC /* DataBanco.xcdatamodeld */; };
+		3E64A23125826F710002AEB3 /* CadastrarSubAtividadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64A23025826F710002AEB3 /* CadastrarSubAtividadeViewController.swift */; };
 		3E6F295C257155C4008CDBAB /* AutimeTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 24429714255D841A00CCEBAB /* AutimeTests.xctest */; };
 		3E6F295D257155C8008CDBAB /* AutimeUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 2442971F255D841A00CCEBAB /* AutimeUITests.xctest */; };
 		3EFCB96E257E7013001CA39B /* FeedbackChild.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFCB96D257E7013001CA39B /* FeedbackChild.xib */; };
@@ -102,6 +103,7 @@
 		246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtividadesCadastradas.swift; sourceTree = "<group>"; };
 		3D53C705005DE7FBE96A95A1 /* Pods-AutimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.debug.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E4F9EA9256D3B710039BFFC /* AuTimeCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AuTimeCoreData.xcdatamodel; sourceTree = "<group>"; };
+		3E64A23025826F710002AEB3 /* CadastrarSubAtividadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastrarSubAtividadeViewController.swift; sourceTree = "<group>"; };
 		3EFCB96D257E7013001CA39B /* FeedbackChild.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackChild.xib; sourceTree = "<group>"; };
 		3EFCB975257E7616001CA39B /* FeedbackChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChildView.swift; sourceTree = "<group>"; };
 		48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime_AutimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,7 +285,6 @@
 				F7F0AC6B25752E2000D89AF1 /* AllActFocusViewController.swift */,
 				246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */,
 				57E3A4EE25812002009AD755 /* SubAtividadesCadastradas.swift */,
-				2419299F256C4CCF0044A530 /* AtividadesTableViewController.swift */,
 				572514CA25669BA600AB79B9 /* DiaFilhoViewController.swift */,
 				572514D72566AE8D00AB79B9 /* DayViewController.swift */,
 				F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */,
@@ -301,6 +302,7 @@
 				24429705255D841900CCEBAB /* ViewController.swift */,
 				3EFCB975257E7616001CA39B /* FeedbackChildView.swift */,
 				57E3A4F825816DAB009AD755 /* AddSubAtividadeView.swift */,
+				3E64A23025826F710002AEB3 /* CadastrarSubAtividadeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -578,6 +580,7 @@
 				246F665E256BFCAC001E2256 /* AtividadesCadastradas.swift in Sources */,
 				F729AFCC2576D06A00916A46 /* PerfilViewController.swift in Sources */,
 				F7EF2F6E257E76E20063F843 /* ThisWeekDayViewController.swift in Sources */,
+				3E64A23125826F710002AEB3 /* CadastrarSubAtividadeViewController.swift in Sources */,
 				572514DE2566BE1000AB79B9 /* SubTarefasViewController.swift in Sources */,
 				F7D61BBE25714F4B00B2B7AB /* AllActListTableViewController.swift in Sources */,
 				57E3A4EF25812002009AD755 /* SubAtividadesCadastradas.swift in Sources */,
