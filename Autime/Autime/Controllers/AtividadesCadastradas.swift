@@ -316,7 +316,6 @@ extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataS
         var photo: UIImage!
 
         if indexPath.item == 0 {
-            
             cell.image = UIImage(systemName: "plus.circle.fill")
             return cell
         }
@@ -334,11 +333,12 @@ extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
-        if indexPath.item == 0{
+        if indexPath.item == 0 {
             let viewCreatSubAct = UIStoryboard(name: "CadastrarAtividade", bundle: nil).instantiateViewController(withIdentifier: "CadastrarSubAtividade") as? CadastrarSubAtividadeViewController
             
             viewCreatSubAct!.modalPresentationStyle = UIModalPresentationStyle.automatic
             viewCreatSubAct!.transitioningDelegate = self
+            viewCreatSubAct!.atividadesCadastradas = self
             self.present(viewCreatSubAct!, animated: true, completion: nil)
             
         }
