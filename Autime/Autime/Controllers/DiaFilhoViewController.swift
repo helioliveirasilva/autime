@@ -24,13 +24,21 @@ class DiaFilhoViewController: UIViewController {
         let hour = DateFormatter()
         hour.dateFormat = "hh:mm"
         let date = DateFormatter()
-        date.dateFormat = "EEEE, dd/MM"
+        date.dateFormat = "EEEE"
         date.locale = Locale(identifier: "pt_BR")
+        let day = DateFormatter()
+        day.dateFormat = "dd/MM"
+        day.locale = Locale(identifier: "pt_BR")
         //Labels
-        dayLabel.font = .rounded(ofSize: 20, weight: .black)
+        dayLabel.font = .rounded(ofSize: 25, weight: .black)
         hourLabel.font = .rounded(ofSize: 25, weight: .bold)
         hourLabel.text = hour.string(from: Date())
-        dayLabel.text = date.string(from: Date())
+        
+        var string = date.string(from: Date()).capitalizingFirstLetter()
+        if let index = string.firstIndex(of: "-") {
+            let firstPart = string.prefix(upTo: index)
+            dayLabel.text = String(firstPart) + ", " + day.string(from: Date())
+        }
         // Botão Trocar de Perfil
         self.changeProfileView.layer.cornerRadius = 21
     }

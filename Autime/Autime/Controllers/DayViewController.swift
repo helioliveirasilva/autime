@@ -14,6 +14,11 @@ import CoreData
 // swiftlint:disable vertical_whitespace
 
 class DayViewController: UIViewController {
+    
+    var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
+    
+    var catImages: [String] = ["CatDomestic", "CatHygiene", "CatEducation", "CatHealth", "CatFamily", "CatFriends", "CatFood", "CatEntertainment", "CatPrize", "CatExtras"]
+    
     @IBOutlet var tarefasCollection: UICollectionView!
     
     var activities: [Atividade] = [] {
@@ -73,10 +78,14 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         cell.imageView.image = photo
         
+        // Icone
+        let indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
+        cell.iconActivity.image = UIImage(named: catImages[indice])
+        
         // Fontes
         cell.hora.font = .rounded(ofSize: 16, weight: .heavy)
-        cell.atividade.font = .rounded(ofSize: 20, weight: .medium)
-        cell.subTarefas.font = .rounded(ofSize: 15, weight: .medium)
+        cell.atividade.font = .rounded(ofSize: 20, weight: .bold)
+        cell.subTarefas.font = .rounded(ofSize: 15, weight: .bold)
         
         // Date Formatter
         let dateFormatter = DateFormatter()
@@ -84,8 +93,15 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         let newDate = dateFormatter.string(from: self.todayActivities[indexPath.item].horario!)
         
         cell.hora.text =  newDate
-        cell.atividade.text = self.todayActivities[indexPath.item].nome ?? "Sem nome"
+        cell.atividade.text = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
+        cell.subTarefas.text = "12 subtarefas"
+        
+        // Icone
+        
+        
+        
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -96,6 +112,12 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
         
         subtarefaView?.activity = self.todayActivities[indexPath.item]
+        
+       subtarefaView?.tituloAtividade = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
+//
+        var indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
+        subtarefaView?.imagemIconce = UIImage(named: catImages[indice])
+            
         
         // subtarefaView.navigationController?.navigationBar.isHidden = false
         self.navigationController?.present(subtarefaView ?? UIViewController(), animated: true, completion: nil)

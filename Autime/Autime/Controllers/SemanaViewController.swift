@@ -55,17 +55,20 @@ extension SemanaViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "datatag", for: indexPath) as! SectionHeaderView
         let day = atividadesSemana[indexPath.section]
-        sectionHeaderView.dataText = day.title
+        sectionHeaderView.dataText = day.title.capitalizingFirstLetter()
+        sectionHeaderView.data.font = .rounded(ofSize: 21, weight: .bold)
+
         
         return sectionHeaderView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "semanacell", for: indexPath) as! SemanaCollectionViewCell
+       
         let dia = atividadesSemana[indexPath.section]
         
         var photo: UIImage!
-        
+                
         if let data = dia.atividades[indexPath.item].image {
             photo = UIImage(data: data)
         } else {
@@ -73,9 +76,13 @@ extension SemanaViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         
         cell.image.image = photo
+        cell.image.layer.cornerRadius = 21
+
         
         return cell
     }
+    
+    
 }
 
 
@@ -111,7 +118,8 @@ extension SemanaViewController {
     func setWeek(){
         let date = Date()
         let format = DateFormatter()
-        format.dateFormat = "dd/MM"
+        format.dateFormat = "EEEE - dd/MM"
+        format.locale = Locale(identifier: "pt_BR")
         let formattedDate = format.string(from: date)
         let calendar = Calendar.current
         var dias: [Date] = []

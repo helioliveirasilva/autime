@@ -11,7 +11,7 @@
 import UIKit
 import CoreData
 
-var titulos: [String] = ["Casa", "Sapato", "Perna", "Bilola", "Panela", "Bacia", "1", "1", "1"]
+var titulos: [String] = ["Casa", "Sapato", "Perna", "Braço", "Panela", "Bacia", "Cabeça", "Ombro", "Joelho"]
 var checado: [Bool] = [true, true, true, true, true, true, true, true, true]
 var progresso: Float = 0
 
@@ -19,12 +19,14 @@ class SubTarefasViewController: UIViewController {
     @IBOutlet var subtarefasCollection: UICollectionView!
     @IBOutlet weak var botaoconcluir: UIButton!
     @IBOutlet weak var barraProgresso: UIProgressView!
-    var feedback: FeedbackChildView!
-
-    var imagens: [UIImage] = [UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!,UIImage(named: "test")!]
+    @IBOutlet weak var tituloLabel: UILabel!
+    @IBOutlet weak var icone: UIImageView!
     
+    var imagemIconce: UIImage!
+    var tituloAtividade: String!
+    var feedback: FeedbackChildView!
+    var imagens: [UIImage] = [UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!]
     var activity: Atividade?
-
     var subActivities: [SubAtividade]! = [] {
         didSet {
             subtarefasCollection.reloadData()
@@ -33,6 +35,14 @@ class SubTarefasViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.icone.image = imagemIconce
+        tituloLabel.text = tituloAtividade
+        tituloLabel.font = .rounded(ofSize: 25, weight: .bold)
+        
+        botaoconcluir.layer.cornerRadius = botaoconcluir.frame.height/3
+        botaoconcluir.titleLabel?.font = .rounded(ofSize: 15, weight: .bold)
+
         
         self.feedback = FeedbackChildView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.view.addSubview(feedback)
@@ -45,11 +55,13 @@ class SubTarefasViewController: UIViewController {
         
         if checado.last == false {
             botaoconcluir.isEnabled = true
-            botaoconcluir.backgroundColor = .green
+            botaoconcluir.backgroundColor = #colorLiteral(red: 0.4371337295, green: 0.8646664619, blue: 0.4942504764, alpha: 1)
+            botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            
         } else {
             botaoconcluir.isEnabled = false
-            botaoconcluir.backgroundColor = .gray
-        }
+            botaoconcluir.backgroundColor = #colorLiteral(red: 0.7498548031, green: 0.7448977828, blue: 0.749243319, alpha: 1)
+            botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,10 +105,9 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.layer.cornerRadius = 21
         cell.image.image = photo
         cell.label.text = titulos[indexPath.item]
+        cell.label.font = .rounded(ofSize: 15, weight: .medium)
         cell.imagecheck.isHidden = checado[indexPath.item]
         
-        
-
         return cell
     }
     
@@ -139,16 +150,18 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         
         if checado.last == false {
             botaoconcluir.isEnabled = true
-            botaoconcluir.backgroundColor = .green
+            botaoconcluir.backgroundColor = #colorLiteral(red: 0.4371337295, green: 0.8646664619, blue: 0.4942504764, alpha: 1)
+            botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
         } else {
             botaoconcluir.isEnabled = false
-            botaoconcluir.backgroundColor = .gray
+            botaoconcluir.backgroundColor = #colorLiteral(red: 0.7498548031, green: 0.7448977828, blue: 0.749243319, alpha: 1)
+            botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
         }
 
         subtarefasCollection.reloadData()
     }
-    
-    
     
 }
 
