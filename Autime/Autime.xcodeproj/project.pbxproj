@@ -45,6 +45,7 @@
 		F729AFC42576CE7200916A46 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729AFC32576CE7200916A46 /* TutorialViewController.swift */; };
 		F729AFCC2576D06A00916A46 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729AFCB2576D06A00916A46 /* PerfilViewController.swift */; };
 		F74DA583256BE6C6005E6A2E /* MenuPaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */; };
+		F756962B25829D0A005872A0 /* NewLS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F756962A25829D0A005872A0 /* NewLS.storyboard */; };
 		F79A33992562C72A00CD52C5 /* Filhos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33982562C72A00CD52C5 /* Filhos.storyboard */; };
 		F79A339E2562C8A800CD52C5 /* PaisPastWeeks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */; };
 		F79A33A32562C94B00CD52C5 /* PaisThisWeek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */; };
@@ -130,6 +131,7 @@
 		F729AFC32576CE7200916A46 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		F729AFCB2576D06A00916A46 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPaisViewController.swift; sourceTree = "<group>"; };
+		F756962A25829D0A005872A0 /* NewLS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewLS.storyboard; sourceTree = "<group>"; };
 		F79A33972562C70900CD52C5 /* PaisMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisMenu.storyboard; sourceTree = "<group>"; };
 		F79A33982562C72A00CD52C5 /* Filhos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filhos.storyboard; sourceTree = "<group>"; };
 		F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisPastWeeks.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				3E4F9EA8256D3B710039BFFC /* DataBanco.xcdatamodeld */,
 				2442970A255D841A00CCEBAB /* Assets.xcassets */,
 				2442970C255D841A00CCEBAB /* LaunchScreen.storyboard */,
+				F756962A25829D0A005872A0 /* NewLS.storyboard */,
 				2442970F255D841A00CCEBAB /* Info.plist */,
 			);
 			path = Autime;
@@ -433,6 +436,7 @@
 				3EFCB96E257E7013001CA39B /* FeedbackChild.xib in Resources */,
 				F79A33992562C72A00CD52C5 /* Filhos.storyboard in Resources */,
 				57E3A4FE25816E8A009AD755 /* AddSubAtividade.xib in Resources */,
+				F756962B25829D0A005872A0 /* NewLS.storyboard in Resources */,
 				F79A33AD2562C9AA00CD52C5 /* PaisAllAct.storyboard in Resources */,
 				F79A339E2562C8A800CD52C5 /* PaisPastWeeks.storyboard in Resources */,
 				F79A33A32562C94B00CD52C5 /* PaisThisWeek.storyboard in Resources */,
@@ -765,7 +769,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = CT66845T5J;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Autime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -787,7 +791,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = CT66845T5J;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Autime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

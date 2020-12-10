@@ -41,6 +41,8 @@ class DiaFilhoViewController: UIViewController {
         }
         // Botão Trocar de Perfil
         self.changeProfileView.layer.cornerRadius = 21
+        
+        navigationController?.navigationBar.barStyle = .black
     }
     
     @IBAction func switchView(_ segment: UISegmentedControl) {
@@ -52,4 +54,5 @@ class DiaFilhoViewController: UIViewController {
             weekView.isHidden = false
         }
     }
+    
 }
