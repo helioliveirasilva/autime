@@ -66,6 +66,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         
         self.subCollection.delegate = self
         self.subCollection.dataSource = self
+        self.actNameTextField.textColor = .black
         self.getActivityDetails()
     }
     

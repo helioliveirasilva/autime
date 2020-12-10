@@ -76,6 +76,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         //        view.addGestureRecognizer(tap)
         
         self.labelNome.delegate = self
+        self.labelNome.textColor = .black
         self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
         
         //        botao de done não esta dando dismiss no picker...
@@ -86,6 +87,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         //        toolbar.setItems([doneButton], animated: true)
         //        self.categoryTextField.inputAccessoryView = toolbar
         self.categoryTextField.inputView = self.categoryPicker
+        self.categoryTextField.textColor = .black
         
         self.subAtividadeView = AddSubAtividadeView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.view.addSubview(subAtividadeView)

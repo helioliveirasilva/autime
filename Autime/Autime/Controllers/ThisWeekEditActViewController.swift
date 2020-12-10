@@ -67,7 +67,8 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
         
         //Teclado
         self.actNameTextField.addDoneButtonToKeyboard(myAction:  #selector(self.actNameTextField.resignFirstResponder))
-
+        self.actNameTextField.textColor = .black
+        
         self.subCollectionView.delegate = self
         self.subCollectionView.dataSource = self
                 
