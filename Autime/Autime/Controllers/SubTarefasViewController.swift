@@ -12,7 +12,7 @@ import UIKit
 import CoreData
 
 var titulos: [String] = ["Casa", "Sapato", "Perna", "Braço", "Panela", "Bacia", "Cabeça", "Ombro", "Joelho"]
-var checado: [Bool] = [true, true, true, true, true, true, true, true, true]
+var checado: [Bool] = []
 var progresso: Float = 0
 
 class SubTarefasViewController: UIViewController {
@@ -31,6 +31,9 @@ class SubTarefasViewController: UIViewController {
     var activity: Atividade?
     var subActivities: [SubAtividade]! = [] {
         didSet {
+            for _ in subActivities{
+                checado.append(true)
+            }
             subtarefasCollection.reloadData()
         }
     }
@@ -54,8 +57,8 @@ class SubTarefasViewController: UIViewController {
         subtarefasCollection.dataSource = self
         
         self.getSubActivities()
-        
-        if checado.last == false {
+                
+        if progresso == 1.0 {
             botaoconcluir.isEnabled = true
             botaoconcluir.backgroundColor = #colorLiteral(red: 0.4371337295, green: 0.8646664619, blue: 0.4942504764, alpha: 1)
             botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -73,7 +76,6 @@ class SubTarefasViewController: UIViewController {
     
     @IBAction func concluir(_ sender: Any) {
         self.feedback.isHidden = false
-       
 
         var arrayPremio = dayView?.arrayPremio
         
@@ -93,7 +95,7 @@ class SubTarefasViewController: UIViewController {
         dayView?.onUserAction(array: arrayPremio!)
 
     }    
-
+  
 }
 
 extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -104,7 +106,7 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        checado.count
+        self.subActivities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -121,9 +123,10 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         } else {
             photo = UIImage()
         }
+        
         cell.layer.cornerRadius = 21
         cell.image.image = photo
-        cell.label.text = titulos[indexPath.item]
+        cell.label.text = self.subActivities[indexPath.item].nome
         cell.label.font = .rounded(ofSize: 15, weight: .medium)
         cell.imagecheck.isHidden = checado[indexPath.item]
         
@@ -139,10 +142,10 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
             
             if checado[indexPath.item] == true {
                 checado[indexPath.item] = false
-                progresso = Float(indexPath.item+1)/Float(titulos.count)
+                progresso = Float(indexPath.item+1)/Float(self.subActivities.count)
                 barraProgresso.setProgress(progresso, animated: true)
             } else {
-                progresso = Float(indexPath.item)/Float(titulos.count)
+                progresso = Float(indexPath.item)/Float(self.subActivities.count)
                 barraProgresso.setProgress(progresso, animated: true)
 
                 for che in indexPath.item...checado.count-1 {
@@ -154,11 +157,11 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
             
             if checado[indexPath.item] == true {
                 checado[indexPath.item] = false
-                progresso = Float(indexPath.item+1)/Float(titulos.count)
+                progresso = Float(indexPath.item+1)/Float(self.subActivities.count)
                 barraProgresso.setProgress(progresso, animated: true)
 
             } else {
-                progresso = Float(indexPath.item)/Float(titulos.count)
+                progresso = Float(indexPath.item)/Float(self.subActivities.count)
                 barraProgresso.setProgress(progresso, animated: true)
                 for che in indexPath.item...checado.count-1 {
                     checado[che] = true
@@ -167,7 +170,7 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
             
         }
         
-        if checado.last == false {
+        if progresso == 1.0 {
             botaoconcluir.isEnabled = true
             botaoconcluir.backgroundColor = #colorLiteral(red: 0.4371337295, green: 0.8646664619, blue: 0.4942504764, alpha: 1)
             botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)

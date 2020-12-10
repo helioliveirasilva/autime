@@ -16,7 +16,7 @@
 import UIKit
 import CoreData
 
-class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIViewControllerTransitioningDelegate {
     
     //Outlets
     @IBOutlet weak var labelNome: UITextField!
@@ -43,6 +43,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var viewFakeBar: UIView!
     @IBOutlet weak var categoryTextField: UITextField!
     var categoryPicker: UIPickerView! = UIPickerView()
+    @IBOutlet var subCollectionView: UICollectionView!
     
     //Variables
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -55,8 +56,14 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var pressSat: Bool = false
     var pressSun: Bool = false
     var weekDayName: String = ""
+    var subAtividades: [SubAtividade] = [SubAtividade()] {
+        didSet {
+            self.subCollectionView.reloadData()
+        }
+    }
     
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
+    var subAtividadeView: AddSubAtividadeView!
     
     override func viewDidLoad() {
         self.context = appDelegate.persistentContainer.viewContext
@@ -64,21 +71,29 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         self.categoryPicker.delegate = self
         self.categoryPicker.dataSource = self
         
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
+        //        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        //        view.addGestureRecognizer(tap)
         
         self.labelNome.delegate = self
         self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
-
-//        botao de done não esta dando dismiss no picker...
-//        let toolbar = UIToolbar()
-//        toolbar.sizeToFit()
-//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.categoryPicker.resignFirstResponder))
-//        self.categoryPicker.delegate = self
-//        toolbar.setItems([doneButton], animated: true)
-//        self.categoryTextField.inputAccessoryView = toolbar
+        
+        //        botao de done não esta dando dismiss no picker...
+        //        let toolbar = UIToolbar()
+        //        toolbar.sizeToFit()
+        //        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.categoryPicker.resignFirstResponder))
+        //        self.categoryPicker.delegate = self
+        //        toolbar.setItems([doneButton], animated: true)
+        //        self.categoryTextField.inputAccessoryView = toolbar
         self.categoryTextField.inputView = self.categoryPicker
         
+        
+        self.subAtividadeView = AddSubAtividadeView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        self.view.addSubview(subAtividadeView)
+        self.subAtividadeView.isHidden = true
+        
+        
+        subCollectionView.delegate = self
+        subCollectionView.dataSource = self
     }
     
     //ViewWillAppear
@@ -171,7 +186,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     
     // Salvar
     @IBAction func salvar(_ sender: Any) {
-                
+        
         let atividade = Atividade(context: self.context)
         atividade.nome = self.labelNome.text ?? "Sem Nome"
         atividade.horario = self.pickerHora.date
@@ -187,12 +202,8 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         atividade.categoria = self.categoryTextField.text
         
         // Criando Sub-Atividades
-        for index in 1...10 {
-            let step: SubAtividade! = SubAtividade(context: self.context)
-            step.nome = "Step\(index)"
-            step.image = UIImage(named: "test1.jpeg")?.pngData()
-            step.ordem = Int16(index)
-            atividade.addToPassos(step)
+        for index in 1...subAtividades.count-1 {
+            atividade.addToPassos(subAtividades[index])
         }
         
         do {
@@ -290,3 +301,50 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     
 }
 
+extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        subAtividades.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubAtividadeCell", for: indexPath) as! SubAtividadeCell
+        var photo: UIImage!
+
+        if indexPath.item == 0 {
+            
+            cell.image = UIImage(systemName: "plus")
+            return cell
+        }
+        
+        if let data = self.subAtividades[indexPath.item].image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
+        }
+        
+        cell.image = photo
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+        if indexPath.item == 0{
+            let viewCreatSubAct = UIStoryboard(name: "CadastrarAtividade", bundle: nil).instantiateViewController(withIdentifier: "CadastrarSubAtividade") as? CadastrarSubAtividadeViewController
+            
+            viewCreatSubAct!.modalPresentationStyle = UIModalPresentationStyle.automatic
+            viewCreatSubAct!.transitioningDelegate = self
+            self.present(viewCreatSubAct!, animated: true, completion: nil)
+            
+        }
+    }
+        
+    func onUserAction(subAtividade: SubAtividade) {
+        subAtividade.setValue(subAtividades.count, forKey: "ordem")
+        subAtividades.append(subAtividade)
+        self.subCollectionView.reloadData()
+    }
+    
+}

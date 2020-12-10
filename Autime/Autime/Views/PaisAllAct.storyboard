@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -288,35 +289,38 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXX-FG-m2M">
-                                        <rect key="frame" x="53" y="520" width="61" height="61"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nzN-Lz-OZq">
+                                        <rect key="frame" x="55" y="517" width="267" height="84"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66s-cG-uFr">
-                                        <rect key="frame" x="122" y="520" width="61" height="61"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f1W-SH-bew">
-                                        <rect key="frame" x="191" y="520" width="61" height="61"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adicionar Atividades" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uh-Ib-FMg">
-                                                <rect key="frame" x="4" y="17" width="55" height="56"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="os6-sp-WAG">
+                                            <size key="itemSize" width="67" height="67"/>
+                                            <size key="estimatedItemSize" width="67" height="67"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SubAtividadeEditCell" id="vhN-fL-41v" customClass="SubAtividadeCell" customModule="Autime" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="11.5" width="67" height="61"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cMJ-rK-5CG">
-                                                <rect key="frame" x="12" y="8.5" width="37" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                    </view>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0kd-pc-xOX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="67" height="61"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0xJ-bC-Seb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="67" height="67"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="67" height="61"/>
+                                                <connections>
+                                                    <outlet property="imageView" destination="0xJ-bC-Seb" id="tnI-8t-9af"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                             </view>
@@ -342,6 +346,7 @@
                         <outlet property="starLabel" destination="hsQ-JO-Bjt" id="Qaw-r2-IXV"/>
                         <outlet property="starSwitch" destination="ZJn-gK-Z1b" id="kbg-uy-0BV"/>
                         <outlet property="subActLabel" destination="C0F-92-o7d" id="fbf-xn-4wO"/>
+                        <outlet property="subCollection" destination="nzN-Lz-OZq" id="FCj-Vj-GTI"/>
                         <outlet property="sunButton" destination="ZbI-dY-orh" id="UIv-sx-fMT"/>
                         <outlet property="thuButton" destination="sY1-KC-4sf" id="RfE-WQ-jWJ"/>
                         <outlet property="timeLabel" destination="5lA-oT-fKn" id="k6H-Ia-qWj"/>
@@ -363,7 +368,6 @@
         <image name="letterQ" width="27" height="27"/>
         <image name="letterS" width="27" height="27"/>
         <image name="letterT" width="27" height="27"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="test5" width="1140" height="584"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

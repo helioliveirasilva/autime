@@ -23,6 +23,7 @@
 		246F6659256BF90B001E2256 /* CadastrarAtividade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F6658256BF90B001E2256 /* CadastrarAtividade.storyboard */; };
 		246F665E256BFCAC001E2256 /* AtividadesCadastradas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */; };
 		3E4F9EAA256D3B710039BFFC /* DataBanco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F9EA8256D3B710039BFFC /* DataBanco.xcdatamodeld */; };
+		3E64A23125826F710002AEB3 /* CadastrarSubAtividadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64A23025826F710002AEB3 /* CadastrarSubAtividadeViewController.swift */; };
 		3E6F295C257155C4008CDBAB /* AutimeTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 24429714255D841A00CCEBAB /* AutimeTests.xctest */; };
 		3E6F295D257155C8008CDBAB /* AutimeUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 2442971F255D841A00CCEBAB /* AutimeUITests.xctest */; };
 		3EFCB96E257E7013001CA39B /* FeedbackChild.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFCB96D257E7013001CA39B /* FeedbackChild.xib */; };
@@ -36,6 +37,10 @@
 		57549449256FCF1800BF0CE3 /* SemanaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57549448256FCF1800BF0CE3 /* SemanaViewController.swift */; };
 		57549459256FD25400BF0CE3 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57549458256FD25400BF0CE3 /* SectionHeaderView.swift */; };
 		57DE9B78256BEEE800AB20A6 /* SubTarefas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57DE9B77256BEEE800AB20A6 /* SubTarefas.storyboard */; };
+		57E3A4EF25812002009AD755 /* SubAtividadesCadastradas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3A4EE25812002009AD755 /* SubAtividadesCadastradas.swift */; };
+		57E3A4F425813AE3009AD755 /* SubAtividadeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3A4F325813AE3009AD755 /* SubAtividadeCell.swift */; };
+		57E3A4F925816DAB009AD755 /* AddSubAtividadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3A4F825816DAB009AD755 /* AddSubAtividadeView.swift */; };
+		57E3A4FE25816E8A009AD755 /* AddSubAtividade.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57E3A4FD25816E8A009AD755 /* AddSubAtividade.xib */; };
 		7940392340B5E4479D710507 /* Pods_Autime_AutimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */; };
 		F729AFC42576CE7200916A46 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729AFC32576CE7200916A46 /* TutorialViewController.swift */; };
 		F729AFCC2576D06A00916A46 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729AFCB2576D06A00916A46 /* PerfilViewController.swift */; };
@@ -98,6 +103,7 @@
 		246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtividadesCadastradas.swift; sourceTree = "<group>"; };
 		3D53C705005DE7FBE96A95A1 /* Pods-AutimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutimeTests.debug.xcconfig"; path = "Target Support Files/Pods-AutimeTests/Pods-AutimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E4F9EA9256D3B710039BFFC /* AuTimeCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AuTimeCoreData.xcdatamodel; sourceTree = "<group>"; };
+		3E64A23025826F710002AEB3 /* CadastrarSubAtividadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastrarSubAtividadeViewController.swift; sourceTree = "<group>"; };
 		3EFCB96D257E7013001CA39B /* FeedbackChild.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackChild.xib; sourceTree = "<group>"; };
 		3EFCB975257E7616001CA39B /* FeedbackChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChildView.swift; sourceTree = "<group>"; };
 		48BB0D30E66984ED1BF447CC /* Pods_Autime_AutimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime_AutimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,10 @@
 		57549448256FCF1800BF0CE3 /* SemanaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanaViewController.swift; sourceTree = "<group>"; };
 		57549458256FD25400BF0CE3 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		57DE9B77256BEEE800AB20A6 /* SubTarefas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubTarefas.storyboard; sourceTree = "<group>"; };
+		57E3A4EE25812002009AD755 /* SubAtividadesCadastradas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubAtividadesCadastradas.swift; sourceTree = "<group>"; };
+		57E3A4F325813AE3009AD755 /* SubAtividadeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubAtividadeCell.swift; sourceTree = "<group>"; };
+		57E3A4F825816DAB009AD755 /* AddSubAtividadeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubAtividadeView.swift; sourceTree = "<group>"; };
+		57E3A4FD25816E8A009AD755 /* AddSubAtividade.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSubAtividade.xib; sourceTree = "<group>"; };
 		75DF56E75FDEF5081828F490 /* Pods-Autime-AutimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime-AutimeUITests.release.xcconfig"; path = "Target Support Files/Pods-Autime-AutimeUITests/Pods-Autime-AutimeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		782083677F4D65E0EA2425D0 /* Pods-Autime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Autime.release.xcconfig"; path = "Target Support Files/Pods-Autime/Pods-Autime.release.xcconfig"; sourceTree = "<group>"; };
 		78EE28FD2397C5709D4B2F0F /* Pods_Autime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Autime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +252,7 @@
 				57549443256FCE9C00BF0CE3 /* SemanaCollectionViewCell.swift */,
 				57549458256FD25400BF0CE3 /* SectionHeaderView.swift */,
 				2455E58125815A8F005A174F /* SemanaNovaCollectionViewCell.swift */,
+				57E3A4F325813AE3009AD755 /* SubAtividadeCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 				F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */,
 				57DE9B77256BEEE800AB20A6 /* SubTarefas.storyboard */,
 				3EFCB96D257E7013001CA39B /* FeedbackChild.xib */,
+				57E3A4FD25816E8A009AD755 /* AddSubAtividade.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +284,7 @@
 				F7D61BBD25714F4B00B2B7AB /* AllActListTableViewController.swift */,
 				F7F0AC6B25752E2000D89AF1 /* AllActFocusViewController.swift */,
 				246F665D256BFCAC001E2256 /* AtividadesCadastradas.swift */,
+				57E3A4EE25812002009AD755 /* SubAtividadesCadastradas.swift */,
 				572514CA25669BA600AB79B9 /* DiaFilhoViewController.swift */,
 				572514D72566AE8D00AB79B9 /* DayViewController.swift */,
 				F74DA582256BE6C6005E6A2E /* MenuPaisViewController.swift */,
@@ -288,6 +301,8 @@
 				F729AFC32576CE7200916A46 /* TutorialViewController.swift */,
 				24429705255D841900CCEBAB /* ViewController.swift */,
 				3EFCB975257E7616001CA39B /* FeedbackChildView.swift */,
+				57E3A4F825816DAB009AD755 /* AddSubAtividadeView.swift */,
+				3E64A23025826F710002AEB3 /* CadastrarSubAtividadeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -417,6 +432,7 @@
 				2442970E255D841A00CCEBAB /* LaunchScreen.storyboard in Resources */,
 				3EFCB96E257E7013001CA39B /* FeedbackChild.xib in Resources */,
 				F79A33992562C72A00CD52C5 /* Filhos.storyboard in Resources */,
+				57E3A4FE25816E8A009AD755 /* AddSubAtividade.xib in Resources */,
 				F79A33AD2562C9AA00CD52C5 /* PaisAllAct.storyboard in Resources */,
 				F79A339E2562C8A800CD52C5 /* PaisPastWeeks.storyboard in Resources */,
 				F79A33A32562C94B00CD52C5 /* PaisThisWeek.storyboard in Resources */,
@@ -552,6 +568,7 @@
 				F7C2F25B257FD8FD005D5F66 /* ThisWeekEditActViewController.swift in Sources */,
 				24429704255D841900CCEBAB /* SceneDelegate.swift in Sources */,
 				F7D61BAE256BEB5500B2B7AB /* PastWeeksPaisViewController.swift in Sources */,
+				57E3A4F425813AE3009AD755 /* SubAtividadeCell.swift in Sources */,
 				57549459256FD25400BF0CE3 /* SectionHeaderView.swift in Sources */,
 				2455E57A2581566E005A174F /* SemanaCollectionViewController.swift in Sources */,
 				24192998256C427C0044A530 /* TableViewCell.swift in Sources */,
@@ -563,8 +580,11 @@
 				246F665E256BFCAC001E2256 /* AtividadesCadastradas.swift in Sources */,
 				F729AFCC2576D06A00916A46 /* PerfilViewController.swift in Sources */,
 				F7EF2F6E257E76E20063F843 /* ThisWeekDayViewController.swift in Sources */,
+				3E64A23125826F710002AEB3 /* CadastrarSubAtividadeViewController.swift in Sources */,
 				572514DE2566BE1000AB79B9 /* SubTarefasViewController.swift in Sources */,
 				F7D61BBE25714F4B00B2B7AB /* AllActListTableViewController.swift in Sources */,
+				57E3A4EF25812002009AD755 /* SubAtividadesCadastradas.swift in Sources */,
+				57E3A4F925816DAB009AD755 /* AddSubAtividadeView.swift in Sources */,
 				F729AFC42576CE7200916A46 /* TutorialViewController.swift in Sources */,
 				572514D82566AE8D00AB79B9 /* DayViewController.swift in Sources */,
 			);

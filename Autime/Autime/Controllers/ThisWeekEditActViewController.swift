@@ -37,6 +37,7 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var viewFakeBar: UIView!
     @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var subCollectionView: UICollectionView!
     
     //Variables
     var actNameInfo: String = "Erro"
@@ -53,6 +54,13 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
             self.configureScreen()
         }
     }
+    var subAtividades: [SubAtividade] = [SubAtividade()] {
+        didSet {
+            self.subCollectionView.reloadData()
+        }
+    }
+    
+    var newSubs: [SubAtividade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +68,9 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
         //Teclado
         self.actNameTextField.addDoneButtonToKeyboard(myAction:  #selector(self.actNameTextField.resignFirstResponder))
 
-        
-        
+        self.subCollectionView.delegate = self
+        self.subCollectionView.dataSource = self
+                
         self.getActivityDetails()
     }
     
@@ -188,12 +197,59 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
     }
     
     @IBAction func saveButtonTap() {
+        // Update and Save
         self.updateActivity()
         self.navigationController?.popViewController(animated: true)
     }
 }
 
+extension ThisWeekEditActViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.subAtividades.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubAtividadeEditCell", for: indexPath) as! SubAtividadeCell
+        
+        if indexPath.item == 0 {
+            cell.image = UIImage(systemName: "plus")
+            return cell
+        }
+        
+        var photo: UIImage!
+        
+        if let data = self.subAtividades[indexPath.item].image {
+            photo = UIImage(data: data)
+        } else {
+            photo = UIImage()
+        }
+        
+        cell.image = photo
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item == 0 {
+            let viewCreatSubAct = UIStoryboard(name: "CadastrarAtividade", bundle: nil).instantiateViewController(withIdentifier: "CadastrarSubAtividade") as? CadastrarSubAtividadeViewController
+        
+            viewCreatSubAct?.modalPresentationStyle = .automatic
+            viewCreatSubAct?.editAtividade = self
+            self.present(viewCreatSubAct!, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func onUserAction(subAtividade: SubAtividade) {
+        subAtividade.setValue(subAtividades.count, forKey: "ordem")
+        subAtividades.append(subAtividade)
+        newSubs.append(subAtividade)
+        self.subCollectionView.reloadData()
+    }
+}
+
 extension ThisWeekEditActViewController {
+    
     func getActivityDetails() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
@@ -207,6 +263,7 @@ extension ThisWeekEditActViewController {
             
             if activitiesBank.count > 0 {
                 self.activity = activitiesBank[0] as! Atividade
+                self.getSubActivities()
             } else {
                 // Alerta de Erro
                 print("Nenhuma atividade encontrada!")
@@ -217,7 +274,46 @@ extension ThisWeekEditActViewController {
         
     }
     
+    func getSubActivities() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let nameFilter = NSPredicate(format: "%K == %@", #keyPath(Atividade.nome), self.activity?.nome! as! CVarArg)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
+        request.predicate = nameFilter
+        
+        self.subAtividades.removeAll()
+        
+        do {
+            let activitiesBank = try context.fetch(request)
+            
+            if activitiesBank.count > 0 {
+                
+                let activityResult = activitiesBank[0] as! Atividade
+                
+                for task in activityResult.passos! {
+                    self.subAtividades.append(task as! SubAtividade)
+                }
+                            
+            } else {
+                print("Nenhuma atividade encontrada!")
+            }
+        } catch  let erro {
+            print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
+        }
+        
+        self.subAtividades.sort {
+            $0.ordem < $1.ordem
+        }
+        
+        self.subAtividades.insert(SubAtividade(), at: 0)
+        self.subCollectionView.reloadData()
+        
+    }
+    
     func updateActivity() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
         self.activity.setValue(self.actNameTextField.text!, forKey: "nome")
         self.activity.setValue(self.imageButton.image(for: .normal)?.pngData(), forKey: "image")
         self.activity.setValue(self.pickerView.date, forKey: "horario")
@@ -228,6 +324,17 @@ extension ThisWeekEditActViewController {
         self.activity.setValue(self.isPressedFri, forKey: "sexta")
         self.activity.setValue(self.isPressedSat, forKey: "sabado")
         self.activity.setValue(self.isPressedSun, forKey: "domingo")
+        
+        for sub in newSubs {
+            self.activity.addToPassos(sub)
+        }
+        
+        do {
+            try context.save()
+            print("Seus dados foram salvos corretamente")
+        } catch {
+            print("Erro ao salvar os dados")
+        }
     }
     
     func configureScreen() {
