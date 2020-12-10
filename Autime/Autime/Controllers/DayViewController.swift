@@ -13,8 +13,6 @@ import CoreData
 // swiftlint:disable trailing_whitespace
 // swiftlint:disable vertical_whitespace
 
-
-
 class DayViewController: UIViewController {
     
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
@@ -29,33 +27,15 @@ class DayViewController: UIViewController {
     @IBOutlet weak var labelAtividadePremio: UILabel!
     @IBOutlet weak var labelDescricao: UILabel!
     @IBOutlet weak var labelNExiste: UILabel!
+    
+    var todayActivities: [Atividade] = []
     var arrayPremio:[Bool] = [false,false,false]
-
-
-    func onUserAction(array: [Bool]){
-        arrayPremio = array
-        
-        if arrayPremio[0] == true {
-            premioStar1.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
-        }
-        if arrayPremio[1] == true {
-            premioStar2.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
-        }
-        if arrayPremio[2] == true  {
-            premioStar3.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
-        }
-            
-    }
-    
-    
-    
     var activities: [Atividade] = [] {
         didSet {
             tarefasCollection.reloadData()
         }
     }
-    var todayActivities: [Atividade] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,8 +52,6 @@ class DayViewController: UIViewController {
         labelNExiste.font = .rounded(ofSize: 16, weight: .bold)
         labelNExiste.isHidden = true
         labelDescricao.font = .rounded(ofSize: 14, weight: .bold)
-        
-        
         
         tarefasCollection.delegate = self
         tarefasCollection.dataSource = self
@@ -153,15 +131,11 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         // Icone
         
-        
-        
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
         
         let subtarefaStoryboard = UIStoryboard(name: "SubTarefas", bundle: nil)
         let subtarefaView = (subtarefaStoryboard.instantiateViewController(withIdentifier: "subtarefa")) as? SubTarefasViewController
@@ -169,19 +143,31 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         subtarefaView?.activity = self.todayActivities[indexPath.item]
         
        subtarefaView?.tituloAtividade = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
-//
+
         var indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
         subtarefaView?.imagemIconce = UIImage(named: catImages[indice])
         
-      
         subtarefaView?.isPremio = self.todayActivities[indexPath.item].gerarEstrela
-       
         subtarefaView?.dayView = self
-            
-        
+                    
         // subtarefaView.navigationController?.navigationBar.isHidden = false
         self.navigationController?.present(subtarefaView ?? UIViewController(), animated: true, completion: nil)
         
+    }
+    
+    func onUserAction(array: [Bool]){
+        arrayPremio = array
+        
+        if arrayPremio[0] == true {
+            premioStar1.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+        if arrayPremio[1] == true {
+            premioStar2.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+        if arrayPremio[2] == true  {
+            premioStar3.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
+        }
+            
     }
     
 }

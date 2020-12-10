@@ -21,14 +21,13 @@ class SubTarefasViewController: UIViewController {
     @IBOutlet weak var barraProgresso: UIProgressView!
     @IBOutlet weak var tituloLabel: UILabel!
     @IBOutlet weak var icone: UIImageView!
-    var isPremio: Bool!
-    var dayView: DayViewController?
-
     
     var imagemIconce: UIImage!
     var tituloAtividade: String!
     var feedback: FeedbackChildView!
     var imagens: [UIImage] = [UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!]
+    var isPremio: Bool!
+    var dayView: DayViewController?
     var activity: Atividade?
     var subActivities: [SubAtividade]! = [] {
         didSet {
@@ -93,10 +92,7 @@ class SubTarefasViewController: UIViewController {
         
         dayView?.onUserAction(array: arrayPremio!)
 
-       
-        // self.dismiss(animated: true, completion: nil)
-    }
-    
+    }    
 
 }
 
