@@ -1,16 +1,14 @@
 //
-//  AllActCategoriesTableViewController.swift
+//  ThisWeekCategoryViewController.swift
 //  Autime
 //
-//  Created by Luis Eduardo Ramos on 24/11/20.
+//  Created by Luis Eduardo Ramos on 08/12/20.
 //
-// swiftlint:disable force_cast
-// swiftlint:disable line_length
-// swiftlint:disable trailing_whitespace
-// swiftlint:disable vertical_whitespace
+
 import UIKit
 
-class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ThisWeekCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewFakeBar: UIView!
@@ -18,8 +16,8 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
     //Variables
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
     var catImages: [String] = ["CatDomestic", "CatHygiene", "CatEducation", "CatHealth", "CatFamily", "CatFriends", "CatFood", "CatEntertainment", "CatPrize", "CatExtras"]
-    var weekDayName: String! = ""
     
+    //DidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .clear
@@ -43,22 +41,18 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
     }
-    
     // MARK: - Table view data source
-    
-    // Header TableView
+    //Header TableView
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "CATEGORIAS"
     }
-    
-    // Header Height
+    //Header Height
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
     }
-    
-    // Header Customization
+    //Header Customization
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+
         //Font
         let myLabel = UILabel()
         myLabel.frame = CGRect(x: 20, y: 8, width: 500, height: 27)
@@ -74,26 +68,23 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         let headerView = UIView()
         headerView.addSubview(backLabel)
         headerView.addSubview(myLabel)
-        
+
         return headerView
     }
-    
-    // Sections
+    //Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    // Rows
+    //Rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return categorias.count
     }
-    
-    // Cell Config
+    //Cell Config
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+
         // Configure the cell...
         cell.textLabel?.text = String(categorias[indexPath.row])
         cell.imageView?.image = UIImage(named: catImages[indexPath.row])
@@ -101,9 +92,9 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    // Selection
+    //Selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let allActList = storyboard?.instantiateViewController(identifier: "AllActListTableViewController") as? AllActListTableViewController else {
+        guard let allActList = storyboard?.instantiateViewController(identifier: "ThisWeekAllActViewController") as? ThisWeekAllActViewController else {
             return
         }
         switch indexPath.row {
@@ -140,8 +131,17 @@ class AllActPaisViewController: UIViewController, UITableViewDelegate, UITableVi
         default:
             print("default")
         }
-        
-        allActList.weekDayName = self.weekDayName
         navigationController?.pushViewController(allActList, animated: true)
     }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

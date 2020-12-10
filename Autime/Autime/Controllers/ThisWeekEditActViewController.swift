@@ -1,18 +1,19 @@
 //
-//  AllActFocusViewController.swift
+//  ThisWeekEditActViewController.swift
 //  Autime
 //
-//  Created by Luis Eduardo Ramos on 30/11/20.
+//  Created by Luis Eduardo Ramos on 08/12/20.
 //
+
+import UIKit
+import CoreData
+
 // swiftlint:disable force_cast
 // swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace
 // swiftlint:disable vertical_whitespace
 
-import UIKit
-import CoreData
-
-class AllActFocusViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Outlets
     @IBOutlet weak var actNameTextField: UITextField!
@@ -46,7 +47,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
     var isPressedFri: Bool = false
     var isPressedSat: Bool = false
     var isPressedSun: Bool = false
-    var weekDayName: String! = ""
+    var weekDayName: String = ""
     var activity: Atividade! {
         didSet {
             self.configureScreen()
@@ -55,6 +56,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.getActivityDetails()
     }
     
@@ -63,7 +65,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         popupView.backgroundColor = .white
         
-        //Labels
+        //Labels        
         actNameTextField.placeholder = "Nome da atividade"
         actNameTextField.text = actNameInfo
         nameLabel.font = .rounded(ofSize: 16, weight: .medium)
@@ -110,14 +112,13 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         viewFakeBar.layer.shadowOpacity = 0.5
         viewFakeBar.layer.shadowRadius = 4.0
         
-        self.getActivityDetails()
+        self.configureScreen()
     }
     
     //Actions DailyButtons
     @IBAction func monButtonAction(_ sender: Any) {
+        isPressedMon = !isPressedMon || weekDayName == "Segunda"
         
-        isPressedMon = !isPressedMon || self.weekDayName == "Segunda"
-    
         if isPressedMon {
             monButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         } else {
@@ -125,7 +126,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func tueButtonAct(_ sender: Any) {
-        isPressedTue = !isPressedTue || self.weekDayName == "Terça"
+        isPressedTue = !isPressedTue || weekDayName == "Terça"
         
         if isPressedTue {
             tueButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
@@ -134,7 +135,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func wedButtonAct(_ sender: Any) {
-        isPressedWed = !isPressedWed || self.weekDayName == "Quarta"
+        isPressedWed = !isPressedWed || weekDayName == "Quarta"
         
         if isPressedWed {
             wedButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
@@ -143,8 +144,8 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func thuButtonAct(_ sender: Any) {
-        isPressedThu = !isPressedThu || self.weekDayName == "Quinta"
-                
+        isPressedThu = !isPressedThu || weekDayName == "Quinta"
+        
         if isPressedThu {
             thuButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         } else {
@@ -152,8 +153,8 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func friButtonAct(_ sender: Any) {
-        isPressedFri = !isPressedFri || self.weekDayName == "Sexta"
-    
+        isPressedFri = !isPressedFri || weekDayName == "Sexta"
+        
         if isPressedFri {
             friButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         } else {
@@ -161,8 +162,8 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func satButtonAct(_ sender: Any) {
-        isPressedSat = !isPressedSat || self.weekDayName == "Sábado"
-    
+        isPressedSat = !isPressedSat || weekDayName == "Sábado"
+        
         if isPressedSat {
             satButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         } else {
@@ -170,7 +171,7 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     @IBAction func sunButtonAct(_ sender: Any) {
-        isPressedSun = !isPressedSun || self.weekDayName == "Domingo"
+        isPressedSun = !isPressedSun || weekDayName == "Domingo"
         
         if isPressedSun {
             sunButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
@@ -179,58 +180,13 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    @IBAction func saveActivity() {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
-        
-        do {
-            self.updateActivity()
-            try context.save()
-        } catch let error {
-            print("Erro em ", error.localizedDescription)
-        }
-        
-        // Back to Day Table View
-        if weekDayName != "" {
-            for controller in self.navigationController!.viewControllers as Array {
-                if controller.isKind(of: ThisWeekDayViewController.self) {
-                    self.navigationController!.popToViewController(controller, animated: true)
-                    break
-                }
-            }
-        }
-        else {
-            self.navigationController?.popViewController(animated: true)
-        }
+    @IBAction func saveButtonTap() {
+        self.updateActivity()
+        self.navigationController?.popViewController(animated: true)
     }
-    
-    @IBAction func chooseImage() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        imagePicker.delegate = self
-        present(imagePicker, animated: true)
-    }
-    
-    // PickerController
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
-            imageButton.setImage(image, for: .normal)
-            picker.dismiss(animated: true, completion: nil)
-            
-        }
-    }
-    
-    // PickerControllerCancel
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-        
-    
 }
 
-extension AllActFocusViewController {
+extension ThisWeekEditActViewController {
     func getActivityDetails() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext! = appDelegate.persistentContainer.viewContext
@@ -296,5 +252,28 @@ extension AllActFocusViewController {
         self.satButton.backgroundColor = self.isPressedSat ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
         self.sunButton.backgroundColor = self.isPressedSun ? #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1) : .systemGray2
         
+    }
+    
+    // Escolher Imagem
+    @IBAction func escolherImagem(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    // PickerController
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
+            self.imageButton.setImage(image, for: .normal)
+            picker.dismiss(animated: true, completion: nil)
+            
+        }
+    }
+    
+    // PickerControllerCancel
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

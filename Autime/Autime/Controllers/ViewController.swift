@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.setBackgroundImage(#colorLiteral(red: 0.5529411765, green: 0.8117647059, blue: 0.3921568627, alpha: 1).image(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -26,7 +27,7 @@ class ViewController: UIViewController {
     }
 }
 
-//Color Image NavBar
+// Color Image NavBar
 extension UIColor {
     func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         return UIGraphicsImageRenderer(size: size).image { rendererContext in
@@ -36,7 +37,7 @@ extension UIColor {
     }
 }
 
-//Add SF Rounded
+// Add SF Rounded
 extension UIFont {
     class func rounded(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
         let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
@@ -50,7 +51,7 @@ extension UIFont {
     }
 }
 
-//Done Button Keyboard
+// Done Button Keyboard
 extension UITextField {
     func addDoneButtonToKeyboard(myAction: Selector?) {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
@@ -63,5 +64,12 @@ extension UITextField {
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         self.inputAccessoryView = doneToolbar
+    }
+}
+
+// Get parent View Controller from UIView
+extension UIResponder {
+    public var parentViewController: UIViewController? {
+        return next as? UIViewController ?? next?.parentViewController
     }
 }

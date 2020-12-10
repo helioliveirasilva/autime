@@ -68,9 +68,8 @@ class SubTarefasViewController: UIViewController {
 extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     override func didReceiveMemoryWarning() {
-    // Salvar contexto da sub Atividade
-    
-    super.didReceiveMemoryWarning()
+        // Salvar contexto da sub Atividade
+        super.didReceiveMemoryWarning()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

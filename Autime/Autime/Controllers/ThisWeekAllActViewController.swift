@@ -1,8 +1,8 @@
 //
-//  AllActListTableViewController.swift
+//  ThisWeekAllActViewController.swift
 //  Autime
 //
-//  Created by Luis Eduardo Ramos on 27/11/20.
+//  Created by Luis Eduardo Ramos on 08/12/20.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ import CoreData
 // swiftlint:disable trailing_whitespace
 // swiftlint:disable vertical_whitespace
 
-class AllActListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ThisWeekAllActViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -22,9 +22,6 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
     //Variables
     var categoria: Int?
     var categoriaName: String!
-    var weekDayName: String! = ""
-    
-    // MARK: - Garantir que a TV carregue a info do banco de dados
     var activities: [Atividade] = [] {
         didSet {
             tableView.reloadData()
@@ -33,6 +30,7 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
@@ -42,7 +40,7 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //BackGround
+        //Background
         self.view.backgroundColor = .secondarySystemBackground
         
         //NavBar
@@ -59,7 +57,7 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
         
         self.getActivities()
     }
-
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,86 +86,38 @@ class AllActListTableViewController: UIViewController, UITableViewDelegate, UITa
 
         return cell
     }
-    
     //Selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let allActFocus = storyboard?.instantiateViewController(identifier: "AllActFocusViewController") as? AllActFocusViewController else {
+        guard let allActFocus = storyboard?.instantiateViewController(identifier: "ThisWeekAddFocusViewController") as? ThisWeekAddFocusViewController else {
             return
         }
-        allActFocus.weekDayName = self.weekDayName
+
         allActFocus.actNameInfo = self.activities[indexPath.row].nome ?? "Atividade Sem Nome"
-        
         navigationController?.pushViewController(allActFocus, animated: true)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-extension AllActListTableViewController {
-    
+extension ThisWeekAllActViewController {
+
     func getActivities() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let categoryActivities = NSPredicate(format: "%K == %@", #keyPath(Atividade.categoria), self.categoriaName as! CVarArg)
         let sortByName = NSSortDescriptor(key: "nome", ascending: true)
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Atividade")
-        
+
         request.sortDescriptors = [sortByName]
         request.predicate = categoryActivities
-        
+
         do {
             let activitiesBank = try context.fetch(request)
-            
+
             if activitiesBank.count > 0 {
                 self.activities.removeAll()
                 for activity in activitiesBank as! [NSManagedObject] {
                     self.activities.append(activity as! Atividade)
                 }
-                
+
             } else {
                 print("Nenhuma atividade encontrada!")
             }
@@ -175,5 +125,5 @@ extension AllActListTableViewController {
             print("Erro ", erro.localizedDescription, " ao recuperar a atividade!")
         }
     }
-    
+
 }

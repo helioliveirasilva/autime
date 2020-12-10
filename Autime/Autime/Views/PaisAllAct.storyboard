@@ -154,6 +154,9 @@
                                         <state key="normal" title="Foto do item" image="test5">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="chooseImage" destination="i57-LB-wow" eventType="touchUpInside" id="YLw-po-Oqv"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome da atividade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85F-w8-zDG">
                                         <rect key="frame" x="55" y="200" width="232" height="21"/>

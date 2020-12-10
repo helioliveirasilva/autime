@@ -4,7 +4,10 @@
 //
 //  Created by Luis Eduardo Ramos on 23/11/20.
 //
-
+// swiftlint:disable force_cast
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable vertical_whitespace
 import UIKit
 
 class MenuPaisViewController: UIViewController {
