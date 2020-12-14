@@ -67,25 +67,26 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         self.subCollection.delegate = self
         self.subCollection.dataSource = self
         self.actNameTextField.textColor = .black
+        self.imageButton.imageView?.contentMode = .scaleAspectFill
         self.getActivityDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //Colors
+        // Colors
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        popupView.backgroundColor = .white
+        self.popupView.backgroundColor = .white
         
-        //Labels
-        actNameTextField.placeholder = "Nome da atividade"
-        actNameTextField.text = actNameInfo
-        nameLabel.font = .rounded(ofSize: 16, weight: .medium)
-        timeLabel.font = .rounded(ofSize: 16, weight: .medium)
-        starLabel.font = .rounded(ofSize: 16, weight: .medium)
-        subActLabel.font = .rounded(ofSize: 16, weight: .medium)
-        dayLabel.font = .rounded(ofSize: 16, weight: .medium)
-        repeatLabel.font = .rounded(ofSize: 16, weight: .medium)
+        // Labels
+        self.actNameTextField.placeholder = "Nome da atividade"
+        self.actNameTextField.text = actNameInfo
+        self.nameLabel.font = .rounded(ofSize: 16, weight: .medium)
+        self.timeLabel.font = .rounded(ofSize: 16, weight: .medium)
+        self.starLabel.font = .rounded(ofSize: 16, weight: .medium)
+        self.subActLabel.font = .rounded(ofSize: 16, weight: .medium)
+        self.dayLabel.font = .rounded(ofSize: 16, weight: .medium)
+        self.repeatLabel.font = .rounded(ofSize: 16, weight: .medium)
         
-        //Buttons
+        // Buttons
         self.monButton.layer.cornerRadius = 16
         self.tueButton.layer.cornerRadius = 16
         self.wedButton.layer.cornerRadius = 16
@@ -94,33 +95,33 @@ class AllActFocusViewController: UIViewController, UIImagePickerControllerDelega
         self.satButton.layer.cornerRadius = 16
         self.sunButton.layer.cornerRadius = 16
         self.saveButton.layer.cornerRadius = 14
-        saveButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-        saveButton.titleLabel?.font = .rounded(ofSize: 16, weight: .medium)
-        imageButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        imageButton.layer.masksToBounds = true
-        imageButton.layer.cornerRadius = 21
+        self.saveButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        self.saveButton.titleLabel?.font = .rounded(ofSize: 16, weight: .medium)
+        self.imageButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        self.imageButton.layer.masksToBounds = true
+        self.imageButton.layer.cornerRadius = 21
         
-        //Switchs
-        weeklySwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-        starSwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        // Switchs
+        self.weeklySwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        self.starSwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         
-        //NavBar
+        // NavBar
         self.title = actNameInfo
-        navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         
-        //PopUpView
-        popupView.layer.cornerRadius = 21
-        popupView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
-        popupView.layer.shadowOpacity = 0.15
-        popupView.layer.shadowRadius = 30.0
+        // PopUpView
+        self.popupView.layer.cornerRadius = 21
+        self.popupView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        self.popupView.layer.shadowOpacity = 0.15
+        self.popupView.layer.shadowRadius = 30.0
         
-        //FakeNavBar
+        // FakeNavBar
         self.viewFakeBar.layer.cornerRadius = 21
-        viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-        viewFakeBar.layer.shadowColor = UIColor.black.cgColor
-        viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        viewFakeBar.layer.shadowOpacity = 0.5
-        viewFakeBar.layer.shadowRadius = 4.0
+        self.viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        self.viewFakeBar.layer.shadowColor = UIColor.black.cgColor
+        self.viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        self.viewFakeBar.layer.shadowOpacity = 0.5
+        self.viewFakeBar.layer.shadowRadius = 4.0
         
         self.getActivityDetails()
     }

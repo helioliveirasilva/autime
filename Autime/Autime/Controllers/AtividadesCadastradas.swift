@@ -18,7 +18,7 @@ import CoreData
 
 class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIViewControllerTransitioningDelegate {
     
-    //Outlets
+    // Outlets
     @IBOutlet weak var labelNome: UITextField!
     @IBOutlet weak var pickerHora: UIDatePicker!
     @IBOutlet weak var switchEstrela: UISwitch!
@@ -45,7 +45,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var categoryPicker: UIPickerView! = UIPickerView()
     @IBOutlet var subCollectionView: UICollectionView!
     
-    //Variables
+    // Variables
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var context: NSManagedObjectContext!
     var pressMon: Bool = false
@@ -72,12 +72,17 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         self.categoryPicker.delegate = self
         self.categoryPicker.dataSource = self
         
-        //        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        //        view.addGestureRecognizer(tap)
+        self.subCollectionView.delegate = self
+        self.subCollectionView.dataSource = self
         
         self.labelNome.delegate = self
         self.labelNome.textColor = .black
         self.labelNome.addDoneButtonToKeyboard(myAction:  #selector(self.labelNome.resignFirstResponder))
+        
+        self.imageButton.imageView?.contentMode = .scaleAspectFill
+        
+        //        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        //        view.addGestureRecognizer(tap)
         
         //        botao de done não esta dando dismiss no picker...
         //        let toolbar = UIToolbar()
@@ -86,6 +91,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         //        self.categoryPicker.delegate = self
         //        toolbar.setItems([doneButton], animated: true)
         //        self.categoryTextField.inputAccessoryView = toolbar
+        
         self.categoryTextField.inputView = self.categoryPicker
         self.categoryTextField.textColor = .black
         
@@ -93,15 +99,11 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         self.view.addSubview(subAtividadeView)
         self.subAtividadeView.isHidden = true
         
-        subCollectionView.delegate = self
-        subCollectionView.dataSource = self
-        
     }
     
-    //ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         
-        //Colors
+        // Colors
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         popupView.backgroundColor = .white
         monButton.backgroundColor = .systemGray2
@@ -112,7 +114,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         satButton.backgroundColor = .systemGray2
         sunButton.backgroundColor = .systemGray2
         
-        //Labels
+        // Labels
         labelNome.placeholder = "Escreva aqui"
         labelNome.font = .rounded(ofSize: 17, weight: .regular)
         nameLabel.font = .rounded(ofSize: 16, weight: .medium)
@@ -123,7 +125,7 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         repeatLabel.font = .rounded(ofSize: 16, weight: .medium)
         categoryLabel.font = .rounded(ofSize: 16, weight: .medium)
         
-        //Buttons
+        // Buttons
         self.monButton.layer.cornerRadius = 16
         self.tueButton.layer.cornerRadius = 16
         self.wedButton.layer.cornerRadius = 16
@@ -132,34 +134,34 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         self.satButton.layer.cornerRadius = 16
         self.sunButton.layer.cornerRadius = 16
         self.saveButton.layer.cornerRadius = 14
-        saveButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-        saveButton.titleLabel?.font = .rounded(ofSize: 16, weight: .medium)
-        imageButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        imageButton.layer.masksToBounds = true
-        imageButton.layer.cornerRadius = 21
+        self.saveButton.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        self.saveButton.titleLabel?.font = .rounded(ofSize: 16, weight: .medium)
+        self.imageButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        self.imageButton.layer.masksToBounds = true
+        self.imageButton.layer.cornerRadius = 21
         
-        //Switchs
-        repeatSwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-        switchEstrela.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        // Switchs
+        self.repeatSwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        self.switchEstrela.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         
-        //NavBar
+        // NavBar
         self.title = "Criar Atividade"
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.barStyle = .black
         
-        //PopUpView
-        popupView.layer.cornerRadius = 21
-        popupView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
-        popupView.layer.shadowOpacity = 0.15
-        popupView.layer.shadowRadius = 30.0
+        // PopUpView
+        self.popupView.layer.cornerRadius = 21
+        self.popupView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        self.popupView.layer.shadowOpacity = 0.15
+        self.popupView.layer.shadowRadius = 30.0
         
-        //FakeNavBar
+        // FakeNavBar
         self.viewFakeBar.layer.cornerRadius = 21
-        viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
-        viewFakeBar.layer.shadowColor = UIColor.black.cgColor
-        viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        viewFakeBar.layer.shadowOpacity = 0.5
-        viewFakeBar.layer.shadowRadius = 4.0
+        self.viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
+        self.viewFakeBar.layer.shadowColor = UIColor.black.cgColor
+        self.viewFakeBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        self.viewFakeBar.layer.shadowOpacity = 0.5
+        self.viewFakeBar.layer.shadowRadius = 4.0
         
         self.configureScreen()    
     }
@@ -308,7 +310,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
 }
 
 extension AtividadesCadastradas: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         subAtividades.count

@@ -71,16 +71,18 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
         
         self.subCollectionView.delegate = self
         self.subCollectionView.dataSource = self
-                
+        
+        self.imageButton.imageView?.contentMode = .scaleAspectFill
+        
         self.getActivityDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //Colors
+        // Colors
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         popupView.backgroundColor = .white
         
-        //Labels        
+        // Labels
         actNameTextField.placeholder = "Nome da atividade"
         actNameTextField.text = actNameInfo
         nameLabel.font = .rounded(ofSize: 16, weight: .medium)
@@ -90,7 +92,7 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
         dayLabel.font = .rounded(ofSize: 16, weight: .medium)
         repeatLabel.font = .rounded(ofSize: 16, weight: .medium)
         
-        //Buttons
+        // Buttons
         self.monButton.layer.cornerRadius = 16
         self.tueButton.layer.cornerRadius = 16
         self.wedButton.layer.cornerRadius = 16
@@ -105,21 +107,21 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
         imageButton.layer.masksToBounds = true
         imageButton.layer.cornerRadius = 21
         
-        //Switchs
+        // Switchs
         weeklySwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         starSwitch.onTintColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         
-        //NavBar
+        // NavBar
         self.title = actNameInfo
         navigationController?.isNavigationBarHidden = false
         
-        //PopUpView
+        // PopUpView
         popupView.layer.cornerRadius = 21
         popupView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
         popupView.layer.shadowOpacity = 0.15
         popupView.layer.shadowRadius = 30.0
         
-        //FakeNavBar
+        // FakeNavBar
         self.viewFakeBar.layer.cornerRadius = 21
         viewFakeBar.backgroundColor = #colorLiteral(red: 0.2274509804, green: 0.4588235294, blue: 1, alpha: 1)
         viewFakeBar.layer.shadowColor = UIColor.black.cgColor
@@ -132,7 +134,7 @@ class ThisWeekEditActViewController: UIViewController, UIImagePickerControllerDe
 
     }
     
-    //Actions DailyButtons
+    // Actions DailyButtons
     @IBAction func monButtonAction(_ sender: Any) {
         isPressedMon = !isPressedMon || weekDayName == "Segunda"
         
