@@ -54,7 +54,9 @@ class PerfilViewController: UIViewController {
         
         
         let alert = UIAlertController(title: "Senha", message: "Essa área é restrita para responsáveis. Digite sua senha para entrar", preferredStyle: .alert)
-        alert.addTextField(configurationHandler: nil)
+        alert.addTextField { (textField) in
+            textField.isSecureTextEntry = true
+        }
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Entrar", style: .default, handler: {(_) in
             print(alert.textFields![0].text)
