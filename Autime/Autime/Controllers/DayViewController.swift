@@ -41,13 +41,12 @@ class DayViewController: UIViewController {
         
         self.getActivities()
         self.getTodayActivities()
-        
         // Premio View
         premioView.roundCorners(corners: [.topLeft, .topRight], radius: 21)
         premioView.layer.shadowColor = UIColor.black.cgColor
         premioView.layer.shadowOpacity = 1
-        premioView.layer.shadowOffset = .zero
-        premioView.layer.shadowRadius = 10
+        premioView.layer.shadowOffset = CGSize(width: 50, height: 50)
+        premioView.layer.shadowRadius = 50
         labelAtividadePremio.font = .rounded(ofSize: 19, weight: .bold)
         labelNExiste.font = .rounded(ofSize: 16, weight: .bold)
         labelNExiste.isHidden = true
@@ -98,7 +97,15 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         // Views
         cell.backhourView.layer.cornerRadius = 15
-        cell.layer.cornerRadius = 21
+        cell.mainActView.layer.cornerRadius = 21
+        
+        // Sombra
+        
+        cell.mainActView.layer.shadowColor = UIColor.black.cgColor
+        cell.mainActView.layer.shadowOpacity = 0.1
+        cell.mainActView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        cell.mainActView.layer.shadowRadius = 15
+        cell.imageView.roundCorners(corners: [.topLeft, .topRight], radius: 21)
         
         // Image
         var photo: UIImage!

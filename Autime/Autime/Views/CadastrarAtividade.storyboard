@@ -38,11 +38,11 @@
                                 <rect key="frame" x="20" y="36" width="374" height="659"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofg-IR-0Dg">
+                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofg-IR-0Dg">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                        <state key="normal" title="Foto do item" image="creatActImg">
+                                        <state key="normal" title="Foto do item" image="creatActImg" backgroundImage="allActImg">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -282,7 +282,7 @@
                                             <rect key="frame" x="20" y="178" width="374" height="487"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsT-s4-M4D">
+                                                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsT-s4-M4D">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="167"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="creatActImg"/>
@@ -340,6 +340,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="allActImg" width="74" height="100"/>
         <image name="creatActImg" width="374" height="167"/>
         <image name="createButton" width="537.5" height="141"/>
         <image name="letterD" width="27" height="27"/>

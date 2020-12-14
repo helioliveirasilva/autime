@@ -124,7 +124,16 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
             photo = UIImage()
         }
         
-        cell.layer.cornerRadius = 21
+        // sombra e arredondamento
+        cell.mainView.layer.cornerRadius = 21
+        cell.mainView.layer.shadowColor = UIColor.black.cgColor
+        cell.mainView.layer.shadowOpacity = 0.2
+        cell.mainView.layer.shadowOffset = .zero
+        cell.mainView.layer.shadowRadius = 15
+        cell.image.roundCorners(corners: [.topLeft, .topRight], radius: 21)
+        cell.imagecheck.roundCorners(corners: [.topLeft, .topRight], radius: 21)
+        
+        
         cell.image.image = photo
         cell.label.text = self.subActivities[indexPath.item].nome
         cell.label.font = .rounded(ofSize: 15, weight: .medium)

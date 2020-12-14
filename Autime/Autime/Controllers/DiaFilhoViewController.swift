@@ -46,6 +46,7 @@ class DiaFilhoViewController: UIViewController {
     }
     
     @IBAction func switchView(_ segment: UISegmentedControl) {
+        
         if segment.selectedSegmentIndex == 0 {
             dayView.isHidden = false
             weekView.isHidden = true

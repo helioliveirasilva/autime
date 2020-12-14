@@ -14,7 +14,7 @@ public class FilhoCollectionViewCell: UICollectionViewCell {
     @IBOutlet var hora: UILabel!
     @IBOutlet weak var iconActivity: UIImageView!
     @IBOutlet weak var backhourView: UIView!
-    @IBOutlet weak var mainViewCell: UIView!
+    @IBOutlet weak var mainActView: UIView!
     
     
 }

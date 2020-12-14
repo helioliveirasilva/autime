@@ -10,16 +10,22 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackChildView" customModule="Autime" customModuleProvider="target">
             <connections>
+                <outlet property="alegreLabel" destination="JM7-AZ-tNr" id="8UN-M4-27Q"/>
+                <outlet property="chateadoLabel" destination="xs0-UV-0B9" id="P0g-PG-jEG"/>
                 <outlet property="cheerfulButton" destination="zko-9R-D5f" id="mOb-24-3NO"/>
+                <outlet property="concluiuLabel" destination="dfz-a2-g8M" id="ZNe-5d-7Hk"/>
                 <outlet property="congratsView" destination="Ogn-yy-p1w" id="eQY-cT-bBf"/>
                 <outlet property="contentView" destination="WJM-Xv-qpa" id="PD4-cZ-cEw"/>
                 <outlet property="continueButton" destination="88o-gJ-aPy" id="MQb-A1-0QQ"/>
+                <outlet property="felizLabel" destination="msx-xh-9LW" id="1zc-5A-UCq"/>
                 <outlet property="happyButton" destination="YSb-y2-lP0" id="m3v-td-2fe"/>
                 <outlet property="nextButton" destination="coC-rE-6z5" id="z4q-hi-Uem"/>
                 <outlet property="outButton" destination="23X-Sa-EfW" id="2hf-Hf-qjA"/>
                 <outlet property="popUpView" destination="82K-5c-nje" id="h0S-Xf-fny"/>
                 <outlet property="sadButton" destination="QT1-QK-H5h" id="aig-eO-mm1"/>
                 <outlet property="skipButton" destination="Cz8-Oy-9pM" id="tHK-i7-1bE"/>
+                <outlet property="tituloLabel" destination="iny-M5-7tZ" id="Ghp-Lc-LKb"/>
+                <outlet property="tristeLabel" destination="AkK-p1-tTl" id="rMT-Yj-10D"/>
                 <outlet property="upsetButton" destination="OzI-My-BB6" id="5GE-hk-Shm"/>
             </connections>
         </placeholder>
@@ -36,11 +42,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="82K-5c-nje">
-                                <rect key="frame" x="17" y="243" width="381" height="411"/>
+                                <rect key="frame" x="17" y="243" width="381" height="366"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzI-My-BB6">
-                                        <rect key="frame" x="8" y="134" width="75" height="75"/>
+                                        <rect key="frame" x="18" y="129" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" image="chateado"/>
@@ -49,7 +55,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QT1-QK-H5h">
-                                        <rect key="frame" x="109" y="134" width="75" height="75"/>
+                                        <rect key="frame" x="114" y="129" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" image="triste"/>
@@ -58,7 +64,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSb-y2-lP0">
-                                        <rect key="frame" x="203" y="134" width="75" height="75"/>
+                                        <rect key="frame" x="198" y="129" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" image="feliz"/>
@@ -67,7 +73,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zko-9R-D5f">
-                                        <rect key="frame" x="298" y="134" width="75" height="75"/>
+                                        <rect key="frame" x="292" y="129" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" image="alegre"/>
@@ -75,59 +81,63 @@
                                             <action selector="emotionTap:" destination="-1" eventType="touchUpInside" id="Kep-S0-zxp"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chateado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs0-UV-0B9">
-                                        <rect key="frame" x="9" y="230" width="74" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Triste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkK-p1-tTl">
-                                        <rect key="frame" x="125" y="230" width="43" height="21"/>
+                                        <rect key="frame" x="130" y="205" width="43" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feliz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msx-xh-9LW">
-                                        <rect key="frame" x="223" y="230" width="35" height="21"/>
+                                        <rect key="frame" x="218" y="205" width="35" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alegre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM7-AZ-tNr">
-                                        <rect key="frame" x="310" y="230" width="50" height="21"/>
+                                        <rect key="frame" x="304" y="205" width="50" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="João, como você está se sentindo?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iny-M5-7tZ">
-                                        <rect key="frame" x="15" y="8" width="308" height="89"/>
+                                        <rect key="frame" x="25" y="16" width="308" height="89"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88o-gJ-aPy">
-                                        <rect key="frame" x="137" y="296" width="107" height="28"/>
+                                        <rect key="frame" x="116" y="272" width="149" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="continueButton"/>
+                                        <color key="backgroundColor" red="0.3803921569" green="0.85098039219999999" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Confirmar">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="Gzl-PL-pht"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz8-Oy-9pM">
-                                        <rect key="frame" x="173" y="340" width="35" height="30"/>
+                                        <rect key="frame" x="173" y="316" width="35" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Pular">
-                                            <color key="titleColor" red="0.57198172810000003" green="0.81451219320000001" blue="0.41951823230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.3803921569" green="0.85098039219999999" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="tDv-x9-EqT"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chateado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs0-UV-0B9">
+                                        <rect key="frame" x="19" y="205" width="74" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -151,35 +161,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ogn-yy-p1w">
-                                <rect key="frame" x="17" y="243" width="381" height="411"/>
+                                <rect key="frame" x="17" y="243" width="381" height="366"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coC-rE-6z5">
-                                        <rect key="frame" x="128" y="296" width="131" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="next"/>
-                                        <connections>
-                                            <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="FAm-5L-QcH"/>
-                                            <action selector="nextOrOutTap:" destination="-1" eventType="touchUpInside" id="luQ-95-L9M"/>
-                                        </connections>
-                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parabensLabel" translatesAutoresizingMaskIntoConstraints="NO" id="3FK-Yo-2W0">
-                                        <rect key="frame" x="70" y="8" width="240" height="128"/>
+                                        <rect key="frame" x="70" y="-17" width="240" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="parabens" translatesAutoresizingMaskIntoConstraints="NO" id="7Ce-bV-wS0">
-                                        <rect key="frame" x="73" y="144" width="240" height="128"/>
+                                        <rect key="frame" x="73" y="119" width="240" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="você concluiu uma atividade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfz-a2-g8M">
-                                        <rect key="frame" x="81" y="107" width="225" height="21"/>
+                                        <rect key="frame" x="81" y="82" width="225" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23X-Sa-EfW">
-                                        <rect key="frame" x="178" y="340" width="30" height="30"/>
+                                        <rect key="frame" x="178" y="316" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Sair">
                                             <color key="titleColor" red="0.57198172810000003" green="0.81451219320000001" blue="0.41951823230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -187,6 +188,16 @@
                                         <connections>
                                             <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="Mnl-06-6Ue"/>
                                             <action selector="nextOrOutTap:" destination="-1" eventType="touchUpInside" id="hnb-FB-Q5V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coC-rE-6z5">
+                                        <rect key="frame" x="104" y="270" width="178" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.3803921569" green="0.85098039219999999" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Próxima Atividade"/>
+                                        <connections>
+                                            <action selector="continueOrSkipTap:" destination="-1" eventType="touchUpInside" id="FAm-5L-QcH"/>
+                                            <action selector="nextOrOutTap:" destination="-1" eventType="touchUpInside" id="luQ-95-L9M"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -199,15 +210,13 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="4Ne-aa-U2r"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="1662" y="75"/>
+            <point key="canvasLocation" x="1660.8695652173915" y="75"/>
         </view>
     </objects>
     <resources>
         <image name="alegre" width="2200.5" height="2200.5"/>
         <image name="chateado" width="2200.5" height="2200.5"/>
-        <image name="continueButton" width="537.5" height="141"/>
         <image name="feliz" width="2200.5" height="2200.5"/>
-        <image name="next" width="611.5" height="131.5"/>
         <image name="parabens" width="2200.5" height="2200.5"/>
         <image name="parabensLabel" width="243.5" height="47"/>
         <image name="triste" width="2200.5" height="2200.5"/>
