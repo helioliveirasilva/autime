@@ -28,19 +28,19 @@ class DayViewController: UIViewController {
     @IBOutlet weak var labelDescricao: UILabel!
     @IBOutlet weak var labelNExiste: UILabel!
     
-    var todayActivities: [Atividade] = []
     var arrayPremio: [Bool] = [false, false, false]
-    var activities: [Atividade] = [] {
+    var todayActivities: [Atividade] = [] {
         didSet {
             tarefasCollection.reloadData()
         }
     }
+    var activities: [Atividade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.getActivities()
         self.getTodayActivities()
+        
         // Premio View
         premioView.roundCorners(corners: [.topLeft, .topRight], radius: 21)
         premioView.layer.shadowColor = UIColor.black.cgColor
@@ -66,9 +66,13 @@ class DayViewController: UIViewController {
         if arrayPremio[1] == true {
             premioStar2.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
         }
-        if arrayPremio[2] == true  {
+        if arrayPremio[2] == true {
             premioStar3.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
         }
+        
+        self.getTodayActivities()
+        print(todayActivities)
+        self.tarefasCollection.reloadData()
         
     }
     
@@ -136,8 +140,10 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.atividade.text = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
         cell.subTarefas.text = String(self.todayActivities[indexPath.item].passos!.count) + " subtarefas"
         
-        // Icone
-        
+        // Check
+        cell.checkImage.isHidden = !self.todayActivities[indexPath.item].completa
+        cell.checkImage.roundCorners(corners: [.topLeft, .topRight], radius: 21)
+
         return cell
         
     }
@@ -151,7 +157,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
         subtarefaView?.tituloAtividade = (self.todayActivities[indexPath.item].nome ?? "Sem nome").capitalizingFirstLetter()
         
-        var indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
+        let indice = categorias.firstIndex(of: self.todayActivities[indexPath.item].categoria ?? "erro")!
         subtarefaView?.imagemIconce = UIImage(named: catImages[indice])
         
         subtarefaView?.isPremio = self.todayActivities[indexPath.item].gerarEstrela
@@ -162,7 +168,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         
     }
     
-    func onUserAction(array: [Bool]){
+    func onUserAction(array: [Bool]) {
         arrayPremio = array
         
         if arrayPremio[0] == true {
@@ -171,7 +177,7 @@ extension DayViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         if arrayPremio[1] == true {
             premioStar2.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
         }
-        if arrayPremio[2] == true  {
+        if arrayPremio[2] == true {
             premioStar3.tintColor = #colorLiteral(red: 0.9717512727, green: 0.6489240527, blue: 0.08678742498, alpha: 1)
         }
         
@@ -220,6 +226,8 @@ extension DayViewController {
     }
     
     func getTodayActivities() {
+        self.getActivities()
+        
         let date = Date()
         let format = DateFormatter()
         format.dateFormat = "dd/MM"
@@ -246,5 +254,3 @@ extension DayViewController {
     }
     
 }
-
-
