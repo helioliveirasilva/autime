@@ -38,6 +38,7 @@ class CadastrarSubAtividadeViewController: UIViewController, UITextFieldDelegate
         imageButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         imageButton.layer.masksToBounds = true
         imageButton.layer.cornerRadius = 21
+        imageButton.imageView?.contentMode = .scaleAspectFill
         
         contentView.layer.cornerRadius = 21
         

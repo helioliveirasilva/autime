@@ -132,7 +132,7 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
             self.viewCreatAct?.weekDayName = self.weekDayName
-            self.navigationController?.pushViewController(self.viewCreatAct ?? ThisWeekCreatActViewController(), animated: true)
+            self.navigationController?.pushViewController(self.viewCreatAct ?? AtividadesCadastradas(), animated: true)
         })
 
         //All Activities
@@ -140,7 +140,7 @@ class ThisWeekDayViewController: UIViewController, UITableViewDelegate, UITableV
             (alert: UIAlertAction!) -> Void in
 
             self.viewAllAct?.weekDayName = self.weekDayName
-            self.navigationController?.pushViewController(self.viewAllAct ?? ThisWeekCategoryViewController(), animated: true)
+            self.navigationController?.pushViewController(self.viewAllAct ?? AllActPaisViewController(), animated: true)
         })
         
         //Cancel Button

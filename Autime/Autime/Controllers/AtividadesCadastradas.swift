@@ -64,7 +64,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     var categorias: [String] = ["Domésticas", "Higiene", "Educação", "Saúde", "Família", "Amigos", "Alimentação", "Entreterimento", "Prêmio", "Extras"]
-    var subAtividadeView: AddSubAtividadeView!
     
     override func viewDidLoad() {
         self.context = appDelegate.persistentContainer.viewContext
@@ -94,10 +93,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
         
         self.categoryTextField.inputView = self.categoryPicker
         self.categoryTextField.textColor = .black
-        
-        self.subAtividadeView = AddSubAtividadeView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
-        self.view.addSubview(subAtividadeView)
-        self.subAtividadeView.isHidden = true
         
     }
     
