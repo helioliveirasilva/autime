@@ -46,7 +46,6 @@
 		F79A33992562C72A00CD52C5 /* Filhos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33982562C72A00CD52C5 /* Filhos.storyboard */; };
 		F79A339E2562C8A800CD52C5 /* PaisPastWeeks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */; };
 		F79A33A32562C94B00CD52C5 /* PaisThisWeek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */; };
-		F79A33A82562C98B00CD52C5 /* PaisCreateAct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33A72562C98B00CD52C5 /* PaisCreateAct.storyboard */; };
 		F79A33AD2562C9AA00CD52C5 /* PaisAllAct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33AC2562C9AA00CD52C5 /* PaisAllAct.storyboard */; };
 		F79A33CA256402A700CD52C5 /* PaisMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A33972562C70900CD52C5 /* PaisMenu.storyboard */; };
 		F7C2F25B257FD8FD005D5F66 /* ThisWeekEditActViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C2F25A257FD8FD005D5F66 /* ThisWeekEditActViewController.swift */; };
@@ -126,7 +125,6 @@
 		F79A33982562C72A00CD52C5 /* Filhos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filhos.storyboard; sourceTree = "<group>"; };
 		F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisPastWeeks.storyboard; sourceTree = "<group>"; };
 		F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisThisWeek.storyboard; sourceTree = "<group>"; };
-		F79A33A72562C98B00CD52C5 /* PaisCreateAct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisCreateAct.storyboard; sourceTree = "<group>"; };
 		F79A33AC2562C9AA00CD52C5 /* PaisAllAct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaisAllAct.storyboard; sourceTree = "<group>"; };
 		F7C2F25A257FD8FD005D5F66 /* ThisWeekEditActViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisWeekEditActViewController.swift; sourceTree = "<group>"; };
 		F7D61BA5256BEB0200B2B7AB /* ThisWeeksPaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisWeeksPaisViewController.swift; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 				F79A33982562C72A00CD52C5 /* Filhos.storyboard */,
 				24429707255D841900CCEBAB /* Main.storyboard */,
 				F79A33AC2562C9AA00CD52C5 /* PaisAllAct.storyboard */,
-				F79A33A72562C98B00CD52C5 /* PaisCreateAct.storyboard */,
 				F79A33972562C70900CD52C5 /* PaisMenu.storyboard */,
 				F79A339D2562C8A800CD52C5 /* PaisPastWeeks.storyboard */,
 				F79A33A22562C94B00CD52C5 /* PaisThisWeek.storyboard */,
@@ -421,7 +418,6 @@
 				F79A33CA256402A700CD52C5 /* PaisMenu.storyboard in Resources */,
 				2442970B255D841A00CCEBAB /* Assets.xcassets in Resources */,
 				24429709255D841900CCEBAB /* Main.storyboard in Resources */,
-				F79A33A82562C98B00CD52C5 /* PaisCreateAct.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
