@@ -11,10 +11,6 @@
 import UIKit
 import CoreData
 
-var titulos: [String] = ["Casa", "Sapato", "Perna", "Braço", "Panela", "Bacia", "Cabeça", "Ombro", "Joelho"]
-
-
-
 class SubTarefasViewController: UIViewController {
     @IBOutlet var subtarefasCollection: UICollectionView!
     @IBOutlet weak var botaoconcluir: UIButton!
@@ -25,32 +21,35 @@ class SubTarefasViewController: UIViewController {
     var imagemIconce: UIImage!
     var tituloAtividade: String!
     var feedback: FeedbackChildView!
-    var imagens: [UIImage] = [UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!, UIImage(named: "test")!]
-    var isPremio: Bool!
     var dayView: DayViewController?
-    var activity: Atividade?
-    var checado: [Bool] = []
+    
+    var isPremio: Bool!
     var progresso: Float = 0
+    var activity: Atividade?
     var subActivities: [SubAtividade]! = [] {
         didSet {
-            for _ in subActivities{
-                checado.append(true)
+            checado.removeAll()
+            for sub in subActivities {
+                checado.append(!sub.completa)
             }
+        
             subtarefasCollection.reloadData()
         }
     }
+    var checado: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.icone.image = imagemIconce
         tituloLabel.text = tituloAtividade
         tituloLabel.font = .rounded(ofSize: 25, weight: .bold)
         
         botaoconcluir.layer.cornerRadius = botaoconcluir.frame.height/3
         botaoconcluir.titleLabel?.font = .rounded(ofSize: 15, weight: .bold)
+        botaoconcluir.setTitleColor(#colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1), for: .disabled)
+        botaoconcluir.setTitleColor(.white, for: .normal)
 
-        
         self.feedback = FeedbackChildView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.view.addSubview(feedback)
         self.feedback.isHidden = true
@@ -59,21 +58,49 @@ class SubTarefasViewController: UIViewController {
         subtarefasCollection.dataSource = self
         
         self.getSubActivities()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
                 
+        let complete = checado.filter { !$0 }
+        let subs = subActivities.count
+        progresso = subs > 0 ? Float(complete.count)/Float(subs) : 1.0
+        
+//        print("Complete.count: ", Float(complete.count))
+//        print("Subs.count: ", subs)
+//
+//        print("Complete: ", complete.count)
+//        print("Progresso ", progresso)
+        
+        barraProgresso.setProgress(progresso, animated: false)
+        
         if progresso == 1.0 {
             botaoconcluir.isEnabled = true
             botaoconcluir.backgroundColor = #colorLiteral(red: 0.4371337295, green: 0.8646664619, blue: 0.4942504764, alpha: 1)
-            botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            
+
         } else {
             botaoconcluir.isEnabled = false
             botaoconcluir.backgroundColor = #colorLiteral(red: 0.7498548031, green: 0.7448977828, blue: 0.749243319, alpha: 1)
-            botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)        }
+        }
+        
+        subtarefasCollection.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        barraProgresso.setProgress(progresso, animated: false)
-        subtarefasCollection.reloadData()
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        super.viewDidDisappear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        do {
+            try context.save()
+        } catch let error {
+            print("Erro ", error.localizedDescription, " no salvamento das subatividades.")
+        }
+    
     }
     
     @IBAction func concluir(_ sender: Any) {
@@ -85,25 +112,23 @@ class SubTarefasViewController: UIViewController {
             
             if arrayPremio![0] == false {
                 arrayPremio![0] = true
-            }else if arrayPremio![1] == false {
+            } else if arrayPremio![1] == false {
                 arrayPremio![1] = true
-            }else if arrayPremio![2] == false {
+            } else if arrayPremio![2] == false {
                 arrayPremio![2] = true
             }
             
-            print(arrayPremio)
+            print(arrayPremio!)
         }
         
         dayView?.onUserAction(array: arrayPremio!)
-
-    }    
-  
+        activity?.setValue(true, forKey: "completa")
+    }
 }
 
 extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     override func didReceiveMemoryWarning() {
-        // Salvar contexto da sub Atividade
         super.didReceiveMemoryWarning()
     }
     
@@ -134,7 +159,6 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.mainView.layer.shadowRadius = 15
         cell.image.roundCorners(corners: [.topLeft, .topRight], radius: 21)
         cell.imagecheck.roundCorners(corners: [.topLeft, .topRight], radius: 21)
-        
         
         cell.image.image = photo
         cell.label.text = self.subActivities[indexPath.item].nome
@@ -181,16 +205,16 @@ extension SubTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
             
         }
         
+        for (index, check) in checado.enumerated() {
+            self.subActivities[index].setValue(!check, forKey: "completa")
+        }
+        
         if progresso == 1.0 {
             botaoconcluir.isEnabled = true
             botaoconcluir.backgroundColor = #colorLiteral(red: 0.4371337295, green: 0.8646664619, blue: 0.4942504764, alpha: 1)
-            botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-
         } else {
             botaoconcluir.isEnabled = false
             botaoconcluir.backgroundColor = #colorLiteral(red: 0.7498548031, green: 0.7448977828, blue: 0.749243319, alpha: 1)
-            botaoconcluir.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-
         }
 
         subtarefasCollection.reloadData()

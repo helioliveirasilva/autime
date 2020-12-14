@@ -58,7 +58,6 @@ class AtividadesCadastradas: UIViewController, UIImagePickerControllerDelegate, 
     var weekDayName: String = ""
     var subAtividades: [SubAtividade] = [SubAtividade()] {
         didSet {
-            print(subAtividades)
             self.subCollectionView.reloadData()
         }
     }

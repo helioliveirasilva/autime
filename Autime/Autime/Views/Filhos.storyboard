@@ -340,6 +340,18 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.3803921569" green="0.85098039219999999" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wMn-v6-qRA">
+                                                            <rect key="frame" x="-1" y="0.0" width="361" height="165"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="uby-Hv-UAy">
+                                                                    <rect key="frame" x="153" y="55" width="56" height="55"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59512500000000002" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
@@ -349,6 +361,7 @@
                                         <connections>
                                             <outlet property="atividade" destination="Yta-AY-ZBB" id="Ozt-lE-O3z"/>
                                             <outlet property="backhourView" destination="LrB-Td-Gbu" id="72y-6j-9N5"/>
+                                            <outlet property="checkImage" destination="wMn-v6-qRA" id="FTM-23-VNa"/>
                                             <outlet property="hora" destination="dWf-8e-tbW" id="Bzm-am-oFn"/>
                                             <outlet property="iconActivity" destination="mZ3-f5-mFY" id="BOb-ZI-ass"/>
                                             <outlet property="imageView" destination="W4p-to-nPE" id="712-17-INE"/>
@@ -428,6 +441,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check" width="407" height="361"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="perfilFilho" width="252" height="296"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
