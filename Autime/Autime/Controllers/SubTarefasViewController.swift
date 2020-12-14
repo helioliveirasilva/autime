@@ -12,8 +12,8 @@ import UIKit
 import CoreData
 
 var titulos: [String] = ["Casa", "Sapato", "Perna", "Braço", "Panela", "Bacia", "Cabeça", "Ombro", "Joelho"]
-var checado: [Bool] = []
-var progresso: Float = 0
+
+
 
 class SubTarefasViewController: UIViewController {
     @IBOutlet var subtarefasCollection: UICollectionView!
@@ -29,6 +29,8 @@ class SubTarefasViewController: UIViewController {
     var isPremio: Bool!
     var dayView: DayViewController?
     var activity: Atividade?
+    var checado: [Bool] = []
+    var progresso: Float = 0
     var subActivities: [SubAtividade]! = [] {
         didSet {
             for _ in subActivities{
