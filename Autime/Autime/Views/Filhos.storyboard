@@ -405,7 +405,7 @@
                                     </label>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="zNe-hh-buo"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pfq-PS-RSr"/>
