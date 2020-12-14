@@ -39,8 +39,9 @@ class PerfilViewController: UIViewController {
         whoRULabel.font = .rounded(ofSize: 25, weight: .bold)
         parentLabel.font = .rounded(ofSize: 18, weight: .bold)
         childLabel.font = .rounded(ofSize: 18, weight: .bold)
-        parentLabel.textColor = #colorLiteral(red: 0.5019607843, green: 0.5019607843, blue: 0.5019607843, alpha: 1)
-        childLabel.textColor = #colorLiteral(red: 0.5019607843, green: 0.5019607843, blue: 0.5019607843, alpha: 1)
+        parentLabel.textColor = #colorLiteral(red: 0.2941176471, green: 0.2941176471, blue: 0.2941176471, alpha: 1)
+        childLabel.textColor = #colorLiteral(red: 0.2941176471, green: 0.2941176471, blue: 0.2941176471, alpha: 1)
+        whoRULabel.textColor = #colorLiteral(red: 0.2941176471, green: 0.2941176471, blue: 0.2941176471, alpha: 1)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
