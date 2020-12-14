@@ -48,6 +48,22 @@ class PerfilViewController: UIViewController {
         return .darkContent
     }
     
+    @IBAction func selectedParent(){
+        let paisStoryboard = UIStoryboard(name: "PaisMenu", bundle: nil)
+        let paisView = (paisStoryboard.instantiateViewController(withIdentifier: "MenuPaisViewController")) as? MenuPaisViewController ?? MenuPaisViewController()
+        
+        
+        let alert = UIAlertController(title: "Senha", message: "Essa área é restrita para responsáveis. Digite sua senha para entrar", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Entrar", style: .default, handler: {(_) in
+            print(alert.textFields![0].text)
+            self.navigationController?.pushViewController(paisView, animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
